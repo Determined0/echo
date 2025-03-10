@@ -96,7 +96,6 @@
     <header>
         Echospace Home Theatre
     </header>
-    
 
     <section class="service">
         <h2 data-lang="zh">我们的服务</h2>
@@ -162,25 +161,7 @@
         <p data-lang="zh">专业家庭影院定制，打造沉浸式影音体验。</p>
         <p data-lang="en">Professional home theater customization, creating an immersive audio-visual experience.</p>
     </section>
-    
-    <section class="contact">
-        <h2 data-lang="zh">联系我们</h2>
-        <h2 data-lang="en">Contact Us</h2>
-        <p data-lang="zh">📞 电话: 0432869555</p>
-        <p data-lang="en">📞 Phone: 0432869555</p>
-        <p data-lang="zh">📧 邮箱: Info@echospace.com.au</p>
-        <p data-lang="en">📧 Email: Info@echospace.com.au</p>
-    </section>
-    
-    <section>
-        <h2 data-lang="zh">专业调试的必要性</h2>
-        <h2 data-lang="en">The Necessity of Professional Calibration</h2>
-        <p data-lang="zh">在家庭影院环境中，房间的听力中断通常较近，这会导致低频声波在对立听力间反射，多次回响，造成低频浑浊、嗡嗡作响。这不仅会影响中高频的听力，长时间的听力中断还可能导致听觉疲劳。TurboCal调试技术，并结合美国QSC公司专业数字平衡器DSP-4，可以有效提升超低频的动态范围，改善低频的舒适感，让电影和音乐的震动效果更加增强，带来昏沉的沉浸感。</p>
-        <p data-lang="en">In home theater environments, the listening distance is usually close, which causes low-frequency sound waves to reflect between opposing walls, resulting in multiple echoes and causing low-frequency muddiness and buzzing. This not only affects the mid-to-high-frequency listening experience but prolonged exposure can also lead to auditory fatigue. TurboCal calibration technology, combined with the professional digital equalizer DSP-4 from QSC, can effectively enhance the dynamic range of ultra-low frequencies, improve the comfort of low frequencies, and make the vibration effects of movies and music more impactful, delivering a deep immersive experience.</p>
-        <p data-lang="zh">整体音频调试通过精确的仪器测试，针对每个座位和每个音箱进行坐标校对，修正房间内音箱的不平衡问题。这样，保证每个座位的听感都达到最佳效果，让您在影院的每个角落都达到最佳位置无差别的震撼体验。</p>
-        <p data-lang="en">Overall audio calibration uses precise instrument testing to adjust the coordinates for each seat and each speaker, correcting any imbalances in the room. This ensures that the listening experience in every seat is optimal, providing a uniformly stunning experience in every corner of the theater.</p>
-    </section>
-    
+
     <footer>
         <span data-lang="zh">&copy; 2025 Echospace | 版权所有</span>
         <span data-lang="en">&copy; 2025 Echospace | All Rights Reserved</span>
@@ -188,15 +169,16 @@
 
     <script>
         let currentLang = 'zh'; // 默认语言为中文
+        const langElements = document.querySelectorAll('[data-lang]');
 
         function toggleLanguage() {
             currentLang = currentLang === 'zh' ? 'en' : 'zh'; // 切换语言
             updateLanguage();
+            document.querySelector('.lang-switch').innerText = currentLang === 'zh' ? 'EN' : '中文';
         }
 
         function updateLanguage() {
-            const elements = document.querySelectorAll('[data-lang]');
-            elements.forEach(element => {
+            langElements.forEach(element => {
                 if (element.getAttribute('data-lang') === currentLang) {
                     element.style.display = 'block';
                 } else {
@@ -206,13 +188,11 @@
         }
 
         updateLanguage(); // 页面加载时根据当前语言设置内容
+
+        // 自动跳转到 www 子域名
+        if (window.location.hostname === 'echospace.com.au') {
+            window.location.href = 'https://www.echospace.com.au';
+        }
     </script>
 </body>
-</html>
-<html>
-  <head>
-    <meta http-equiv="refresh" content="0; url=https://www.echospace.com.au">
-  </head>
-  <body>
-  </body>
 </html>
