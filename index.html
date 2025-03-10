@@ -96,6 +96,7 @@
     <header>
         Echospace Home Theatre
     </header>
+    
 
     <section class="service">
         <h2 data-lang="zh">我们的服务</h2>
@@ -161,37 +162,42 @@
         <p data-lang="zh">专业家庭影院定制，打造沉浸式影音体验。</p>
         <p data-lang="en">Professional home theater customization, creating an immersive audio-visual experience.</p>
     </section>
+    
+    <section class="contact">
+        <h2 data-lang="zh">联系我们</h2>
+        <h2 data-lang="en">Contact Us</h2>
+        <p data-lang="zh">📞 电话：<strong>(+61) 400 123 456</strong></p>
+        <p data-lang="en">📞 Phone: <strong>(+61) 400 123 456</strong></p>
+        <p data-lang="zh">📧 邮箱：<strong>BZheng@EchoSpace.com.au</strong></p>
+        <p data-lang="en">📧 Email: <strong>BZheng@EchoSpace.com.au</strong></p>
+    </section>
 
     <footer>
-        <span data-lang="zh">&copy; 2025 Echospace | 版权所有</span>
-        <span data-lang="en">&copy; 2025 Echospace | All Rights Reserved</span>
+        &copy; 2025 Echospace Home Theatre. All rights reserved.
     </footer>
 
     <script>
-        let currentLang = 'zh'; // 默认语言为中文
-        const langElements = document.querySelectorAll('[data-lang]');
-
         function toggleLanguage() {
-            currentLang = currentLang === 'zh' ? 'en' : 'zh'; // 切换语言
-            updateLanguage();
-            document.querySelector('.lang-switch').innerText = currentLang === 'zh' ? 'EN' : '中文';
-        }
-
-        function updateLanguage() {
-            langElements.forEach(element => {
-                if (element.getAttribute('data-lang') === currentLang) {
-                    element.style.display = 'block';
-                } else {
-                    element.style.display = 'none';
-                }
-            });
-        }
-
-        updateLanguage(); // 页面加载时根据当前语言设置内容
-
-        // 自动跳转到 www 子域名
-        if (window.location.hostname === 'echospace.com.au') {
-            window.location.href = 'https://www.echospace.com.au';
+            const langSwitch = document.querySelector('.lang-switch');
+            const currentLang = langSwitch.textContent.trim();
+            const allTextElements = document.querySelectorAll('[data-lang]');
+            
+            // Toggle between English and Chinese
+            if (currentLang === 'EN') {
+                langSwitch.textContent = 'ZH';
+                allTextElements.forEach(el => {
+                    const zhText = el.getAttribute('data-lang') === 'zh';
+                    const enText = el.getAttribute('data-lang') === 'en';
+                    el.style.display = zhText ? 'block' : 'none';
+                });
+            } else {
+                langSwitch.textContent = 'EN';
+                allTextElements.forEach(el => {
+                    const zhText = el.getAttribute('data-lang') === 'zh';
+                    const enText = el.getAttribute('data-lang') === 'en';
+                    el.style.display = enText ? 'block' : 'none';
+                });
+            }
         }
     </script>
 </body>
