@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echospace</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; text-align: center; }
+        
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        
+        section {
+            padding: 40px;
+        }
+        
+        .service, .contact, .acoustics, .supervision {
+            background: #f4f4f4;
+        }
+        
+        .gallery img {
+            width: 100%;
+            max-width: 400px;
+            margin: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        footer {
+            background: #222;
+            color: white;
+            padding: 10px;
+        }
+        
+        .lang-switch {
+            position: fixed; /* 固定在页面右上角 */
+            top: 20px;
+            right: 20px;
+            background-color: #007bff; /* 设置蓝色背景 */
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1000; /* 确保按钮在其他内容之上 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 给按钮增加阴影，使其更加突出 */
+        }
+
+        .lang-switch:hover {
+            background-color: #0056b3; /* 鼠标悬停时的颜色变化 */
+        }
+
+        /* 新增：主页背景大效果图 */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-image: url('images/hero-background.jpg'); /* 替换为你的背景图片路径 */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 24px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="lang-switch" onclick="toggleLanguage()">EN</div>
+    
+    <!-- 主页效果图背景 -->
+    <div class="hero">
+        <div>
+            <h1 data-lang="zh">欢迎来到Echospace家庭影院</h1>
+            <h1 data-lang="en">Welcome to Echospace Home Theatre</h1>
+            <p data-lang="zh">打造沉浸式影音体验，给您带来震撼的视听享受</p>
+            <p data-lang="en">Creating an immersive audio-visual experience for you</p>
+        </div>
+    </div>
+    
+    <header>
+        Echospace Home Theatre
+    </header>
+    
+
+    <section class="service">
+        <h2 data-lang="zh">我们的服务</h2>
+        <h2 data-lang="en">Our Services</h2>
+        <p data-lang="zh">💡 家庭影院设计 | 🔊 家庭KTV | 🎬 影音房方案设计</p>
+        <p data-lang="en">💡 Home Theater Design | 🔊 Karaoke Audio | 🎬 Audio-Visual Room Design</p>
+    </section>
+    
+    <section class="acoustics">
+        <h2 data-lang="zh">声学设计</h2>
+        <h2 data-lang="en">Acoustic Design</h2>
+        <p data-lang="zh"><strong>家庭影院音质标准</strong></p>
+        <p data-lang="en"><strong>Home Theater Sound Quality Standards</strong></p>
+        <p data-lang="zh">清晰的对白、沉浸式的环绕效果、均衡自然的音调、宽广的动态范围、声音与画面完美融合、每个座位都是最佳聆听位置。</p>
+        <p data-lang="en">Clear dialogue, immersive surround effects, balanced and natural tones, wide dynamic range, perfect integration of sound and picture, every seat is the best listening position.</p>
+        
+        <h3 data-lang="zh">1. 隔音降噪处理的必要性</h3>
+        <h3 data-lang="en">1. The Necessity of Soundproofing and Noise Reduction</h3>
+        <p data-lang="zh">家庭影院环境中，常见的噪音来源包括空调、投影机、邻室的水泵或其他设备噪声。通过专业的隔音降噪处理，可以有效阻挡这些干扰，让观影和听音体验更加纯粹，沉浸于影音的震撼之中。</p>
+        <p data-lang="en">In home theater environments, common noise sources include air conditioning, projectors, neighboring room water pumps, or other equipment noise. Professional soundproofing and noise reduction treatments can effectively block these disturbances, making the viewing and listening experience more pure and immersive.</p>
+        
+        <h3 data-lang="zh">2. 室内声学处理的重要性</h3>
+        <h3 data-lang="en">2. The Importance of Indoor Acoustic Treatment</h3>
+        <p data-lang="zh"><strong>优化声场，让器材性能充分发挥</strong><br>
+        再好的音响设备，如果没有合理的声学优化，声音表现也难以达到理想状态。专业的声学处理能让系统发挥出应有的水准，让声音更加纯净、自然、富有层次感。</p>
+        <p data-lang="en"><strong>Optimize the sound field to fully utilize the performance of the equipment</strong><br>
+        Even the best audio equipment, without proper acoustic optimization, will struggle to achieve ideal sound performance. Professional acoustic treatment allows the system to perform at its best, making the sound purer, more natural, and layered.</p>
+        
+        <p data-lang="zh"><strong>提升影音体验，让投入更有价值</strong><br>
+        购买优质音响设备只是第一步，要让整个影院空间真正呈现出惊艳的音质，必须结合专业的声学设计。就像打造一座精美的花园，我们不仅要让百花齐放，更要让四季芬芳萦绕，让每一刻的视听体验都充满震撼与享受。</p>
+        <p data-lang="en"><strong>Enhance the audio-visual experience, making the investment more valuable</strong><br>
+        Purchasing high-quality audio equipment is only the first step. To truly present stunning sound quality in the entire theater space, professional acoustic design must be integrated. Just like creating a beautiful garden, we not only want a variety of flowers to bloom but also to have the fragrance linger throughout the seasons, making every moment of the audio-visual experience full of shock and enjoyment.</p>
+    </section>
+    
+    <section class="supervision">
+        <h2 data-lang="zh">完善的客户服务与监督管理</h2>
+        <h2 data-lang="en">Comprehensive Customer Service and Supervision</h2>
+        
+        <h3 data-lang="zh">项目监督与施工质量保障</h3>
+        <h3 data-lang="en">Project Supervision and Construction Quality Assurance</h3>
+        <p data-lang="zh">自客户签订合同之日起，我们将严格监督项目的各项进展，实地检查施工与安装的每个环节，确保施工现场服务质量达到标准。我们致力于消除您的后顾之忧，让您享受高质量的服务体验。</p>
+        <p data-lang="en">From the day the customer signs the contract, we will strictly supervise all aspects of the project, conduct on-site inspections of each construction and installation phase, and ensure that the service quality on-site meets standards. We are committed to eliminating your concerns and providing you with a high-quality service experience.</p>
+        
+        <h3 data-lang="zh">项目经理全程跟踪服务</h3>
+        <h3 data-lang="en">Project Manager's Full Tracking Service</h3>
+        <p data-lang="zh">在项目实施过程中，项目经理将全程跟踪服务，确保每一个细节都被精准把控，为您提供一站式、贴心的服务体验。</p>
+        <p data-lang="en">During the project implementation, the project manager will provide full tracking service, ensuring that every detail is precisely controlled, offering you a one-stop, thoughtful service experience.</p>
+    </section>
+    
+    <section class="gallery">
+        <h2 data-lang="zh">家庭影院效果图</h2>
+        <h2 data-lang="en">Home Theater Gallery</h2>
+        <img src="images/home-theater-1.jpg" alt="现代风格家庭影院效果图">
+        <img src="images/home-theater-2.jpg" alt="豪华家庭影院效果图">
+        <img src="images/home-theater-3.jpg" alt="简约风格家庭影院效果图">
+        <img src="images/home-theater-4.jpg" alt="多功能影音室效果图">
+        <img src="images/home-theater-11.jpg" alt="投影安装效果图效果图">
+    </section>
+    
+    <section>
+        <h2 data-lang="zh">关于我们</h2>
+        <h2 data-lang="en">About Us</h2>
+        <p data-lang="zh">专业家庭影院定制，打造沉浸式影音体验。</p>
+        <p data-lang="en">Professional home theater customization, creating an immersive audio-visual experience.</p>
+    </section>
+    
+    <section class="contact">
+        <h2 data-lang="zh">联系我们</h2>
+        <h2 data-lang="en">Contact Us</h2>
+        <p data-lang="zh">📞 电话: 0432869555</p>
+        <p data-lang="en">📞 Phone: 0432869555</p>
+        <p data-lang="zh">📧 邮箱: Info@echospace.com.au</p>
+        <p data-lang="en">📧 Email: Info@echospace.com.au</p>
+    </section>
+    
+    <section>
+        <h2 data-lang="zh">专业调试的必要性</h2>
+        <h2 data-lang="en">The Necessity of Professional Calibration</h2>
+        <p data-lang="zh">在家庭影院环境中，房间的听力中断通常较近，这会导致低频声波在对立听力间反射，多次回响，造成低频浑浊、嗡嗡作响。这不仅会影响中高频的听力，长时间的听力中断还可能导致听觉疲劳。TurboCal调试技术，并结合美国QSC公司专业数字平衡器DSP-4，可以有效提升超低频的动态范围，改善低频的舒适感，让电影和音乐的震动效果更加增强，带来昏沉的沉浸感。</p>
+        <p data-lang="en">In home theater environments, the listening distance is usually close, which causes low-frequency sound waves to reflect between opposing walls, resulting in multiple echoes and causing low-frequency muddiness and buzzing. This not only affects the mid-to-high-frequency listening experience but prolonged exposure can also lead to auditory fatigue. TurboCal calibration technology, combined with the professional digital equalizer DSP-4 from QSC, can effectively enhance the dynamic range of ultra-low frequencies, improve the comfort of low frequencies, and make the vibration effects of movies and music more impactful, delivering a deep immersive experience.</p>
+        <p data-lang="zh">整体音频调试通过精确的仪器测试，针对每个座位和每个音箱进行坐标校对，修正房间内音箱的不平衡问题。这样，保证每个座位的听感都达到最佳效果，让您在影院的每个角落都达到最佳位置无差别的震撼体验。</p>
+        <p data-lang="en">Overall audio calibration uses precise instrument testing to adjust the coordinates for each seat and each speaker, correcting any imbalances in the room. This ensures that the listening experience in every seat is optimal, providing a uniformly stunning experience in every corner of the theater.</p>
+    </section>
+    
+    <footer>
+        <span data-lang="zh">&copy; 2025 Echospace | 版权所有</span>
+        <span data-lang="en">&copy; 2025 Echospace | All Rights Reserved</span>
+    </footer>
+
+    <script>
+        let currentLang = 'zh'; // 默认语言为中文
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh'; // 切换语言
+            updateLanguage();
+        }
+
+        function updateLanguage() {
+            const elements = document.querySelectorAll('[data-lang]');
+            elements.forEach(element => {
+                if (element.getAttribute('data-lang') === currentLang) {
+                    element.style.display = 'block';
+                } else {
+                    element.style.display = 'none';
+                }
+            });
+        }
+
+        updateLanguage(); // 页面加载时根据当前语言设置内容
+    </script>
+</body>
+</html>
