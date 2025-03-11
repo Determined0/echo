@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echospace</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #111; color: white; }
+        
+        header {
+            background: #222;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .language-switch {
+            margin-right: 20px;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            background-image: url('images/hero-background.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: bold;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 24px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+        }
+
+        .content-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 10%;
+            background: #222;
+            margin-bottom: 10px;
+        }
+
+        .content-section:nth-child(even) {
+            background: #333;
+        }
+
+        .content-section img {
+            width: 45%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .content-text {
+            width: 45%;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        footer {
+            background: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+    <script>
+        function switchLanguage(lang) {
+            document.documentElement.lang = lang;
+            if (lang === 'en') {
+                document.getElementById('hero-title').innerText = 'Welcome to Echospace Home Theatre';
+                document.getElementById('hero-text').innerText = 'Creating an immersive audio-visual experience for you';
+                document.getElementById('section1-title').innerText = 'Ultimate Audio-Visual Experience';
+                document.getElementById('section1-text').innerText = 'Our home theater design combines top-notch equipment with professional acoustic optimization to create an immersive experience.';
+                document.getElementById('section2-title').innerText = 'High-End Acoustic Design';
+                document.getElementById('section2-text').innerText = 'Through professional soundproofing, we eliminate external interference and ensure every detail is clearly presented.';
+                document.getElementById('section3-title').innerText = 'Smart Audio-Visual System';
+                document.getElementById('section3-text').innerText = 'Integrating smart control systems for easy management of your theater equipment, providing a convenient viewing experience.';
+                document.getElementById('section4-title').innerText = 'Custom Solutions';
+                document.getElementById('section4-text').innerText = 'We tailor theater solutions to your specific needs, achieving the perfect combination of visual and auditory experience.';
+                document.getElementById('contact-title').innerText = 'Contact Us';
+                document.getElementById('contact-text').innerText = 'EchoSpace Home Theatre is dedicated to providing top-tier home theater experiences. Feel free to contact us if you are interested in our services.';
+                document.getElementById('contact-email').innerText = 'Email: Info@echospace.com.au';
+                document.getElementById('contact-phone').innerText = 'Phone: 0432869555';
+            } else {
+                document.getElementById('hero-title').innerText = '欢迎来到Echospace家庭影院';
+                document.getElementById('hero-text').innerText = '打造沉浸式影音体验，给您带来震撼的视听享受';
+                document.getElementById('section1-title').innerText = '极致影音体验';
+                document.getElementById('section1-text').innerText = '我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验。';
+                document.getElementById('section2-title').innerText = '高端声学设计';
+                document.getElementById('section2-text').innerText = '通过专业的隔音降噪处理，我们消除外界干扰，让每一处细节都能清晰呈现。';
+                document.getElementById('section3-title').innerText = '智能影音系统';
+                document.getElementById('section3-text').innerText = '集成智能控制系统，让您轻松操控影院设备，实现便捷的观影体验。';
+                document.getElementById('section4-title').innerText = '个性化定制';
+                document.getElementById('section4-text').innerText = '根据您的需求量身定制影院方案，实现视觉与听觉的完美结合。';
+                document.getElementById('contact-title').innerText = '联系我们';
+                document.getElementById('contact-text').innerText = 'EchoSpace Home Theatre 致力于打造顶级家庭影院体验。如果您对我们的服务感兴趣，请随时联系我们。';
+                document.getElementById('contact-email').innerText = '邮箱: Info@echospace.com.au';
+                document.getElementById('contact-phone').innerText = '电话: 0432869555';
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        Echospace Home Theatre
+        <div class="language-switch">
+            <button onclick="switchLanguage('zh')">中文</button>
+            <button onclick="switchLanguage('en')">English</button>
+        </div>
+    </header>
+
+    <div class="hero">
+        <div>
+            <h1 id="hero-title">欢迎来到Echospace家庭影院</h1>
+            <p id="hero-text">打造沉浸式影音体验，给您带来震撼的视听享受</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <img src="images/home-theater-1.jpg" alt="现代风格家庭影院">
+        <div class="content-text">
+            <h2 id="section1-title">极致影音体验</h2>
+            <p id="section1-text">我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验。</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="content-text">
+            <h2 id="section2-title">高端声学设计</h2>
+            <p id="section2-text">通过专业的隔音降噪处理，我们消除外界干扰，让每一处细节都能清晰呈现。</p>
+        </div>
+        <img src="images/acoustics.jpg" alt="专业声学设计">
+    </div>
+
+    <div class="content-section">
+        <img src="images/smart-home.jpg" alt="智能影音控制">
+        <div class="content-text">
+            <h2 id="section3-title">智能影音系统</h2>
+            <p id="section3-text">集成智能控制系统，让您轻松操控影院设备，实现便捷的观影体验。</p>
+        </div>
+    </div>
+
+    <div class="content-section">
+        <div class="content-text">
+            <h2 id="section4-title">个性化定制</h2>
+            <p id="section4-text">根据您的需求量身定制影院方案，实现视觉与听觉的完美结合。</p>
+        </div>
+        <img src="images/custom-theater.jpg" alt="个性化定制家庭影院">
+    </div>
+
+    <div class="content-section">
+        <div class="content-text">
+            <h2 id="contact-title">联系我们</h2>
+            <p id="contact-text">EchoSpace Home Theatre 致力于打造智能家庭影院体验。如果您对我们的服务感兴趣，请随时联系我们。</p>
+            <p id="contact-email"><strong>邮箱：</strong> Info@echospace.com.au</p>
+            <p id="contact-phone"><strong>电话：</strong> 0432869555</p>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Echospace Home Theatre. All rights reserved.
+    </footer>
+</body>
+</html>
