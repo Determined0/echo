@@ -45,13 +45,14 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
+        /* 这里开始是你修改的部分 */
         .content-section {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 60px 10%;
+            padding: 5vw 10%;
             background: #222;
-            margin-bottom: 10px;
+            flex-wrap: wrap;
         }
 
         .content-section:nth-child(even) {
@@ -59,17 +60,37 @@
         }
 
         .content-section img {
-            width: 45%;
+            width: 50%;  /* 图片占50% */
+            max-width: 600px; /* 限制最大宽度，防止太大 */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         .content-text {
             width: 45%;
-            font-size: 18px;
+            font-size: 2vw;  /* 文字大小跟随屏幕变化 */
             line-height: 1.6;
+            min-width: 300px;  /* 防止文字太小 */
         }
 
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .content-section {
+                flex-direction: column; /* 小屏幕改为上下布局 */
+                text-align: center;
+            }
+            
+            .content-section img,
+            .content-text {
+                width: 90%;  /* 图片和文字变大，适应小屏幕 */
+            }
+
+            .content-text {
+                font-size: 3vw; /* 小屏幕文字稍微大一点 */
+            }
+        }
+        /* 到这里结束 */
+        
         footer {
             background: #222;
             color: white;
@@ -167,7 +188,7 @@
             <h2 id="contact-title">联系我们</h2>
             <p id="contact-text">EchoSpace Home Theatre 致力于打造智能家庭影院体验。如果您对我们的服务感兴趣，请随时联系我们。</p>
             <p id="contact-email"><strong>邮箱：</strong> Info@echospace.com.au</p>
-            <p id="contact-phone"><strong>电话：</strong> 0432869555</p>
+            <p id="contact-phone"><strong>电话：</strong> 0432 869 555</p>
         </div>
     </div>
 
