@@ -45,7 +45,6 @@
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
 
-        /* 这里开始是你修改的部分 */
         .content-section {
             display: flex;
             align-items: center;
@@ -89,8 +88,7 @@
                 font-size: 3vw; /* 小屏幕文字稍微大一点 */
             }
         }
-        /* 到这里结束 */
-        
+
         footer {
             background: #222;
             color: white;
@@ -100,8 +98,10 @@
     </style>
     <script>
         function switchLanguage(lang) {
+            console.log("Language switched to:", lang);  // 调试信息
             document.documentElement.lang = lang;
             if (lang === 'en') {
+                console.log("Switching to English");
                 document.getElementById('hero-title').innerText = 'Welcome to Echospace Home Theatre';
                 document.getElementById('hero-text').innerText = 'Creating an immersive audio-visual experience for you';
                 document.getElementById('section1-title').innerText = 'Ultimate Audio-Visual Experience';
@@ -117,6 +117,7 @@
                 document.getElementById('contact-email').innerText = 'Email: Info@echospace.com.au';
                 document.getElementById('contact-phone').innerText = 'Phone: 0432869555';
             } else {
+                console.log("Switching to Chinese");
                 document.getElementById('hero-title').innerText = '欢迎来到Echospace家庭影院';
                 document.getElementById('hero-text').innerText = '打造沉浸式影音体验，给您带来震撼的视听享受';
                 document.getElementById('section1-title').innerText = '极致影音体验';
@@ -155,7 +156,7 @@
         <img src="images/hometheater01.jpg" alt="悉尼家庭影院">
         <div class="content-text">
             <h2 id="section1-title">极致影音体验</h2>
-            <p id="section1-text">我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验。</p>
+            <p id="section1-text">我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验，家庭K歌观影完美体验。</p>
         </div>
     </div>
 
