@@ -72,6 +72,27 @@
             min-width: 300px;  /* 防止文字太小 */
         }
 
+        /* Dropbox 按钮样式 */
+        .dropbox-buttons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .dropbox-buttons button {
+            background: #0061ff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+
+        .dropbox-buttons button:hover {
+            background: #004bbf;
+        }
+
         /* 响应式调整 */
         @media (max-width: 768px) {
             .content-section {
@@ -96,6 +117,8 @@
             text-align: center;
         }
     </style>
+    <!-- Dropbox 组件脚本 -->
+    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="mf8q524td4a7y71"></script>
     <script>
         function switchLanguage(lang) {
             console.log("Language switched to:", lang);  // 调试信息
@@ -134,6 +157,42 @@
                 document.getElementById('contact-phone').innerText = '电话: 0432869555';
             }
         }
+
+        // 初始化 Dropbox Chooser 和 Saver
+        function initDropbox() {
+            // Chooser（文件选择器）
+            const chooserButton = Dropbox.createChooseButton({
+                success: function(files) {
+                    console.log("选择的文件：", files);
+                    alert(`已选择文件：${files[0].name}`);
+                },
+                cancel: function() {
+                    console.log("用户取消了选择");
+                },
+                linkType: "preview", // 或 "direct"
+                multiselect: false, // 是否允许多选
+            });
+
+            // Saver（文件保存器）
+            const saverButton = Dropbox.createSaveButton({
+                url: "https://www.example.com/file.pdf", // 要保存的文件 URL
+                filename: "example.pdf", // 保存的文件名
+                success: function() {
+                    console.log("文件保存成功");
+                    alert("文件已保存到 Dropbox！");
+                },
+                cancel: function() {
+                    console.log("用户取消了保存");
+                }
+            });
+
+            // 将按钮添加到页面
+            document.getElementById("dropbox-chooser").appendChild(chooserButton);
+            document.getElementById("dropbox-saver").appendChild(saverButton);
+        }
+
+        // 页面加载完成后初始化 Dropbox
+        window.onload = initDropbox;
     </script>
 </head>
 <body>
@@ -157,6 +216,11 @@
         <div class="content-text">
             <h2 id="section1-title">极致影音体验</h2>
             <p id="section1-text">我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验，家庭K歌观影完美体验。</p>
+            <!-- Dropbox 按钮 -->
+            <div class="dropbox-buttons">
+                <div id="dropbox-chooser"></div>
+                <div id="dropbox-saver"></div>
+            </div>
         </div>
     </div>
 
