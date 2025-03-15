@@ -8,119 +8,24 @@
     <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="mf8q524td4a7y71"></script>
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #111; color: white; }
-        
-        header {
-            background: #222;
-            color: white;
-            padding: 20px;
-            font-size: 24px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .language-switch {
-            margin-right: 20px;
-        }
-
-        .hero {
-            position: relative;
-            height: 100vh;
-            background-image: url('images/hero-background.jpg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 35px;  /* 调小标题字体大小 */
-            font-weight: bold;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .hero p {
-            font-size: 22px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-        }
-
-        .content-section {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 5vw 10%;
-            background: #222;
-            flex-wrap: wrap;
-        }
-
-        .content-section:nth-child(even) {
-            background: #333;
-        }
-
-        .content-section img {
-            width: 50%;  /* 图片占50% */
-            max-width: 600px; /* 限制最大宽度，防止太大 */
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        .content-text {
-            width: 45%;
-            font-size: 2vw;  /* 文字大小跟随屏幕变化 */
-            line-height: 1.6;
-            min-width: 300px;  /* 防止文字太小 */
-        }
-
-        /* Dropbox 按钮样式 */
-        .dropbox-chooser-container {
-            margin-top: 20px;
-            text-align: center;
-        }
-
-        .dropbox-chooser-container button {
-            background: #0061ff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .dropbox-chooser-container button:hover {
-            background: #004bbf;
-        }
-
-        /* 响应式调整 */
-        @media (max-width: 768px) {
-            .content-section {
-                flex-direction: column; /* 小屏幕改为上下布局 */
-                text-align: center;
-            }
-            
-            .content-section img,
-            .content-text {
-                width: 90%;  /* 图片和文字变大，适应小屏幕 */
-            }
-
-            .content-text {
-                font-size: 3vw; /* 小屏幕文字稍微大一点 */
-            }
-        }
-
-        footer {
-            background: #222;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+        header { background: #222; color: white; padding: 20px; font-size: 24px; text-align: center; }
+        .hero { position: relative; height: 100vh; background-image: url('images/hero-background.jpg'); background-size: cover; background-position: center; display: flex; justify-content: center; align-items: center; text-align: center; }
+        .hero h1 { font-size: 35px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); }
+        .hero p { font-size: 22px; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); }
+        .content-section { display: flex; align-items: center; justify-content: space-between; padding: 5vw 10%; background: #222; flex-wrap: wrap; }
+        .content-section:nth-child(even) { background: #333; }
+        .content-section img { width: 50%; max-width: 600px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); }
+        .content-text { width: 45%; font-size: 2vw; line-height: 1.6; min-width: 300px; }
+        .dropbox-chooser-container { margin-top: 20px; text-align: center; }
+        .dropbox-chooser-container button { background: #0061ff; color: white; border: none; padding: 10px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
+        .dropbox-chooser-container button:hover { background: #004bbf; }
+        @media (max-width: 768px) { .content-section { flex-direction: column; text-align: center; } .content-section img, .content-text { width: 90%; } .content-text { font-size: 3vw; } }
+        footer { background: #222; color: white; padding: 20px; text-align: center; }
+        #file-info { display: none; margin-top: 20px; font-size: 16px; }
     </style>
     <script>
         function switchLanguage(lang) {
-            console.log("Language switched to:", lang);  // 调试信息
+            console.log("Language switched to:", lang);
             document.documentElement.lang = lang;
             if (lang === 'en') {
                 console.log("Switching to English");
@@ -162,15 +67,31 @@
             const chooserButton = Dropbox.createChooseButton({
                 success: function(files) {
                     console.log("用户选择的文件：", files);
-                    alert(`已选择文件：${files[0].name}`);
+                    const file = files[0];
+                    alert(`已选择文件：${file.name}`);
+
+                    // 更新页面内容
+                    const fileInfoDiv = document.getElementById("file-info");
+                    fileInfoDiv.innerHTML = `
+                        <p><strong>已选择文件：</strong> ${file.name}</p>
+                        <p><strong>文件链接：</strong> <a href="${file.link}" target="_blank">点击查看文件</a></p>
+                        <button onclick="downloadFile('${file.link}')">下载文件</button>
+                    `;
+                    fileInfoDiv.style.display = "block";
                 },
                 cancel: function() {
                     console.log("用户取消了选择");
+                    alert("您取消了文件选择");
                 },
                 linkType: "preview", // 或 "direct"
                 multiselect: false, // 是否允许多选
             });
             document.getElementById("dropbox-chooser").appendChild(chooserButton);
+        }
+
+        // 下载文件
+        function downloadFile(url) {
+            window.open(url, "_blank");
         }
 
         // 页面加载完成后初始化
@@ -235,6 +156,8 @@
             <div class="dropbox-chooser-container">
                 <div id="dropbox-chooser"></div>
             </div>
+            <!-- 文件信息显示区域 -->
+            <div id="file-info"></div>
         </div>
     </div>
 
