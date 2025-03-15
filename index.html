@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Echospace</title>
+    <!-- Dropbox SDK -->
+    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="mf8q524td4a7y71"></script>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #111; color: white; }
-        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: white;
+        }
         header {
             background: #222;
             color: white;
             padding: 20px;
             font-size: 24px;
             text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
-        
-        .language-switch {
-            margin-right: 20px;
-        }
-
         .hero {
             position: relative;
             height: 100vh;
@@ -33,18 +32,15 @@
             align-items: center;
             text-align: center;
         }
-
         .hero h1 {
-            font-size: 35px;  /* 调小标题字体大小 */
+            font-size: 35px;
             font-weight: bold;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
-
         .hero p {
             font-size: 22px;
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
         }
-
         .content-section {
             display: flex;
             align-items: center;
@@ -53,32 +49,26 @@
             background: #222;
             flex-wrap: wrap;
         }
-
         .content-section:nth-child(even) {
             background: #333;
         }
-
         .content-section img {
-            width: 50%;  /* 图片占50% */
-            max-width: 600px; /* 限制最大宽度，防止太大 */
+            width: 50%;
+            max-width: 600px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         .content-text {
             width: 45%;
-            font-size: 2vw;  /* 文字大小跟随屏幕变化 */
+            font-size: 2vw;
             line-height: 1.6;
-            min-width: 300px;  /* 防止文字太小 */
+            min-width: 300px;
         }
-
-        /* Dropbox 按钮样式 */
-        .dropbox-buttons {
+        .dropbox-chooser-container {
             margin-top: 20px;
             text-align: center;
         }
-
-        .dropbox-buttons button {
+        .dropbox-chooser-container button {
             background: #0061ff;
             color: white;
             border: none;
@@ -86,30 +76,23 @@
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            margin: 5px;
         }
-
-        .dropbox-buttons button:hover {
+        .dropbox-chooser-container button:hover {
             background: #004bbf;
         }
-
-        /* 响应式调整 */
         @media (max-width: 768px) {
             .content-section {
-                flex-direction: column; /* 小屏幕改为上下布局 */
+                flex-direction: column;
                 text-align: center;
             }
-            
             .content-section img,
             .content-text {
-                width: 90%;  /* 图片和文字变大，适应小屏幕 */
+                width: 90%;
             }
-
             .content-text {
-                font-size: 3vw; /* 小屏幕文字稍微大一点 */
+                font-size: 3vw;
             }
         }
-
         footer {
             background: #222;
             color: white;
@@ -117,53 +100,12 @@
             text-align: center;
         }
     </style>
-    <!-- Dropbox 组件脚本 -->
-    <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="mf8q524td4a7y71"></script>
     <script>
-        function switchLanguage(lang) {
-            console.log("Language switched to:", lang);  // 调试信息
-            document.documentElement.lang = lang;
-            if (lang === 'en') {
-                console.log("Switching to English");
-                document.getElementById('hero-title').innerText = 'Welcome to Echospace Home Theatre';
-                document.getElementById('hero-text').innerText = 'Creating an immersive audio-visual experience for you';
-                document.getElementById('section1-title').innerText = 'Ultimate Audio-Visual Experience';
-                document.getElementById('section1-text').innerText = 'Our home theater design combines top-tier equipment with professional acoustic optimization, creating an immersive audio-visual experience, perfect for both karaoke and movie watching.';
-                document.getElementById('section2-title').innerText = 'High-End Acoustic Design';
-                document.getElementById('section2-text').innerText = 'Through professional soundproofing, we eliminate external interference and ensure every detail is clearly presented.';
-                document.getElementById('section3-title').innerText = 'Smart Audio-Visual System';
-                document.getElementById('section3-text').innerText = 'Integrating smart control systems for easy management of your theater equipment, providing a convenient viewing experience.';
-                document.getElementById('section4-title').innerText = 'Custom Solutions';
-                document.getElementById('section4-text').innerText = 'We tailor theater solutions to your specific needs, achieving the perfect combination of visual and auditory experience.';
-                document.getElementById('contact-title').innerText = 'Contact Us';
-                document.getElementById('contact-text').innerText = 'EchoSpace Home Theatre is dedicated to providing top-tier home theater experiences. Feel free to contact us if you are interested in our services.';
-                document.getElementById('contact-email').innerText = 'Email: Info@echospace.com.au';
-                document.getElementById('contact-phone').innerText = 'Phone: 0432869555';
-            } else {
-                console.log("Switching to Chinese");
-                document.getElementById('hero-title').innerText = '欢迎来到Echospace家庭影院';
-                document.getElementById('hero-text').innerText = '打造沉浸式影音体验，给您带来震撼的视听享受';
-                document.getElementById('section1-title').innerText = '极致影音体验';
-                document.getElementById('section1-text').innerText = '我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验，家庭K歌观影完美体验。';
-                document.getElementById('section2-title').innerText = '高端声学设计';
-                document.getElementById('section2-text').innerText = '通过专业的隔音降噪处理，我们消除外界干扰，让每一处细节都能清晰呈现。';
-                document.getElementById('section3-title').innerText = '智能影音系统';
-                document.getElementById('section3-text').innerText = '集成智能控制系统，让您轻松操控影院设备，实现便捷的观影体验。';
-                document.getElementById('section4-title').innerText = '个性化定制';
-                document.getElementById('section4-text').innerText = '根据您的需求量身定制影院方案，实现视觉与听觉的完美结合。';
-                document.getElementById('contact-title').innerText = '联系我们';
-                document.getElementById('contact-text').innerText = 'EchoSpace Home Theatre 致力于打造顶级家庭影院体验。如果您对我们的服务感兴趣，请随时联系我们。';
-                document.getElementById('contact-email').innerText = '邮箱: Info@echospace.com.au';
-                document.getElementById('contact-phone').innerText = '电话: 0432869555';
-            }
-        }
-
-        // 初始化 Dropbox Chooser 和 Saver
+        // 初始化 Dropbox Chooser
         function initDropbox() {
-            // Chooser（文件选择器）
             const chooserButton = Dropbox.createChooseButton({
                 success: function(files) {
-                    console.log("选择的文件：", files);
+                    console.log("用户选择的文件：", files);
                     alert(`已选择文件：${files[0].name}`);
                 },
                 cancel: function() {
@@ -172,88 +114,31 @@
                 linkType: "preview", // 或 "direct"
                 multiselect: false, // 是否允许多选
             });
-
-            // Saver（文件保存器）
-            const saverButton = Dropbox.createSaveButton({
-                url: "https://www.example.com/file.pdf", // 要保存的文件 URL
-                filename: "example.pdf", // 保存的文件名
-                success: function() {
-                    console.log("文件保存成功");
-                    alert("文件已保存到 Dropbox！");
-                },
-                cancel: function() {
-                    console.log("用户取消了保存");
-                }
-            });
-
-            // 将按钮添加到页面
             document.getElementById("dropbox-chooser").appendChild(chooserButton);
-            document.getElementById("dropbox-saver").appendChild(saverButton);
         }
 
-        // 页面加载完成后初始化 Dropbox
+        // 页面加载完成后初始化
         window.onload = initDropbox;
     </script>
 </head>
 <body>
     <header>
         Echospace Home Theatre
-        <div class="language-switch">
-            <button onclick="switchLanguage('zh')">中文</button>
-            <button onclick="switchLanguage('en')">English</button>
-        </div>
     </header>
 
     <div class="hero">
-        <div>
-            <h1 id="hero-title">欢迎来到Echospace家庭影院</h1>
-            <p id="hero-text">打造沉浸式影音体验，给您带来震撼的视听享受</p>
-        </div>
+        <h1>欢迎来到Echospace家庭影院</h1>
+        <p>打造沉浸式影音体验，给您带来震撼的视听享受</p>
     </div>
 
     <div class="content-section">
-        <img src="images/hometheater01.jpg" alt="悉尼家庭影院">
         <div class="content-text">
-            <h2 id="section1-title">极致影音体验</h2>
-            <p id="section1-text">我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验，家庭K歌观影完美体验。</p>
-            <!-- Dropbox 按钮 -->
-            <div class="dropbox-buttons">
+            <h2>极致影音体验</h2>
+            <p>我们的家庭影院设计融合顶级设备与专业声学优化，打造震撼的沉浸式视听体验。</p>
+            <!-- Dropbox Chooser 按钮容器 -->
+            <div class="dropbox-chooser-container">
                 <div id="dropbox-chooser"></div>
-                <div id="dropbox-saver"></div>
             </div>
-        </div>
-    </div>
-
-    <div class="content-section">
-        <div class="content-text">
-            <h2 id="section2-title">高端声学设计</h2>
-            <p id="section2-text">通过专业的隔音降噪处理，我们消除外界干扰，让每一处细节都能清晰呈现。</p>
-        </div>
-        <img src="images/acoustics.jpg" alt="悉尼家庭影院设计">
-    </div>
-
-    <div class="content-section">
-        <img src="images/smart-home.jpg" alt="悉尼智能影音控制">
-        <div class="content-text">
-            <h2 id="section3-title">智能影音系统</h2>
-            <p id="section3-text">集成智能控制系统，让您轻松操控影院设备，实现便捷的观影体验。</p>
-        </div>
-    </div>
-
-    <div class="content-section">
-        <div class="content-text">
-            <h2 id="section4-title">个性化定制</h2>
-            <p id="section4-text">根据您的需求量身定制影院方案，实现视觉与听觉的完美结合。</p>
-        </div>
-        <img src="images/custom-theater.jpg" alt="澳洲家庭KTV家庭影音房">
-    </div>
-
-    <div class="content-section">
-        <div class="content-text">
-            <h2 id="contact-title">联系我们</h2>
-            <p id="contact-text">EchoSpace Home Theatre 致力于打造智能家庭影院体验。如果您对我们的服务感兴趣，请随时联系我们。</p>
-            <p id="contact-email"><strong>邮箱：</strong> Info@echospace.com.au</p>
-            <p id="contact-phone"><strong>电话：</strong> 0432869555</p>
         </div>
     </div>
 
