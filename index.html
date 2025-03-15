@@ -24,7 +24,12 @@
         #file-info { display: none; margin-top: 20px; font-size: 16px; }
     </style>
     <script>
+        // 当前语言状态
+        let currentLang = 'zh';
+
+        // 切换语言
         function switchLanguage(lang) {
+            currentLang = lang;
             console.log("Language switched to:", lang);
             document.documentElement.lang = lang;
             if (lang === 'en') {
@@ -68,20 +73,39 @@
                 success: function(files) {
                     console.log("用户选择的文件：", files);
                     const file = files[0];
-                    alert(`已选择文件：${file.name}`);
+                    const fileName = file.name;
+                    const fileLink = file.link;
+
+                    // 根据当前语言显示提示信息
+                    if (currentLang === 'en') {
+                        alert(`Selected file: ${fileName}`);
+                    } else {
+                        alert(`已选择文件：${fileName}`);
+                    }
 
                     // 更新页面内容
                     const fileInfoDiv = document.getElementById("file-info");
-                    fileInfoDiv.innerHTML = `
-                        <p><strong>已选择文件：</strong> ${file.name}</p>
-                        <p><strong>文件链接：</strong> <a href="${file.link}" target="_blank">点击查看文件</a></p>
-                        <button onclick="downloadFile('${file.link}')">下载文件</button>
-                    `;
+                    if (currentLang === 'en') {
+                        fileInfoDiv.innerHTML = `
+                            <p><strong>Selected file:</strong> ${fileName}</p>
+                            <p><strong>File link:</strong> <a href="${fileLink}" target="_blank">Click to view file</a></p>
+                            <button onclick="downloadFile('${fileLink}')">Download file</button>
+                        `;
+                    } else {
+                        fileInfoDiv.innerHTML = `
+                            <p><strong>已选择文件：</strong> ${fileName}</p>
+                            <p><strong>文件链接：</strong> <a href="${fileLink}" target="_blank">点击查看文件</a></p>
+                            <button onclick="downloadFile('${fileLink}')">下载文件</button>
+                        `;
+                    }
                     fileInfoDiv.style.display = "block";
                 },
                 cancel: function() {
-                    console.log("用户取消了选择");
-                    alert("您取消了文件选择");
+                    if (currentLang === 'en') {
+                        alert("You canceled the file selection.");
+                    } else {
+                        alert("您取消了文件选择");
+                    }
                 },
                 linkType: "preview", // 或 "direct"
                 multiselect: false, // 是否允许多选
@@ -92,10 +116,20 @@
         // 下载文件
         function downloadFile(url) {
             window.open(url, "_blank");
+
+            // 根据当前语言显示下载完成提示
+            if (currentLang === 'en') {
+                alert("Download complete. Please check your file.");
+            } else {
+                alert("下载完成，请查看文件");
+            }
         }
 
         // 页面加载完成后初始化
-        window.onload = initDropbox;
+        window.onload = function() {
+            initDropbox();
+            switchLanguage('zh'); // 默认语言为中文
+        };
     </script>
 </head>
 <body>
