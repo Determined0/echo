@@ -175,45 +175,51 @@
             margin: 0 auto;
         }
         
-        .services-grid {
+        .services-grid, .products-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 50px;
         }
         
-        .service-card {
+        .service-card, .product-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.08);
             transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         
-        .service-card:hover {
+        .service-card:hover, .product-card:hover {
             transform: translateY(-10px);
         }
         
-        .service-img {
+        .service-img, .product-img {
             height: 200px;
             background-size: cover;
             background-position: center;
             background-color: #f0f0f0; /* 灰色背景，以防图片加载失败 */
         }
         
-        .service-content {
+        .service-content, .product-content {
             padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
         }
         
-        .service-content h3 {
+        .service-content h3, .product-content h3 {
             font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 15px;
         }
         
-        .service-content p {
+        .service-content p, .product-content p {
             color: var(--gray);
             margin-bottom: 20px;
+            flex-grow: 1;
         }
         
         .price {
@@ -317,6 +323,78 @@
             margin-bottom: 15px;
         }
         
+        /* 产品商店样式 */
+        .product-section {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1001;
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .order-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .payid-info {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
         /* 页脚样式 */
         footer {
             background: var(--dark);
@@ -371,12 +449,18 @@
                 font-size: 2.2rem;
             }
             
-            .services-grid, .testimonials-grid {
+            .services-grid, .testimonials-grid, .products-grid {
                 grid-template-columns: 1fr;
             }
             
             .section {
                 padding: 60px 0;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 5% auto;
+                padding: 20px;
             }
         }
     </style>
@@ -390,6 +474,7 @@
             <ul class="nav-links">
                 <li><a href="#home-theater" data-i18n="nav.homeTheater">家庭影院</a></li>
                 <li><a href="#audio-services" data-i18n="nav.audioServices">音频服务</a></li>
+                <li><a href="#products" data-i18n="nav.products">产品商店</a></li>
                 <li><a href="#equipment" data-i18n="nav.equipment">专业设备</a></li>
                 <li><a href="#testimonials" data-i18n="nav.testimonials">客户评价</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
@@ -421,7 +506,7 @@
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/Projector Installation in Sydney, Australia at Reasonable Rates.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');"></div>
                     <div class="service-content">
                         <h3 data-i18n="homeTheater.service1.title">投影仪安装与调试</h3>
                         <p data-i18n="homeTheater.service1.description">专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果</p>
@@ -431,7 +516,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/Projector Screen Installation.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1563298724-d5aefe2ca3c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="service-content">
                         <h3 data-i18n="homeTheater.service2.title">投影幕布安装</h3>
                         <p data-i18n="homeTheater.service2.description">各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布</p>
@@ -441,7 +526,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/KTV Sound System Calibration Sydney.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="service-content">
                         <h3 data-i18n="homeTheater.service3.title">KTV系统安装</h3>
                         <p data-i18n="homeTheater.service3.description">专业KTV系统设计安装，包括音响、点歌系统、效果器调试等</p>
@@ -463,7 +548,7 @@
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/acoustics.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1596726895343-5b2f2b867835?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="service-content">
                         <h3 data-i18n="audioServices.service1.title">专业音频设备调试</h3>
                         <p data-i18n="audioServices.service1.description">资深音响工程师提供专业级音频系统调试与优化，包括调音台、处理器和系统均衡</p>
@@ -473,7 +558,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/Bar Sound System Tuning  Bar Audio System Calibration.png');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="service-content">
                         <h3 data-i18n="audioServices.service2.title">酒吧音响系统</h3>
                         <p data-i18n="audioServices.service2.description">商业酒吧音响设计与安装，打造完美音效环境，提升顾客体验</p>
@@ -483,7 +568,7 @@
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/Live Sound System Tuning & On-Site Audio Engineering in Sydney.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
                     <div class="service-content">
                         <h3 data-i18n="audioServices.service3.title">现场音响调试</h3>
                         <p data-i18n="audioServices.service3.description">演出、活动现场专业音响调试，确保最佳音质效果</p>
@@ -491,6 +576,20 @@
                         <a href="#contact" class="btn" data-i18n="audioServices.button">预约服务</a>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 产品商店 -->
+    <section class="product-section" id="products">
+        <div class="container">
+            <div class="section-title">
+                <h2 data-i18n="products.title">产品商店</h2>
+                <p data-i18n="products.description">精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货</p>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- 商品将通过JavaScript动态添加 -->
             </div>
         </div>
     </section>
@@ -647,6 +746,7 @@
                 <ul class="footer-links">
                     <li><a href="#home-theater" data-i18n="nav.homeTheater">家庭影院</a></li>
                     <li><a href="#audio-services" data-i18n="nav.audioServices">音频服务</a></li>
+                    <li><a href="#products" data-i18n="nav.products">产品商店</a></li>
                     <li><a href="#equipment" data-i18n="nav.equipment">专业设备</a></li>
                     <li><a href="#testimonials" data-i18n="nav.testimonials">客户评价</a></li>
                     <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
@@ -657,13 +757,109 @@
         </div>
     </footer>
 
+    <!-- 购买模态框 -->
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-product-name">商品名称</h2>
+            
+            <div class="order-info">
+                <h3>订单信息</h3>
+                <p>订单号: <strong id="order-number">EC-123456</strong></p>
+                <p>商品: <span id="product-details">NH 12寸专业音响</span></p>
+                <p>价格: <strong id="product-price">$1299</strong></p>
+            </div>
+            
+            <div class="payid-info">
+                <h3>PayID付款</h3>
+                <p>请使用PayID向以下账户付款:</p>
+                <p><strong>0432 869 555</strong></p>
+                <p>付款时请备注订单号: <strong id="payid-order-number">EC-123456</strong></p>
+            </div>
+            
+            <form id="customer-info-form">
+                <div class="form-group">
+                    <label for="customer-name">姓名</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customer-email">邮箱</label>
+                    <input type="email" id="customer-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customer-address">送货地址</label>
+                    <textarea id="customer-address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment-proof">付款截图 (可选)</label>
+                    <input type="file" id="payment-proof" accept="image/*">
+                </div>
+                
+                <button type="submit" class="btn">确认订单</button>
+            </form>
+        </div>
+    </div>
+
     <script>
+        // 商品数据
+        const products = [
+            {
+                id: 1,
+                name: "NH 12寸专业音响",
+                nameEn: "NH 12-inch Professional Speaker",
+                description: "专业级12寸音响，适合KTV、演出和家庭影院使用，提供卓越音质和强劲低音",
+                descriptionEn: "Professional 12-inch speaker, suitable for KTV, performances and home theater use, providing excellent sound quality and strong bass",
+                price: 1299,
+                image: "https://images.unsplash.com/photo-1546435770-a3e426bf472b?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 2,
+                name: "Sun shine国际版点歌机",
+                nameEn: "Sunshine International Version Karaoke Machine",
+                description: "海量中文曲库，实时在线更新中文歌曲，更适合澳洲本地客户使用",
+                descriptionEn: "Massive Chinese song library, real-time online updates of Chinese songs, more suitable for Australian local customers",
+                price: 899,
+                image: "https://images.unsplash.com/photo-1596726895343-5b2f2b867835?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 3,
+                name: "投影支架",
+                nameEn: "Projector Mount",
+                description: "高质量投影仪支架，适用于各种天花板和墙壁安装，稳固耐用",
+                descriptionEn: "High-quality projector mount, suitable for various ceiling and wall installations, stable and durable",
+                price: 388,
+                image: "https://images.unsplash.com/photo-1563298724-d5aefe2ca3c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 4,
+                name: "家庭专业音响K歌套装",
+                nameEn: "Home Professional Audio Karaoke Set",
+                description: "完整家庭KTV解决方案，包含专业音响、麦克风、点歌机和效果器",
+                descriptionEn: "Complete home KTV solution, including professional audio, microphone, karaoke machine and effector",
+                price: 7500,
+                image: "https://images.unsplash.com/photo-1571934811356-5cc061b6821f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            },
+            {
+                id: 5,
+                name: "影音房整体方案设计",
+                nameEn: "Complete Audio-Visual Room Design Solution",
+                description: "专业影音室设计方案，包括声学处理、设备选型和系统集成",
+                descriptionEn: "Professional audio-visual room design solution, including acoustic treatment, equipment selection and system integration",
+                price: 850,
+                image: "https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+            }
+        ];
+
         // 多语言支持
         const translations = {
             'zh': {
                 // 导航
                 'nav.homeTheater': '家庭影院',
                 'nav.audioServices': '音频服务',
+                'nav.products': '产品商店',
                 'nav.equipment': '专业设备',
                 'nav.testimonials': '客户评价',
                 'nav.contact': '联系我们',
@@ -700,6 +896,11 @@
                 'audioServices.service3.description': '演出、活动现场专业音响调试，确保最佳音质效果',
                 'audioServices.service3.price': '根据需求报价',
                 'audioServices.button': '预约服务',
+                
+                // 产品商店
+                'products.title': '产品商店',
+                'products.description': '精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货',
+                'products.buyButton': '立即购买',
                 
                 // 设备
                 'equipment.title': '专业设备支持',
@@ -762,12 +963,13 @@
                 'contact.button': '立即致电咨询',
                 
                 // 页脚
-                'footer.copyright': '&copy; 2023 Echospace 悉尼专业影音系统服务 | 所有权利保留'
+                'footer.copyright': '&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留'
             },
             'en': {
                 // 导航
                 'nav.homeTheater': 'Home Theater',
                 'nav.audioServices': 'Audio Services',
+                'nav.products': 'Products',
                 'nav.equipment': 'Equipment',
                 'nav.testimonials': 'Testimonials',
                 'nav.contact': 'Contact Us',
@@ -804,6 +1006,11 @@
                 'audioServices.service3.description': 'Professional audio debugging for performances and events to ensure optimal sound quality',
                 'audioServices.service3.price': 'Quote on request',
                 'audioServices.button': 'Book Service',
+                
+                // 产品商店
+                'products.title': 'Product Store',
+                'products.description': 'Selected high-quality audio-visual equipment, support PayID payment, complete the purchase with order number备注 to ship',
+                'products.buyButton': 'Buy Now',
                 
                 // 设备
                 'equipment.title': 'Professional Equipment Support',
@@ -860,8 +1067,8 @@
                 // 联系
                 'contact.title': 'Contact Us',
                 'contact.description': 'Our professional team is ready to provide consultation and on-site inspection services',
-                'contact.phone': 'Phone:0432869555',
-                'contact.email': 'Email:info@echospace.com.au',
+                'contact.phone': 'Phone:',
+                'contact.email': 'Email:',
                 'contact.area': 'Service Area: Sydney and surrounding areas',
                 'contact.button': 'Call Now',
                 
@@ -889,29 +1096,149 @@
                     }
                 }
             });
+            
+            // 更新产品名称和描述
+            updateProductsLanguage(lang);
+        }
+        
+        // 更新产品语言
+        function updateProductsLanguage(lang) {
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach((card, index) => {
+                if (products[index]) {
+                    const nameElement = card.querySelector('h3');
+                    const descElement = card.querySelector('p');
+                    
+                    if (lang === 'zh') {
+                        nameElement.textContent = products[index].name;
+                        descElement.textContent = products[index].description;
+                    } else {
+                        nameElement.textContent = products[index].nameEn;
+                        descElement.textContent = products[index].descriptionEn;
+                    }
+                }
+            });
+        }
+        
+        // 生成随机订单号
+        function generateOrderNumber() {
+            const prefix = 'EC-';
+            const randomNum = Math.floor(100000 + Math.random() * 900000);
+            return prefix + randomNum;
+        }
+        
+        // 显示购买模态框
+        function showPurchaseModal(product) {
+            const modal = document.getElementById('purchase-modal');
+            const orderNumber = generateOrderNumber();
+            
+            document.getElementById('modal-product-name').textContent = product.name;
+            document.getElementById('order-number').textContent = orderNumber;
+            document.getElementById('payid-order-number').textContent = orderNumber;
+            document.getElementById('product-details').textContent = product.name;
+            document.getElementById('product-price').textContent = '$' + product.price;
+            
+            // 重置表单
+            document.getElementById('customer-info-form').reset();
+            
+            modal.style.display = 'block';
+            
+            // 存储当前订单信息
+            window.currentOrder = {
+                product: product,
+                orderNumber: orderNumber,
+                timestamp: new Date().toISOString()
+            };
+        }
+        
+        // 初始化产品展示
+        function initProducts() {
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = '';
+            
+            products.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                
+                productCard.innerHTML = `
+                    <div class="product-img" style="background-image: url('${product.image}');"></div>
+                    <div class="product-content">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        <div class="price">$${product.price}</div>
+                        <button class="btn buy-btn" data-product-id="${product.id}">立即购买</button>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+            
+            // 添加购买按钮事件监听
+            document.querySelectorAll('.buy-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-product-id'));
+                    const product = products.find(p => p.id === productId);
+                    
+                    if (product) {
+                        showPurchaseModal(product);
+                    }
+                });
+            });
         }
         
         // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    targetElement.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+        function initSmoothScroll() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // 初始化模态框事件
+        function initModalEvents() {
+            const modal = document.getElementById('purchase-modal');
+            const closeBtn = document.querySelector('.close-modal');
+            
+            // 关闭模态框
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // 点击模态框外部关闭
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
                 }
             });
-        });
-
+            
+            // 表单提交
+            document.getElementById('customer-info-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 这里可以添加表单验证和提交逻辑
+                // 在实际应用中，应该将订单信息发送到服务器
+                
+                alert('订单已提交！请通过PayID完成付款，我们收到付款后将立即安排发货。');
+                modal.style.display = 'none';
+                
+                // 在实际应用中，这里应该重定向到订单确认页面或发送确认邮件
+            });
+        }
+        
         // 图片优化
-        document.addEventListener('DOMContentLoaded', function() {
-            // 图片懒加载和压缩优化
-            const images = document.querySelectorAll('.service-img');
+        function optimizeImages() {
+            const images = document.querySelectorAll('.service-img, .product-img');
             images.forEach(img => {
                 const bg = img.style.backgroundImage;
                 
@@ -941,9 +1268,15 @@
                     imgElement.src = imgUrl;
                 }
             });
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initProducts();
+            initSmoothScroll();
+            initModalEvents();
+            optimizeImages();
         });
     </script>
 </body>
 </html>
-
-
