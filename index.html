@@ -1,417 +1,417 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Echospace | 悉尼专业家庭影院与音视频系统服务</title>
-<meta name="description" content="悉尼专业家庭影院设计安装、音视频设备调试、投影仪安装、KTV系统集成、LED显示屏，专业音响师团队，优质影音体验保障。">
-<meta name="keywords" content="悉尼家庭影院,投影仪安装,音频调试,悉尼酒吧CLUB音响调试，悉尼KTV安装,LED显示屏安装维修，酒吧音响灯光安装、维修,专业音响调试">
-<style>
-:root {
---primary: #1a2a6c;
---secondary: #b21f1f;
---accent: #fdbb2d;
---dark: #0a0e17;
---light: #f8f9fa;
---gray: #6c757d;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echospace | 悉尼专业家庭影院与音视频系统服务</title>
+    <meta name="description" content="悉尼专业家庭影院设计安装、音视频设备调试、投影仪安装、KTV系统集成、LED显示屏，专业音响师团队，优质影音体验保障。">
+    <meta name="keywords" content="悉尼家庭影院,投影仪安装,音频调试,悉尼酒吧CLUB音响调试，悉尼KTV安装,LED显示屏安装维修，酒吧音响灯光安装、维修,专业音响调试">
+    <style>
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --accent: #fdbb2d;
+            --dark: #0a0e17;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
 
-* {
-margin: 0;
-padding: 0;
-box-sizing: border-box;
-font-family: 'Helvetica Neue', Arial, sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
 
-body {
-background-color: var(--light);
-color: #333;
-line-height: 1.6;
-}
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
 
-.container {
-max-width: 1200px;
-margin: 0 auto;
-padding: 0 20px;
-}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-/* 导航栏样式 */
-header {
-background: linear-gradient(135deg, var(--primary), #2c3e8c);
-color: white;
-padding: 15px 0;
-position: sticky;
-top: 0;
-z-index: 1000;
-box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+        /* 导航栏样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary), #2c3e8c);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-.nav-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-.logo {
-font-size: 1.8rem;
-font-weight: bold;
-color: white;
-text-decoration: none;
-display: flex;
-align-items: center;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
 
-.logo span {
-color: var(--accent);
-}
+        .logo span {
+            color: var(--accent);
+        }
 
-.nav-links {
-display: flex;
-list-style: none;
-}
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-.nav-links li {
-margin-left: 25px;
-}
+        .nav-links li {
+            margin-left: 25px;
+        }
 
-.nav-links a {
-color: white;
-text-decoration: none;
-font-weight: 500;
-transition: color 0.3s;
-}
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-.nav-links a:hover {
-color: var(--accent);
-}
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-.language-switch {
-display: flex;
-align-items: center;
-}
+        .language-switch {
+            display: flex;
+            align-items: center;
+        }
 
-.language-switch button {
-background: rgba(255,255,255,0.1);
-color: white;
-border: 1px solid rgba(255,255,255,0.3);
-padding: 5px 10px;
-margin-left: 10px;
-cursor: pointer;
-border-radius: 4px;
-transition: all 0.3s;
-}
+        .language-switch button {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
 
-.language-switch button.active {
-background: var(--accent);
-color: var(--dark);
-}
+        .language-switch button.active {
+            background: var(--accent);
+            color: var(--dark);
+        }
 
-.language-switch button:hover {
-background: var(--accent);
-color: var(--dark);
-}
+        .language-switch button:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
 
-/* 英雄区域样式 */
-.hero {
-background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
-background-size: cover;
-background-position: center;
-color: white;
-padding: 100px 0;
-text-align: center;
-}
+        /* 英雄区域样式 */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
 
-.hero h1 {
-font-size: 3rem;
-margin-bottom: 20px;
-text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
 
-.hero p {
-font-size: 1.2rem;
-max-width: 800px;
-margin: 0 auto 30px;
-}
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
 
-.btn {
-display: inline-block;
-background: var(--accent);
-color: var(--dark);
-padding: 12px 30px;
-border-radius: 50px;
-text-decoration: none;
-font-weight: bold;
-transition: all 0.3s;
-border: none;
-cursor: pointer;
-}
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
 
-.btn:hover {
-background: #ffcc44;
-transform: translateY(-3px);
-box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+        .btn:hover {
+            background: #ffcc44;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
 
-/* 内容区域样式 */
-.section {
-padding: 80px 0;
-}
+        /* 内容区域样式 */
+        .section {
+            padding: 80px 0;
+        }
 
-.section-title {
-text-align: center;
-margin-bottom: 50px;
-}
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-.section-title h2 {
-font-size: 2.5rem;
-color: var(--primary);
-margin-bottom: 15px;
-}
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
 
-.section-title p {
-color: var(--gray);
-font-size: 1.1rem;
-max-width: 700px;
-margin: 0 auto;
-}
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
 
-.services-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px;
-margin-bottom: 50px;
-}
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
 
-.service-card {
-background: white;
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-transition: transform 0.3s;
-display: flex;
-flex-direction: column;
-}
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
 
-.service-card:hover {
-transform: translateY(-10px);
-}
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
 
-.service-img {
-height: 200px;
-background-size: cover;
-background-position: center;
-background-color: #f0f0f0;
-}
+        .service-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f0f0f0;
+        }
 
-.service-content {
-padding: 25px;
-flex-grow: 1;
-display: flex;
-flex-direction: column;
-}
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
 
-.service-content h3 {
-font-size: 1.5rem;
-color: var(--primary);
-margin-bottom: 15px;
-}
+        .service-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
 
-.service-content p {
-color: var(--gray);
-margin-bottom: 20px;
-flex-grow: 1;
-}
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
 
-.price {
-color: var(--secondary);
-font-weight: bold;
-font-size: 1.2rem;
-margin: 15px 0;
-}
+        .price {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin: 15px 0;
+        }
 
-/* 设备表格样式 */
-.equipment-section {
-background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-padding: 80px 0;
-}
+        /* 设备表格样式 */
+        .equipment-section {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+        }
 
-.equipment-table {
-width: 100%;
-border-collapse: collapse;
-margin: 40px 0;
-background: white;
-border-radius: 10px;
-overflow: hidden;
-box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-}
+        .equipment-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 40px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
 
-.equipment-table th, .equipment-table td {
-padding: 15px;
-text-align: left;
-border-bottom: 1px solid #dee2e6;
-}
+        .equipment-table th, .equipment-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #dee2e6;
+        }
 
-.equipment-table th {
-background: var(--primary);
-color: white;
-font-weight: bold;
-}
+        .equipment-table th {
+            background: var(--primary);
+            color: white;
+            font-weight: bold;
+        }
 
-.equipment-table tr:last-child td {
-border-bottom: none;
-}
+        .equipment-table tr:last-child td {
+            border-bottom: none;
+        }
 
-.brand-header {
-background: rgba(253, 187, 45, 0.1) !important;
-font-size: 1.2rem;
-color: var(--primary);
-font-weight: bold;
-}
+        .brand-header {
+            background: rgba(253, 187, 45, 0.1) !important;
+            font-size: 1.2rem;
+            color: var(--primary);
+            font-weight: bold;
+        }
 
-/* 评价区域样式 */
-.testimonials {
-background: linear-gradient(to bottom, #1a2a6c, #2c3e8c);
-color: white;
-padding: 80px 0;
-}
+        /* 评价区域样式 */
+        .testimonials {
+            background: linear-gradient(to bottom, #1a2a6c, #2c3e8c);
+            color: white;
+            padding: 80px 0;
+        }
 
-.testimonials .section-title h2 {
-color: white;
-}
+        .testimonials .section-title h2 {
+            color: white;
+        }
 
-.testimonials-grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-gap: 30px;
-}
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-.testimonial-card {
-background: rgba(255,255,255,0.1);
-border-radius: 10px;
-padding: 30px;
-backdrop-filter: blur(10px);
-}
+        .testimonial-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 30px;
+            backdrop-filter: blur(10px);
+        }
 
-.testimonial-text {
-font-style: italic;
-margin-bottom: 20px;
-}
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+        }
 
-.testimonial-author {
-font-weight: bold;
-color: var(--accent);
-}
+        .testimonial-author {
+            font-weight: bold;
+            color: var(--accent);
+        }
 
-.testimonial-location {
-font-size: 0.9rem;
-opacity: 0.8;
-}
+        .testimonial-location {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
 
-/* 联系区域样式 */
-.contact-section {
-padding: 80px 0;
-text-align: center;
-}
+        /* 联系区域样式 */
+        .contact-section {
+            padding: 80px 0;
+            text-align: center;
+        }
 
-.contact-info {
-max-width: 600px;
-margin: 0 auto;
-}
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-.contact-info p {
-font-size: 1.1rem;
-margin-bottom: 15px;
-}
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
 
-/* 产品商店入口样式 */
-.product-entry {
-background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-padding: 80px 0;
-text-align: center;
-}
+        /* 产品商店入口样式 */
+        .product-entry {
+            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
+            padding: 80px 0;
+            text-align: center;
+        }
 
-.product-entry-content {
-max-width: 800px;
-margin: 0 auto;
-}
+        .product-entry-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
 
-.product-entry-btn {
-margin-top: 30px;
-font-size: 1.1rem;
-padding: 15px 40px;
-}
+        .product-entry-btn {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            padding: 15px 40px;
+        }
 
-/* 页脚样式 */
-footer {
-background: var(--dark);
-color: white;
-padding: 40px 0;
-text-align: center;
-}
+        /* 页脚样式 */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
 
-.footer-content {
-display: flex;
-flex-direction: column;
-align-items: center;
-}
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-.footer-links {
-display: flex;
-list-style: none;
-margin: 20px 0;
-}
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 20px 0;
+        }
 
-.footer-links li {
-margin: 0 15px;
-}
+        .footer-links li {
+            margin: 0 15px;
+        }
 
-.footer-links a {
-color: white;
-text-decoration: none;
-transition: color 0.3s;
-}
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
 
-.footer-links a:hover {
-color: var(--accent);
-}
+        .footer-links a:hover {
+            color: var(--accent);
+        }
 
-/* 响应式设计 */
-@media (max-width: 768px) {
-.nav-container {
-flex-direction: column;
-}
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
 
-.nav-links {
-margin-top: 20px;
-flex-direction: column;
-align-items: center;
-}
+            .nav-links {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
 
-.nav-links li {
-margin: 10px 0;
-}
+            .nav-links li {
+                margin: 10px 0;
+            }
 
-.hero h1 {
-font-size: 2.2rem;
-}
+            .hero h1 {
+                font-size: 2.2rem;
+            }
 
-.services-grid, .testimonials-grid {
-grid-template-columns: 1fr;
-}
+            .services-grid, .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
 
-.section {
-padding: 60px 0;
-}
-}
-</style>
+            .section {
+                padding: 60px 0;
+            }
+        }
+    </style>
 </head>
 <body>
-<!-- 导航栏 -->
-<header>
-<div class="container nav-container">
-<a href="#" class="logo">ECHO<span>SPACE</span></a>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">ECHO<span>SPACE</span></a>
 
-<ul class="nav-links">
+            <ul class="nav-links">
                 <li><a href="#home-theater">家庭影院</a></li>
                 <li><a href="#audio-services">音频服务</a></li>
                 <!-- 更新产品商店链接 -->
@@ -425,43 +425,43 @@ padding: 60px 0;
                 <li><a href="#equipment" data-i18n="nav.equipment">专业设备</a></li>
                 <li><a href="#testimonials" data-i18n="nav.testimonials">客户评价</a></li>
                 <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
-</ul>
+            </ul>
 
-<div class="language-switch">
+            <div class="language-switch">
                 <button id="zh-btn" class="active">中文</button>
                 <button id="en-btn">EN</button>
                 <button id="zh-btn" class="active" onclick="switchLanguage('zh')">中文</button>
                 <button id="en-btn" onclick="switchLanguage('en')">EN</button>
-</div>
-</div>
-</header>
+            </div>
+        </div>
+    </header>
 
-<!-- 英雄区域 -->
-<section class="hero">
-<div class="container">
+    <!-- 英雄区域 -->
+    <section class="hero">
+        <div class="container">
             <h1>悉尼专业影音系统解决方案</h1>
             <p>我们提供家庭影院设计安装、专业音频设备调试、商业影音系统集成服务，专业音响工程师团队为您打造卓越影音体验</p>
             <a href="#contact" class="btn">立即咨询</a>
             <h1 data-i18n="hero.title">悉尼专业影音系统解决方案</h1>
             <p data-i18n="hero.description">我们提供家庭影院设计安装、专业音频设备调试、商业影音系统集成服务，专业音响工程师团队为您打造卓越影音体验</p>
             <a href="#contact" class="btn" data-i18n="hero.button">立即咨询</a>
-</div>
-</section>
+        </div>
+    </section>
 
-<!-- 家庭影院服务 -->
-<section class="section" id="home-theater">
-<div class="container">
-<div class="section-title">
+    <!-- 家庭影院服务 -->
+    <section class="section" id="home-theater">
+        <div class="container">
+            <div class="section-title">
                 <h2>家庭影院服务</h2>
                 <p>我们提供专业的家庭影院设计、安装与调试一站式服务，打造沉浸式视听体验</p>
                 <h2 data-i18n="homeTheater.title">家庭影院服务</h2>
                 <p data-i18n="homeTheater.description">我们提供专业的家庭影院设计、安装与调试一站式服务，打造沉浸式视听体验</p>
-</div>
+            </div>
 
-<div class="services-grid">
-<div class="service-card">
-<div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560415751-3f3c5b679c5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
-<div class="service-content">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560415751-3f3c5b679c5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-content">
                         <h3>投影仪安装与调试</h3>
                         <p>专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果</p>
                         <div class="price">从 $219 起</div>
@@ -470,12 +470,12 @@ padding: 60px 0;
                         <p data-i18n="homeTheater.service1.description">专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果</p>
                         <div class="price" data-i18n="homeTheater.service1.price">从 $219 起</div>
                         <a href="#contact" class="btn" data-i18n="homeTheater.button">预约服务</a>
-</div>
-</div>
+                    </div>
+                </div>
 
-<div class="service-card">
-<div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1596726895343-5b2f2b1b8393?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
-<div class="service-content">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1596726895343-5b2f2b1b8393?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-content">
                         <h3>投影幕布安装</h3>
                         <p>各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布</p>
                         <div class="price">从 $208 起</div>
@@ -484,12 +484,12 @@ padding: 60px 0;
                         <p data-i18n="homeTheater.service2.description">各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布</p>
                         <div class="price" data-i18n="homeTheater.service2.price">从 $208 起</div>
                         <a href="#contact" class="btn" data-i18n="homeTheater.button">预约服务</a>
-</div>
-</div>
+                    </div>
+                </div>
 
-<div class="service-card">
-<div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
-<div class="service-content">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-content">
                         <h3>KTV系统安装</h3>
                         <p>专业KTV系统设计安装，包括音响、点歌系统、效果器调试等</p>
                         <div class="price">根据需求报价</div>
@@ -498,26 +498,26 @@ padding: 60px 0;
                         <p data-i18n="homeTheater.service3.description">专业KTV系统设计安装，包括音响、点歌系统、效果器调试等</p>
                         <div class="price" data-i18n="homeTheater.service3.price">根据需求报价</div>
                         <a href="#contact" class="btn" data-i18n="homeTheater.button">预约服务</a>
-</div>
-</div>
-</div>
-</div>
-</section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- 音频服务 -->
-<section class="section" id="audio-services">
-<div class="container">
-<div class="section-title">
+    <!-- 音频服务 -->
+    <section class="section" id="audio-services">
+        <div class="container">
+            <div class="section-title">
                 <h2>专业音频服务</h2>
                 <p>资深音响工程师提供专业音频设备调试与优化服务，让您的设备发挥最佳性能</p>
                 <h2 data-i18n="audioServices.title">专业音频服务</h2>
                 <p data-i18n="audioServices.description">资深音响工程师提供专业音频设备调试与优化服务，让您的设备发挥最佳性能</p>
-</div>
+            </div>
 
-<div class="services-grid">
-<div class="service-card">
-<div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1606152536277-5aa1fd33e250?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
-<div class="service-content">
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1606152536277-5aa1fd33e250?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-content">
                         <h3>专业音频设备调试</h3>
                         <p>资深音响工程师提供专业级音频系统调试与优化，包括调音台、处理器和系统均衡</p>
                         <div class="price">$150/小时起</div>
@@ -526,12 +526,12 @@ padding: 60px 0;
                         <p data-i18n="audioServices.service1.description">资深音响工程师提供专业级音频系统调试与优化，包括调音台、处理器和系统均衡</p>
                         <div class="price" data-i18n="audioServices.service1.price">$150/小时起</div>
                         <a href="#contact" class="btn" data-i18n="audioServices.button">预约服务</a>
-</div>
-</div>
+                    </div>
+                </div>
 
-<div class="service-card">
-<div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
-<div class="service-content">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-content">
                         <h3>酒吧音响系统</h3>
                         <p>商业酒吧音响设计与安装，打造完美音效环境，提升顾客体验</p>
                         <div class="price">根据需求报价</div>
@@ -540,12 +540,12 @@ padding: 60px 0;
                         <p data-i18n="audioServices.service2.description">商业酒吧音响设计与安装，打造完美音效环境，提升顾客体验</p>
                         <div class="price" data-i18n="audioServices.service2.price">根据需求报价</div>
                         <a href="#contact" class="btn" data-i18n="audioServices.button">预约服务</a>
-</div>
-</div>
+                    </div>
+                </div>
 
-<div class="service-card">
-<div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
-<div class="service-content">
+                <div class="service-card">
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
+                    <div class="service-content">
                         <h3>现场音响调试</h3>
                         <p>演出、活动现场专业音响调试，确保最佳音质效果</p>
                         <div class="price">根据需求报价</div>
@@ -554,23 +554,23 @@ padding: 60px 0;
                         <p data-i18n="audioServices.service3.description">演出、活动现场专业音响调试，确保最佳音质效果</p>
                         <div class="price" data-i18n="audioServices.service3.price">根据需求报价</div>
                         <a href="#contact" class="btn" data-i18n="audioServices.button">预约服务</a>
-</div>
-</div>
-</div>
-</div>
-</section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- 产品商店入口 -->
-<section class="product-entry" id="products">
-<div class="container">
-<div class="section-title">
+    <!-- 产品商店入口 -->
+    <section class="product-entry" id="products">
+        <div class="container">
+            <div class="section-title">
                 <h2>产品商店</h2>
                 <p>精选优质影音设备，专业音响，家庭影院套装，KTV系统</p>
                 <h2 data-i18n="products.title">产品商店</h2>
                 <p data-i18n="products.description">精选优质影音设备，专业音响，家庭影院套装，KTV系统</p>
-</div>
+            </div>
 
-<div class="product-entry-content">
+            <div class="product-entry-content">
                 <p>我们提供各类专业影音设备，包括专业音响、点歌机、投影设备及完整家庭影院解决方案。所有产品均经过专业测试，确保最佳性能。</p>
                 <p>支持PayID付款，下单后快速发货，悉尼地区提供专业安装服务。</p>
                 <p data-i18n="products.intro1">我们提供各类专业影音设备，包括专业音响、点歌机、投影设备及完整家庭影院解决方案。所有产品均经过专业测试，确保最佳性能。</p>
@@ -578,194 +578,194 @@ padding: 60px 0;
 
                 <a href="products.html" class="btn product-entry-btn">浏览所有产品</a>
                 <a href="products.html" class="btn product-entry-btn" data-i18n="products.browseButton">浏览所有产品</a>
-</div>
-</div>
-</section>
+            </div>
+        </div>
+    </section>
 
-<!-- 专业设备 -->
-<section class="equipment-section" id="equipment">
-<div class="container">
-<div class="section-title">
+    <!-- 专业设备 -->
+    <section class="equipment-section" id="equipment">
+        <div class="container">
+            <div class="section-title">
                 <h2>专业设备支持</h2>
                 <p>我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与优化服务</p>
                 <h2 data-i18n="equipment.title">专业设备支持</h2>
                 <p data-i18n="equipment.description">我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与优化服务</p>
-</div>
+            </div>
 
-<table class="equipment-table">
-<tr>
+            <table class="equipment-table">
+                <tr>
                     <th>品牌系列</th>
                     <th>特点与应用场景</th>
                     <th data-i18n="equipment.brand">品牌系列</th>
                     <th data-i18n="equipment.features">特点与应用场景</th>
-</tr>
-<tr>
-<td class="brand-header" colspan="2">雅马哈 Yamaha</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
+                    <td class="brand-header" colspan="2">雅马哈 Yamaha</td>
+                </tr>
+                <tr>
                     <td>DM7、RIVAGE PM系列</td>
                     <td>高端现场扩声调音台，适用于大型演出、剧院等高要求场合</td>
                     <td data-i18n="equipment.yamaha1.model">DM7、RIVAGE PM系列</td>
                     <td data-i18n="equipment.yamaha1.desc">高端现场扩声调音台，适用于大型演出、剧院等高要求场合</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>TF、QL、CL系列</td>
                     <td>中型数字调音台，适用于现场演出、广播电视、工程安装等场合</td>
                     <td data-i18n="equipment.yamaha2.model">TF、QL、CL系列</td>
                     <td data-i18n="equipment.yamaha2.desc">中型数字调音台，适用于现场演出、广播电视、工程安装等场合</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>MG系列</td>
                     <td>模拟调音台，适用于中小型场所、排练室和固定安装</td>
                     <td data-i18n="equipment.yamaha3.model">MG系列</td>
                     <td data-i18n="equipment.yamaha3.desc">模拟调音台，适用于中小型场所、排练室和固定安装</td>
-</tr>
-<tr>
-<td class="brand-header" colspan="2">Allen & Heath</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
+                    <td class="brand-header" colspan="2">Allen & Heath</td>
+                </tr>
+                <tr>
                     <td>dLive系列</td>
                     <td>顶级数字调音系统，适用于大型演出、巡演和高要求场所</td>
                     <td data-i18n="equipment.allen1.model">dLive系列</td>
                     <td data-i18n="equipment.allen1.desc">顶级数字调音系统，适用于大型演出、巡演和高要求场所</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>Avantis系列</td>
                     <td>新一代数字调音台，结合了dLive和SQ系列的优点</td>
                     <td data-i18n="equipment.allen2.model">Avantis系列</td>
                     <td data-i18n="equipment.allen2.desc">新一代数字调音台，结合了dLive和SQ系列的优点</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>SQ系列</td>
                     <td>中型数字调音台，适用于现场演出、教堂、剧院等场所</td>
                     <td data-i18n="equipment.allen3.model">SQ系列</td>
                     <td data-i18n="equipment.allen3.desc">中型数字调音台，适用于现场演出、教堂、剧院等场所</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>QU系列</td>
                     <td>紧凑型数字调音台，适用于中小型场地和固定安装</td>
                     <td data-i18n="equipment.allen4.model">QU系列</td>
                     <td data-i18n="equipment.allen4.desc">紧凑型数字调音台，适用于中小型场地和固定安装</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>ZED系列</td>
                     <td>模拟调音台，适用于酒吧、KTV、排练室等场所</td>
                     <td data-i18n="equipment.allen5.model">ZED系列</td>
                     <td data-i18n="equipment.allen5.desc">模拟调音台，适用于酒吧、KTV、排练室等场所</td>
-</tr>
-<tr>
-<td class="brand-header" colspan="2">Midas</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
+                    <td class="brand-header" colspan="2">Midas</td>
+                </tr>
+                <tr>
                     <td>Midas M32</td>
                     <td>适用于现场和录音室的数字调音台，提供专业音质和可靠性</td>
                     <td data-i18n="equipment.midas1.model">Midas M32</td>
                     <td data-i18n="equipment.midas1.desc">适用于现场和录音室的数字调音台，提供专业音质和可靠性</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>Midas WING</td>
                     <td>48路数字调音台，适用于大型演出和高端制作</td>
                     <td data-i18n="equipment.midas2.model">Midas WING</td>
                     <td data-i18n="equipment.midas2.desc">48路数字调音台，适用于大型演出和高端制作</td>
-</tr>
-<tr>
-<td class="brand-header" colspan="2">Behringer 百灵达</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
+                    <td class="brand-header" colspan="2">Behringer 百灵达</td>
+                </tr>
+                <tr>
                     <td>Behringer X32</td>
                     <td>数字调音台，适用于现场演出和工作室，性价比高</td>
                     <td data-i18n="equipment.behringer1.model">Behringer X32</td>
                     <td data-i18n="equipment.behringer1.desc">数字调音台，适用于现场演出和工作室，性价比高</td>
-</tr>
-<tr>
+                </tr>
+                <tr>
                     <td>Behringer XAir</td>
                     <td>系列数字调音台，适用于移动演出和固定安装</td>
                     <td data-i18n="equipment.behringer2.model">Behringer XAir</td>
                     <td data-i18n="equipment.behringer2.desc">系列数字调音台，适用于移动演出和固定安装</td>
-</tr>
-</table>
-</div>
-</section>
+                </tr>
+            </table>
+        </div>
+    </section>
 
-<!-- 客户评价 -->
-<section class="testimonials" id="testimonials">
-<div class="container">
-<div class="section-title">
+    <!-- 客户评价 -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
                 <h2>客户评价</h2>
                 <p>感谢悉尼各地客户对我们服务的认可与支持</p>
                 <h2 data-i18n="testimonials.title">客户评价</h2>
                 <p data-i18n="testimonials.description">感谢悉尼各地客户对我们服务的认可与支持</p>
-</div>
+            </div>
 
-<div class="testimonials-grid">
-<div class="testimonial-card">
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
                     <p class="testimonial-text">"Epping安装客户评价：收费合理，技术专业。投影安装完效果非常清晰，调试得很到位，我非常满意。"</p>
                     <div class="testimonial-author">张先生</div>
                     <div class="testimonial-location">Epping</div>
                     <p class="testimonial-text" data-i18n="testimonials.testimonial1.text">"Epping安装客户评价：收费合理，技术专业。投影安装完效果非常清晰，调试得很到位，我非常满意。"</p>
                     <div class="testimonial-author" data-i18n="testimonials.testimonial1.author">张先生</div>
                     <div class="testimonial-location" data-i18n="testimonials.testimonial1.location">Epping</div>
-</div>
+                </div>
 
-<div class="testimonial-card">
+                <div class="testimonial-card">
                     <p class="testimonial-text">"我在Pymble住，海淘买了K歌音响，但话筒总是啸叫，Brian过来一下子就找到了问题所在，直接帮我解决了啸叫问题。"</p>
                     <div class="testimonial-author">李女士</div>
                     <div class="testimonial-location">Pymble</div>
                     <p class="testimonial-text" data-i18n="testimonials.testimonial2.text">"我在Pymble住，海淘买了K歌音响，但话筒总是啸叫，Brian过来一下子就找到了问题所在，直接帮我解决了啸叫问题。"</p>
                     <div class="testimonial-author" data-i18n="testimonials.testimonial2.author">李女士</div>
                     <div class="testimonial-location" data-i18n="testimonials.testimonial2.location">Pymble</div>
-</div>
+                </div>
 
-<div class="testimonial-card">
+                <div class="testimonial-card">
                     <p class="testimonial-text">"原来的投影幕布太小了，换了个150寸的幕布，师傅安装得很专业，看电影太爽了，就像在家里拥有了一个小型电影院！"</p>
                     <div class="testimonial-author">王先生</div>
                     <div class="testimonial-location">Burwood</div>
                     <p class="testimonial-text" data-i18n="testimonials.testimonial3.text">"原来的投影幕布太小了，换了个150寸的幕布，师傅安装得很专业，看电影太爽了，就像在家里拥有了一个小型电影院！"</p>
                     <div class="testimonial-author" data-i18n="testimonials.testimonial3.author">王先生</div>
                     <div class="testimonial-location" data-i18n="testimonials.testimonial3.location">Burwood</div>
-</div>
+                </div>
 
-<div class="testimonial-card">
+                <div class="testimonial-card">
                     <p class="testimonial-text">"专业团队为我们酒吧设计了完整的音响系统，现在音质效果提升明显，顾客反馈非常好，生意也更好了！"</p>
                     <div class="testimonial-author">James</div>
                     <div class="testimonial-location">Chatswood酒吧经理</div>
                     <p class="testimonial-text" data-i18n="testimonials.testimonial4.text">"专业团队为我们酒吧设计了完整的音响系统，现在音质效果提升明显，顾客反馈非常好，生意也更好了！"</p>
                     <div class="testimonial-author" data-i18n="testimonials.testimonial4.author">James</div>
                     <div class="testimonial-location" data-i18n="testimonials.testimonial4.location">Chatswood酒吧经理</div>
-</div>
+                </div>
 
-<div class="testimonial-card">
+                <div class="testimonial-card">
                     <p class="testimonial-text">"师傅很专业，不仅安装调试到位，还根据我的房间声学特点做了优化，现在看电影的沉浸感特别强，物超所值！"</p>
                     <div class="testimonial-author">刘先生</div>
                     <div class="testimonial-location">Hurstville</div>
                     <p class="testimonial-text" data-i18n="testimonials.testimonial5.text">"师傅很专业，不仅安装调试到位，还根据我的房间声学特点做了优化，现在看电影的沉浸感特别强，物超所值！"</p>
                     <div class="testimonial-author" data-i18n="testimonials.testimonial5.author">刘先生</div>
                     <div class="testimonial-location" data-i18n="testimonials.testimonial5.location">Hurstville</div>
-</div>
+                </div>
 
-<div class="testimonial-card">
+                <div class="testimonial-card">
                     <p class="testimonial-text">"为我们公司安装了完整的视频会议系统，画面清晰，声音传输稳定，远程会议效果大大提升，专业团队就是不一样！"</p>
                     <div class="testimonial-author">Sarah</div>
                     <div class="testimonial-location">Sydney CBD</div>
                     <p class="testimonial-text" data-i18n="testimonials.testimonial6.text">"为我们公司安装了完整的视频会议系统，画面清晰，声音传输稳定，远程会议效果大大提升，专业团队就是不一样！"</p>
                     <div class="testimonial-author" data-i18n="testimonials.testimonial6.author">Sarah</div>
                     <div class="testimonial-location" data-i18n="testimonials.testimonial6.location">Sydney CBD</div>
-</div>
-</div>
-</div>
-</section>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- 联系我们 -->
-<section class="contact-section" id="contact">
-<div class="container">
-<div class="section-title">
+    <!-- 联系我们 -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-title">
                 <h2>联系我们</h2>
                 <p>我们的专业团队随时为您提供咨询与上门勘察服务</p>
                 <h2 data-i18n="contact.title">联系我们</h2>
                 <p data-i18n="contact.description">我们的专业团队随时为您提供咨询与上门勘察服务</p>
-</div>
+            </div>
 
-<div class="contact-info">
+            <div class="contact-info">
                 <p>电话: <strong>0432 869 555</strong></p>
                 <p>邮箱: <strong>Info@echospace.com.au</strong></p>
                 <p>服务范围: 悉尼全市及周边地区</p>
@@ -775,17 +775,17 @@ padding: 60px 0;
 
                 <a href="tel:0432869555" class="btn">立即致电咨询</a>
                 <a href="tel:0432869555" class="btn" data-i18n="contact.button">立即致电咨询</a>
-</div>
-</div>
-</section>
+            </div>
+        </div>
+    </section>
 
-<!-- 页脚 -->
-<footer>
-<div class="container">
-<div class="footer-content">
-<a href="#" class="logo">ECHO<span>SPACE</span></a>
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo">ECHO<span>SPACE</span></a>
 
-<ul class="footer-links">
+                <ul class="footer-links">
                     <li><a href="#home-theater">家庭影院</a></li>
                     <li><a href="#audio-services">音频服务</a></li>
                     <!-- 更新页脚中的产品商店链接 -->
@@ -799,15 +799,15 @@ padding: 60px 0;
                     <li><a href="#equipment" data-i18n="nav.equipment">专业设备</a></li>
                     <li><a href="#testimonials" data-i18n="nav.testimonials">客户评价</a></li>
                     <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
-</ul>
+                </ul>
 
                 <p>&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
                 <p data-i18n="footer.copyright">&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
-</div>
-</div>
-</footer>
+            </div>
+        </div>
+    </footer>
 
-<script>
+    <script>
         // 语言切换功能
         document.getElementById('zh-btn').addEventListener('click', function() {
             this.classList.add('active');
@@ -1077,8 +1077,8 @@ padding: 60px 0;
                     } else {
                         element.innerHTML = translations[lang][key];
                     }
-}
-});
+                }
+            });
         }
         
         // 平滑滚动
@@ -1103,7 +1103,7 @@ padding: 60px 0;
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function() {
             initSmoothScroll();
-});
-</script>
+        });
+    </script>
 </body>
 </html>
