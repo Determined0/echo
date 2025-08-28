@@ -405,45 +405,16 @@
             border-radius: 4px;
             font-size: 1rem;
         }
-        
-        /* 订单查看区域 */
-        .orders-section {
-            padding: 40px 0;
-            background-color: #f8f9fa;
+
+        /* 成功消息样式 */
+        .success-message {
             display: none;
-        }
-        
-        .orders-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        
-        .orders-table th, .orders-table td {
+            background: #d4edda;
+            color: #155724;
             padding: 15px;
-            text-align: left;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .orders-table th {
-            background-color: var(--primary);
-            color: white;
-            font-weight: 500;
-        }
-        
-        .orders-table tr:hover {
-            background-color: #f5f5f5;
-        }
-        
-        .admin-controls {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            align-items: center;
+            border-radius: 5px;
+            margin: 20px 0;
+            text-align: center;
         }
         
         /* 响应式设计 */
@@ -475,11 +446,6 @@
                 margin: 10% auto;
                 padding: 20px;
             }
-            
-            .orders-table {
-                display: block;
-                overflow-x: auto;
-            }
         }
     </style>
 </head>
@@ -497,7 +463,6 @@
                 <li><a href="index.html#equipment">专业设备</a></li>
                 <li><a href="index.html#testimonials">客户评价</a></li>
                 <li><a href="index.html#contact">联系我们</a></li>
-                <li><a href="#" id="view-orders-link">查看订单</a></li>
             </ul>
             
             <div class="language-switch">
@@ -516,53 +481,22 @@
     <section class="product-section">
         <div class="container">
             <div class="section-title">
-                <h1 data-i18n="pageTitle">产品商店</h1>
-                <p data-i18n="pageSubtitle">精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货</p>
+                <h1>产品商店</h1>
+                <p>精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货</p>
             </div>
             
             <!-- 分类筛选 -->
             <div class="category-filter">
-                <button class="filter-btn active" data-filter="all" data-i18n="allProducts">全部产品</button>
-                <button class="filter-btn" data-filter="speaker" data-i18n="speakers">专业音响</button>
-                <button class="filter-btn" data-filter="karaoke" data-i18n="karaoke">KTV系统</button>
-                <button class="filter-btn" data-filter="projector" data-i18n="projectors">投影设备</button>
-                <button class="filter-btn" data-filter="package" data-i18n="packages">套装方案</button>
+                <button class="filter-btn active" data-filter="all">全部产品</button>
+                <button class="filter-btn" data-filter="speaker">专业音响</button>
+                <button class="filter-btn" data-filter="karaoke">KTV系统</button>
+                <button class="filter-btn" data-filter="projector">投影设备</button>
+                <button class="filter-btn" data-filter="package">套装方案</button>
             </div>
             
             <div class="products-grid" id="products-container">
                 <!-- 商品将通过JavaScript动态添加 -->
             </div>
-        </div>
-    </section>
-
-    <!-- 订单查看区域 -->
-    <section class="orders-section" id="orders-section">
-        <div class="container">
-            <div class="section-title">
-                <h1 data-i18n="orderHistory">订单历史</h1>
-                <p data-i18n="orderHistoryDesc">查看所有客户提交的订单信息</p>
-            </div>
-            
-            <div class="admin-controls">
-                <button class="btn" id="back-to-products" data-i18n="backToProducts">返回产品页面</button>
-                <button class="btn" id="export-orders" data-i18n="exportOrders">导出订单数据</button>
-            </div>
-            
-            <table class="orders-table">
-                <thead>
-                    <tr>
-                        <th data-i18n="orderNumber">订单号</th>
-                        <th data-i18n="customerName">客户姓名</th>
-                        <th data-i18n="product">产品</th>
-                        <th data-i18n="price">价格</th>
-                        <th data-i18n="orderDate">订单日期</th>
-                        <th data-i18n="status">状态</th>
-                    </tr>
-                </thead>
-                <tbody id="orders-table-body">
-                    <!-- 订单数据将通过JavaScript动态添加 -->
-                </tbody>
-            </table>
         </div>
     </section>
 
@@ -573,12 +507,12 @@
                 <a href="index.html" class="logo">ECHO<span>SPACE</span></a>
                 
                 <ul class="footer-links">
-                    <li><a href="index.html#home-theater" data-i18n="homeTheater">家庭影院</a></li>
-                    <li><a href="index.html#audio-services" data-i18n="audioServices">音频服务</a></li>
-                    <li><a href="products.html" data-i18n="products">产品商店</a></li>
-                    <li><a href="index.html#equipment" data-i18n="equipment">专业设备</a></li>
-                    <li><a href="index.html#testimonials" data-i18n="testimonials">客户评价</a></li>
-                    <li><a href="index.html#contact" data-i18n="contact">联系我们</a></li>
+                    <li><a href="index.html#home-theater">家庭影院</a></li>
+                    <li><a href="index.html#audio-services">音频服务</a></li>
+                    <li><a href="products.html">产品商店</a></li>
+                    <li><a href="index.html#equipment">专业设备</a></li>
+                    <li><a href="index.html#testimonials">客户评价</a></li>
+                    <li><a href="index.html#contact">联系我们</a></li>
                 </ul>
                 
                 <p>&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
@@ -590,157 +524,73 @@
     <div id="purchase-modal" class="modal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
-            <h2 id="modal-product-name" data-i18n="productName">商品名称</h2>
+            <h2 id="modal-product-name">商品名称</h2>
             
             <div class="order-info">
-                <h3 data-i18n="orderInfo">订单信息</h3>
-                <p data-i18n="orderNumber">订单号: <strong id="order-number">EC-123456</strong></p>
-                <p data-i18n="product">商品: <span id="product-details">NH 12寸专业音响</span></p>
-                <p data-i18n="price">价格: <strong id="product-price">$1299</strong></p>
+                <h3>订单信息</h3>
+                <p>订单号: <strong id="order-number">EC-123456</strong></p>
+                <p>商品: <span id="product-details">NH 12寸专业音响</span></p>
+                <p>价格: <strong id="product-price">$1299</strong></p>
             </div>
             
             <div class="payid-info">
-                <h3 data-i18n="payidPayment">PayID付款</h3>
-                <p data-i18n="payidInstruction">请使用PayID向以下账户付款:</p>
+                <h3>PayID付款</h3>
+                <p>请使用PayID向以下账户付款:</p>
                 <p><strong>0432 869 555</strong></p>
-                <p data-i18n="payidNote">付款时请备注订单号: <strong id="payid-order-number">EC-123456</strong></p>
+                <p>付款时请备注订单号: <strong id="payid-order-number">EC-123456</strong></p>
             </div>
             
             <form id="customer-info-form">
                 <div class="form-group">
-                    <label for="customer-name" data-i18n="name">姓名</label>
+                    <label for="customer-name">姓名</label>
                     <input type="text" id="customer-name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="customer-phone" data-i18n="phone">电话</label>
+                    <label for="customer-phone">电话</label>
                     <input type="tel" id="customer-phone" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="customer-email" data-i18n="email">邮箱</label>
+                    <label for="customer-email">邮箱</label>
                     <input type="email" id="customer-email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="customer-address" data-i18n="deliveryAddress">送货地址</label>
+                    <label for="customer-address">送货地址</label>
                     <textarea id="customer-address" rows="3" required></textarea>
                 </div>
                 
                 <div class="form-group">
-                    <label for="delivery-time" data-i18n="preferredDelivery">期望送货时间</label>
+                    <label for="delivery-time">期望送货时间</label>
                     <select id="delivery-time">
-                        <option value="anytime" data-i18n="anytime">任何时间</option>
-                        <option value="weekday" data-i18n="weekdays">工作日</option>
-                        <option value="weekend" data-i18n="weekends">周末</option>
+                        <option value="anytime">任何时间</option>
+                        <option value="weekday">工作日</option>
+                        <option value="weekend">周末</option>
                     </select>
                 </div>
                 
                 <div class="form-group">
-                    <label for="payment-proof" data-i18n="paymentScreenshot">付款截图 (可选)</label>
+                    <label for="payment-proof">付款截图 (可选)</label>
                     <input type="file" id="payment-proof" accept="image/*">
                 </div>
                 
-                <button type="submit" class="btn btn-block" data-i18n="confirmOrder">确认订单</button>
+                <button type="submit" class="btn btn-block">确认订单</button>
             </form>
+
+            <div id="success-message" class="success-message">
+                订单已提交！我们将很快与您联系确认详情。
+            </div>
         </div>
     </div>
 
     <script>
-        // 多语言支持
-        const translations = {
-            'zh': {
-                'pageTitle': '产品商店',
-                'pageSubtitle': '精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货',
-                'allProducts': '全部产品',
-                'speakers': '专业音响',
-                'karaoke': 'KTV系统',
-                'projectors': '投影设备',
-                'packages': '套装方案',
-                'orderHistory': '订单历史',
-                'orderHistoryDesc': '查看所有客户提交的订单信息',
-                'backToProducts': '返回产品页面',
-                'exportOrders': '导出订单数据',
-                'orderNumber': '订单号',
-                'customerName': '客户姓名',
-                'product': '产品',
-                'price': '价格',
-                'orderDate': '订单日期',
-                'status': '状态',
-                'productName': '商品名称',
-                'orderInfo': '订单信息',
-                'payidPayment': 'PayID付款',
-                'payidInstruction': '请使用PayID向以下账户付款:',
-                'payidNote': '付款时请备注订单号:',
-                'name': '姓名',
-                'phone': '电话',
-                'email': '邮箱',
-                'deliveryAddress': '送货地址',
-                'preferredDelivery': '期望送货时间',
-                'anytime': '任何时间',
-                'weekdays': '工作日',
-                'weekends': '周末',
-                'paymentScreenshot': '付款截图 (可选)',
-                'confirmOrder': '确认订单',
-                'homeTheater': '家庭影院',
-                'audioServices': '音频服务',
-                'products': '产品商店',
-                'equipment': '专业设备',
-                'testimonials': '客户评价',
-                'contact': '联系我们',
-                'buyNow': '立即购买'
-            },
-            'en': {
-                'pageTitle': 'Product Store',
-                'pageSubtitle': 'Premium audio and video equipment, PayID payment supported, ship after payment with order number noted',
-                'allProducts': 'All Products',
-                'speakers': 'Professional Speakers',
-                'karaoke': 'KTV Systems',
-                'projectors': 'Projection Equipment',
-                'packages': 'Package Solutions',
-                'orderHistory': 'Order History',
-                'orderHistoryDesc': 'View all customer submitted order information',
-                'backToProducts': 'Back to Products',
-                'exportOrders': 'Export Order Data',
-                'orderNumber': 'Order Number',
-                'customerName': 'Customer Name',
-                'product': 'Product',
-                'price': 'Price',
-                'orderDate': 'Order Date',
-                'status': 'Status',
-                'productName': 'Product Name',
-                'orderInfo': 'Order Information',
-                'payidPayment': 'PayID Payment',
-                'payidInstruction': 'Please use PayID to pay to the following account:',
-                'payidNote': 'Please note the order number when paying:',
-                'name': 'Name',
-                'phone': 'Phone',
-                'email': 'Email',
-                'deliveryAddress': 'Delivery Address',
-                'preferredDelivery': 'Preferred Delivery Time',
-                'anytime': 'Anytime',
-                'weekdays': 'Weekdays',
-                'weekends': 'Weekends',
-                'paymentScreenshot': 'Payment Screenshot (Optional)',
-                'confirmOrder': 'Confirm Order',
-                'homeTheater': 'Home Theater',
-                'audioServices': 'Audio Services',
-                'products': 'Products',
-                'equipment': 'Equipment',
-                'testimonials': 'Testimonials',
-                'contact': 'Contact Us',
-                'buyNow': 'Buy Now'
-            }
-        };
-
         // 商品数据
         const products = [
             {
                 id: 1,
                 name: "NH 12寸专业音响",
-                name_en: "NH 12-inch Professional Speaker",
                 description: "专业级12寸音响，适合KTV、演出和家庭影院使用，提供卓越音质和强劲低音",
-                description_en: "Professional 12-inch speaker, suitable for KTV, performances and home theater use, providing excellent sound quality and strong bass",
                 price: 1299,
                 originalPrice: 1599,
                 image: "https://raw.githubusercontent.com/Determined0/echo/main/images/nh12.png",
@@ -751,21 +601,12 @@
                     "频率响应: 45Hz-20kHz",
                     "灵敏度: 98dB"
                 ],
-                features_en: [
-                    "12-inch woofer, 3-inch tweeter",
-                    "Power: 300W RMS, 600W peak",
-                    "Frequency response: 45Hz-20kHz",
-                    "Sensitivity: 98dB"
-                ],
-                badge: "热卖",
-                badge_en: "Hot"
+                badge: "热卖"
             },
             {
                 id: 2,
                 name: "Sun shine国际版点歌机",
-                name_en: "Sun shine International Karaoke Machine",
                 description: "海量中文曲库，实时在线更新中文歌曲，更适合澳洲本地客户使用",
-                description_en: "Massive Chinese song library, real-time online updates of Chinese songs, more suitable for Australian local customers",
                 price: 899,
                 originalPrice: 1099,
                 image: "https://raw.githubusercontent.com/Determined0/echo/main/images/sunshine%20karaoke%20machine.png",
@@ -776,21 +617,12 @@
                     "2TB硬盘存储",
                     "支持1080P高清输出"
                 ],
-                features_en: [
-                    "Over 200,000 Chinese songs in the cloud",
-                    "Support mobile phone and iPad song selection",
-                    "2TB hard drive storage",
-                    "Support 1080P HD output"
-                ],
-                badge: "新品",
-                badge_en: "New"
+                badge: "新品"
             },
             {
                 id: 3,
                 name: "投影支架",
-                name_en: "Projector Mount",
                 description: "高质量投影仪支架，适用于各种天花板和墙壁安装，稳固耐用",
-                description_en: "High-quality projector mount, suitable for various ceiling and wall installations, stable and durable",
                 price: 388,
                 image: "https://raw.githubusercontent.com/Determined0/echo/main/images/projector%20mount.png",
                 category: "projector",
@@ -799,20 +631,12 @@
                     "360度旋转调节",
                     "适用于大多数投影仪型号",
                     "安装简单方便"
-                ],
-                features_en: [
-                    "Load capacity: maximum 15kg",
-                    "360-degree rotation adjustment",
-                    "Suitable for most projector models",
-                    "Easy installation"
                 ]
             },
             {
                 id: 4,
                 name: "家庭专业音响K歌套装",
-                name_en: "Home Professional Audio Karaoke Package",
                 description: "完整家庭KTV解决方案，包含专业音响、麦克风、点歌机和效果器",
-                description_en: "Complete home KTV solution, including professional speakers, microphones, karaoke machine and effects processor",
                 price: 7500,
                 originalPrice: 8999,
                 image: "https://raw.githubusercontent.com/Determined0/echo/main/images/hometheater01.jpg",
@@ -824,22 +648,12 @@
                     "专业音频效果器",
                     "免费安装指导"
                 ],
-                features_en: [
-                    "2 x 10-inch professional speakers",
-                    "Dual wireless microphones",
-                    "Karaoke machine with 30,000 songs",
-                    "Professional audio effects processor",
-                    "Free installation guidance"
-                ],
-                badge: "套餐优惠",
-                badge_en: "Package Deal"
+                badge: "套餐优惠"
             },
             {
                 id: 5,
                 name: "影音房整体方案设计",
-                name_en: "Audio-Visual Room Overall Solution Design",
                 description: "专业影音室设计方案，包括声学处理、设备选型和系统集成",
-                description_en: "Professional audio-visual room design solution, including acoustic treatment, equipment selection and system integration",
                 price: 850,
                 image: "https://raw.githubusercontent.com/Determined0/echo/main/images/Room%20Design%20Solution.png",
                 category: "package",
@@ -849,21 +663,12 @@
                     "3D效果图设计",
                     "安装指导服务",
                     "后期调试支持"
-                ],
-                features_en: [
-                    "Professional acoustic evaluation",
-                    "Equipment selection advice",
-                    "3D rendering design",
-                    "Installation guidance service",
-                    "Post-installation debugging support"
                 ]
             },
             {
                 id: 6,
                 name: "专业无线麦克风套装",
-                name_en: "Professional Wireless Microphone Set",
                 description: "UHF无线麦克风，抗干扰强，音质清晰，适合KTV和演出使用",
-                description_en: "UHF wireless microphone, strong anti-interference, clear sound quality, suitable for KTV and performance use",
                 price: 699,
                 originalPrice: 899,
                 image: "https://images.unsplash.com/photo-1596726895343-5b2f2b1b8393?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
@@ -874,21 +679,12 @@
                     "电池续航: 8小时",
                     "一键静音和频率调节"
                 ],
-                features_en: [
-                    "UHF frequency band, strong anti-interference",
-                    "Effective distance: 50 meters",
-                    "Battery life: 8 hours",
-                    "One-key mute and frequency adjustment"
-                ],
-                badge: "热卖",
-                badge_en: "Hot"
+                badge: "热卖"
             },
             {
                 id: 7,
                 name: "120寸电动投影幕布",
-                name_en: "120-inch Electric Projection Screen",
                 description: "高清白塑电动幕布，16:9比例，遥控控制，安装方便",
-                description_en: "HD white plastic electric screen, 16:9 ratio, remote control, easy installation",
                 price: 1499,
                 originalPrice: 1649,
                 image: "https://images.unsplash.com/photo-1591892155730-7aafc6e31ef0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
@@ -898,20 +694,12 @@
                     "材质: 高清白塑",
                     "电动遥控升降",
                     "内置安装支架"
-                ],
-                features_en: [
-                    "Size: 120-inch (16:9)",
-                    "Material: HD white plastic",
-                    "Electric remote control lifting",
-                    "Built-in installation bracket"
                 ]
             },
             {
                 id: 8,
                 name: "8通道专业混音器",
-                name_en: "8-Channel Professional Mixer",
                 description: "数字混音器，支持多种音效，适合小型演出和KTV系统",
-                description_en: "Digital mixer, supports multiple sound effects, suitable for small performances and KTV systems",
                 price: 1299,
                 image: "https://images.unsplash.com/photo-1606152536277-5aa1fd33e250?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
                 category: "speaker",
@@ -920,12 +708,6 @@
                     "内置数字效果器",
                     "USB音频接口",
                     "iPad控制支持"
-                ],
-                features_en: [
-                    "8 XLR/TRS combo inputs",
-                    "Built-in digital effects",
-                    "USB audio interface",
-                    "iPad control support"
                 ]
             }
         ];
@@ -939,10 +721,30 @@
         
         // 发送邮件到指定邮箱
         function sendOrderEmail(orderData) {
-            // 在实际应用中，这里应该调用后端API发送邮件
-            // 由于这是前端演示，我们使用mailto链接作为临时解决方案
-            const subject = `新订单: ${orderData.orderNumber}`;
-            const body = `
+            // 使用EmailJS发送邮件
+            emailjs.init("RldCWG_PidpWsf4Qe"); // 需要替换为您的EmailJS公钥
+            
+            const templateParams = {
+                to_email: "info@echospace.com.au",
+                order_number: orderData.orderNumber,
+                product_name: orderData.product.name,
+                product_price: orderData.product.price,
+                customer_name: orderData.customer.name,
+                customer_phone: orderData.customer.phone,
+                customer_email: orderData.customer.email,
+                customer_address: orderData.customer.address,
+                delivery_time: orderData.customer.deliveryTime,
+                order_date: new Date(orderData.timestamp).toLocaleString()
+            };
+            
+            emailjs.send('echospace_service', 'order_template', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    // 如果EmailJS发送失败，使用mailto作为备用方案
+                    const subject = `新订单: ${orderData.orderNumber}`;
+                    const body = `
 订单详情:
 订单号: ${orderData.orderNumber}
 产品: ${orderData.product.name}
@@ -953,41 +755,11 @@
 地址: ${orderData.customer.address}
 送货时间: ${orderData.customer.deliveryTime}
 订单时间: ${new Date(orderData.timestamp).toLocaleString()}
-            `;
-            
-            const mailtoLink = `mailto:info@echospace.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
-            
-            // 在实际应用中，应该使用以下代码调用后端API:
-            /*
-            fetch('/api/send-order-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(orderData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Email sent successfully:', data);
-            })
-            .catch((error) => {
-                console.error('Error sending email:', error);
-            });
-            */
-        }
-        
-        // 保存订单到本地存储
-        function saveOrder(orderData) {
-            let orders = JSON.parse(localStorage.getItem('echospace_orders')) || [];
-            orders.push(orderData);
-            localStorage.setItem('echospace_orders', JSON.stringify(orders));
-            return orders;
-        }
-        
-        // 从本地存储获取订单
-        function getOrders() {
-            return JSON.parse(localStorage.getItem('echospace_orders')) || [];
+                    `;
+                    
+                    const mailtoLink = `mailto:info@echospace.com.au?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+                    window.location.href = mailtoLink;
+                });
         }
         
         // 显示购买模态框
@@ -995,15 +767,16 @@
             const modal = document.getElementById('purchase-modal');
             const orderNumber = generateOrderNumber();
             
-            const productName = currentLanguage === 'zh' ? product.name : product.name_en;
-            document.getElementById('modal-product-name').textContent = productName;
+            document.getElementById('modal-product-name').textContent = product.name;
             document.getElementById('order-number').textContent = orderNumber;
             document.getElementById('payid-order-number').textContent = orderNumber;
-            document.getElementById('product-details').textContent = productName;
+            document.getElementById('product-details').textContent = product.name;
             document.getElementById('product-price').textContent = '$' + product.price;
             
-            // 重置表单
+            // 重置表单和成功消息
             document.getElementById('customer-info-form').reset();
+            document.getElementById('success-message').style.display = 'none';
+            document.getElementById('customer-info-form').style.display = 'block';
             
             modal.style.display = 'block';
             
@@ -1013,96 +786,6 @@
                 orderNumber: orderNumber,
                 timestamp: new Date().toISOString()
             };
-        }
-        
-        // 显示订单查看区域
-        function showOrdersSection() {
-            document.querySelector('.product-section').style.display = 'none';
-            document.getElementById('orders-section').style.display = 'block';
-            renderOrdersTable();
-        }
-        
-        // 隐藏订单查看区域
-        function hideOrdersSection() {
-            document.querySelector('.product-section').style.display = 'block';
-            document.getElementById('orders-section').style.display = 'none';
-        }
-        
-        // 渲染订单表格
-        function renderOrdersTable() {
-            const orders = getOrders();
-            const tbody = document.getElementById('orders-table-body');
-            tbody.innerHTML = '';
-            
-            if (orders.length === 0) {
-                const tr = document.createElement('tr');
-                tr.innerHTML = `<td colspan="6" style="text-align: center;">${currentLanguage === 'zh' ? '暂无订单数据' : 'No order data available'}</td>`;
-                tbody.appendChild(tr);
-                return;
-            }
-            
-            orders.forEach(order => {
-                const tr = document.createElement('tr');
-                const productName = currentLanguage === 'zh' ? order.product.name : order.product.name_en;
-                const orderDate = new Date(order.timestamp).toLocaleDateString();
-                
-                tr.innerHTML = `
-                    <td>${order.orderNumber}</td>
-                    <td>${order.customer.name}</td>
-                    <td>${productName}</td>
-                    <td>$${order.product.price}</td>
-                    <td>${orderDate}</td>
-                    <td>${currentLanguage === 'zh' ? '待处理' : 'Pending'}</td>
-                `;
-                tbody.appendChild(tr);
-            });
-        }
-        
-        // 导出订单数据
-        function exportOrders() {
-            const orders = getOrders();
-            if (orders.length === 0) {
-                alert(currentLanguage === 'zh' ? '没有订单数据可导出' : 'No order data to export');
-                return;
-            }
-            
-            let csvContent = "data:text/csv;charset=utf-8,";
-            
-            // 添加表头
-            const headers = currentLanguage === 'zh' 
-                ? ["订单号", "客户姓名", "电话", "邮箱", "地址", "产品", "价格", "订单日期"]
-                : ["Order Number", "Customer Name", "Phone", "Email", "Address", "Product", "Price", "Order Date"];
-            
-            csvContent += headers.join(",") + "\n";
-            
-            // 添加数据行
-            orders.forEach(order => {
-                const productName = currentLanguage === 'zh' ? order.product.name : order.product.name_en;
-                const orderDate = new Date(order.timestamp).toLocaleDateString();
-                
-                const row = [
-                    order.orderNumber,
-                    `"${order.customer.name}"`,
-                    `"${order.customer.phone}"`,
-                    `"${order.customer.email}"`,
-                    `"${order.customer.address}"`,
-                    `"${productName}"`,
-                    order.product.price,
-                    orderDate
-                ];
-                
-                csvContent += row.join(",") + "\n";
-            });
-            
-            // 创建下载链接
-            const encodedUri = encodeURI(csvContent);
-            const link = document.createElement("a");
-            link.setAttribute("href", encodedUri);
-            link.setAttribute("download", `echospace_orders_${new Date().toISOString().split('T')[0]}.csv`);
-            document.body.appendChild(link);
-            
-            link.click();
-            document.body.removeChild(link);
         }
         
         // 初始化产品展示
@@ -1125,8 +808,7 @@
                 
                 let badgeHtml = '';
                 if (product.badge) {
-                    const badgeText = currentLanguage === 'zh' ? product.badge : product.badge_en;
-                    badgeHtml = `<div class="product-badge">${badgeText}</div>`;
+                    badgeHtml = `<div class="product-badge">${product.badge}</div>`;
                 }
                 
                 let originalPriceHtml = '';
@@ -1136,44 +818,39 @@
                 
                 let featuresHtml = '';
                 if (product.features && product.features.length > 0) {
-                    const features = currentLanguage === 'zh' ? product.features : product.features_en;
                     featuresHtml = `<ul class="product-features">`;
-                    features.forEach(feature => {
+                    product.features.forEach(feature => {
                         featuresHtml += `<li>${feature}</li>`;
                     });
                     featuresHtml += `</ul>`;
                 }
-                
-                const productName = currentLanguage === 'zh' ? product.name : product.name_en;
-                const productDesc = currentLanguage === 'zh' ? product.description : product.description_en;
-                const buyText = currentLanguage === 'zh' ? '立即购买' : 'Buy Now';
                 
                 productCard.innerHTML = `
                     <div class="product-img" style="background-image: url('${product.image}');">
                         ${badgeHtml}
                     </div>
                     <div class="product-content">
-                        <h3>${productName}</h3>
-                        <p>${productDesc}</p>
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
                         ${featuresHtml}
                         <div class="price">$${product.price} ${originalPriceHtml}</div>
-                        <button class="btn btn-block buy-btn" data-product-id="${product.id}">${buyText}</button>
+                        <button class="btn btn-block buy-btn" data-product-id="${product.id}">立即购买</button>
                     </div>
                 `;
                 
                 productsContainer.appendChild(productCard);
             });
             
-            // 添加购买按钮事件监听
-            document.querySelectorAll('.buy-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productId = parseInt(this.getAttribute('data-product-id'));
+            // 添加购买按钮事件监听 - 使用事件委托
+            productsContainer.addEventListener('click', function(e) {
+                if (e.target.classList.contains('buy-btn')) {
+                    const productId = parseInt(e.target.getAttribute('data-product-id'));
                     const product = products.find(p => p.id === productId);
                     
                     if (product) {
                         showPurchaseModal(product);
                     }
-                });
+                }
             });
         }
         
@@ -1234,100 +911,34 @@
                     }
                 };
                 
-                // 保存订单
-                saveOrder(orderData);
-                
                 // 发送邮件
                 sendOrderEmail(orderData);
                 
-                alert(currentLanguage === 'zh' 
-                    ? '订单已提交！请通过PayID完成付款，我们收到付款后将立即安排发货。' 
-                    : 'Order submitted! Please complete payment via PayID, we will arrange shipment immediately after receiving payment.');
+                // 显示成功消息
+                document.getElementById('customer-info-form').style.display = 'none';
+                document.getElementById('success-message').style.display = 'block';
                 
-                modal.style.display = 'none';
-            });
-        }
-        
-        // 初始化语言切换
-        function initLanguageSwitch() {
-            const zhBtn = document.getElementById('zh-btn');
-            const enBtn = document.getElementById('en-btn');
-            
-            zhBtn.addEventListener('click', function() {
-                if (currentLanguage !== 'zh') {
-                    currentLanguage = 'zh';
-                    zhBtn.classList.add('active');
-                    enBtn.classList.remove('active');
-                    applyLanguage('zh');
-                    initProducts();
-                }
-            });
-            
-            enBtn.addEventListener('click', function() {
-                if (currentLanguage !== 'en') {
-                    currentLanguage = 'en';
-                    enBtn.classList.add('active');
-                    zhBtn.classList.remove('active');
-                    applyLanguage('en');
-                    initProducts();
-                }
-            });
-        }
-        
-        // 应用语言设置
-        function applyLanguage(lang) {
-            // 更新所有带有data-i18n属性的元素
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.setAttribute('placeholder', translations[lang][key]);
-                    } else {
-                        element.textContent = translations[lang][key];
-                    }
-                }
-            });
-            
-            // 更新选择框选项
-            document.querySelectorAll('select option').forEach(option => {
-                const key = option.getAttribute('data-i18n');
-                if (key && translations[lang][key]) {
-                    option.textContent = translations[lang][key];
-                }
-            });
-            
-            // 更新按钮文本
-            document.querySelectorAll('.buy-btn').forEach(button => {
-                button.textContent = translations[lang]['buyNow'];
-            });
-        }
-        
-        // 初始化订单查看功能
-        function initOrdersView() {
-            document.getElementById('view-orders-link').addEventListener('click', function(e) {
-                e.preventDefault();
-                showOrdersSection();
-            });
-            
-            document.getElementById('back-to-products').addEventListener('click', function() {
-                hideOrdersSection();
-            });
-            
-            document.getElementById('export-orders').addEventListener('click', function() {
-                exportOrders();
+                // 3秒后关闭模态框
+                setTimeout(function() {
+                    modal.style.display = 'none';
+                }, 3000);
             });
         }
         
         // 页面加载完成后初始化
-        let currentLanguage = 'zh';
-        
         document.addEventListener('DOMContentLoaded', function() {
             initProducts();
             initFilters();
             initModalEvents();
-            initLanguageSwitch();
-            initOrdersView();
+            
+            // 初始化EmailJS
+            // 注意：您需要注册EmailJS账号并获取公钥
+            // 暂时注释掉，需要时取消注释并填写您的公钥
+            // emailjs.init("RldCWG_PidpWsf4Qe");
         });
     </script>
+
+    <!-- 引入EmailJS SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3.2.0/dist/email.min.js"></script>
 </body>
 </html>
