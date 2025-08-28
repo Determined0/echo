@@ -175,14 +175,14 @@
             margin: 0 auto;
         }
         
-        .services-grid, .products-grid {
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
             margin-bottom: 50px;
         }
         
-        .service-card, .product-card {
+        .service-card {
             background: white;
             border-radius: 10px;
             overflow: hidden;
@@ -192,31 +192,31 @@
             flex-direction: column;
         }
         
-        .service-card:hover, .product-card:hover {
+        .service-card:hover {
             transform: translateY(-10px);
         }
         
-        .service-img, .product-img {
+        .service-img {
             height: 200px;
             background-size: cover;
             background-position: center;
-            background-color: #f0f0f0; /* 灰色背景，以防图片加载失败 */
+            background-color: #f0f0f0;
         }
         
-        .service-content, .product-content {
+        .service-content {
             padding: 25px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
         }
         
-        .service-content h3, .product-content h3 {
+        .service-content h3 {
             font-size: 1.5rem;
             color: var(--primary);
             margin-bottom: 15px;
         }
         
-        .service-content p, .product-content p {
+        .service-content p {
             color: var(--gray);
             margin-bottom: 20px;
             flex-grow: 1;
@@ -323,76 +323,22 @@
             margin-bottom: 15px;
         }
         
-        /* 产品商店样式 */
-        .product-section {
+        /* 产品商店入口样式 */
+        .product-entry {
             background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
             padding: 80px 0;
-        }
-        
-        /* 模态框样式 */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.7);
-            z-index: 1001;
-            overflow: auto;
-        }
-        
-        .modal-content {
-            background-color: white;
-            margin: 10% auto;
-            padding: 30px;
-            border-radius: 10px;
-            width: 90%;
-            max-width: 600px;
-            position: relative;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--gray);
-        }
-        
-        .order-info {
-            background: #f8f9fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-        
-        .payid-info {
-            background: var(--primary);
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            margin: 15px 0;
             text-align: center;
         }
         
-        .form-group {
-            margin-bottom: 20px;
+        .product-entry-content {
+            max-width: 800px;
+            margin: 0 auto;
         }
         
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: bold;
-        }
-        
-        .form-group input, .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
+        .product-entry-btn {
+            margin-top: 30px;
+            font-size: 1.1rem;
+            padding: 15px 40px;
         }
         
         /* 页脚样式 */
@@ -449,18 +395,12 @@
                 font-size: 2.2rem;
             }
             
-            .services-grid, .testimonials-grid, .products-grid {
+            .services-grid, .testimonials-grid {
                 grid-template-columns: 1fr;
             }
             
             .section {
                 padding: 60px 0;
-            }
-            
-            .modal-content {
-                width: 95%;
-                margin: 5% auto;
-                padding: 20px;
             }
         }
     </style>
@@ -472,17 +412,18 @@
             <a href="#" class="logo">ECHO<span>SPACE</span></a>
             
             <ul class="nav-links">
-                <li><a href="#home-theater" data-i18n="nav.homeTheater">家庭影院</a></li>
-                <li><a href="#audio-services" data-i18n="nav.audioServices">音频服务</a></li>
-                <li><a href="#products" data-i18n="nav.products">产品商店</a></li>
-                <li><a href="#equipment" data-i18n="nav.equipment">专业设备</a></li>
-                <li><a href="#testimonials" data-i18n="nav.testimonials">客户评价</a></li>
-                <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
+                <li><a href="#home-theater">家庭影院</a></li>
+                <li><a href="#audio-services">音频服务</a></li>
+                <!-- 更新产品商店链接 -->
+                <li><a href="products.html">产品商店</a></li>
+                <li><a href="#equipment">专业设备</a></li>
+                <li><a href="#testimonials">客户评价</a></li>
+                <li><a href="#contact">联系我们</a></li>
             </ul>
             
             <div class="language-switch">
-                <button id="zh-btn" class="active" onclick="switchLanguage('zh')">中文</button>
-                <button id="en-btn" onclick="switchLanguage('en')">EN</button>
+                <button id="zh-btn" class="active">中文</button>
+                <button id="en-btn">EN</button>
             </div>
         </div>
     </header>
@@ -490,9 +431,9 @@
     <!-- 英雄区域 -->
     <section class="hero">
         <div class="container">
-            <h1 data-i18n="hero.title">悉尼专业影音系统解决方案</h1>
-            <p data-i18n="hero.description">我们提供家庭影院设计安装、专业音频设备调试、商业影音系统集成服务，专业音响工程师团队为您打造卓越影音体验</p>
-            <a href="#contact" class="btn" data-i18n="hero.button">立即咨询</a>
+            <h1>悉尼专业影音系统解决方案</h1>
+            <p>我们提供家庭影院设计安装、专业音频设备调试、商业影音系统集成服务，专业音响工程师团队为您打造卓越影音体验</p>
+            <a href="#contact" class="btn">立即咨询</a>
         </div>
     </section>
 
@@ -500,38 +441,38 @@
     <section class="section" id="home-theater">
         <div class="container">
             <div class="section-title">
-                <h2 data-i18n="homeTheater.title">家庭影院服务</h2>
-                <p data-i18n="homeTheater.description">我们提供专业的家庭影院设计、安装与调试一站式服务，打造沉浸式视听体验</p>
+                <h2>家庭影院服务</h2>
+                <p>我们提供专业的家庭影院设计、安装与调试一站式服务，打造沉浸式视听体验</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/Projector Installation in Sydney, Australia at Reasonable Rates.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1560415751-3f3c5b679c5f?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
-                        <h3 data-i18n="homeTheater.service1.title">投影仪安装与调试</h3>
-                        <p data-i18n="homeTheater.service1.description">专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果</p>
-                        <div class="price" data-i18n="homeTheater.service1.price">从 $219 起</div>
-                        <a href="#contact" class="btn" data-i18n="homeTheater.button">预约服务</a>
+                        <h3>投影仪安装与调试</h3>
+                        <p>专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果</p>
+                        <div class="price">从 $219 起</div>
+                        <a href="#contact" class="btn">预约服务</a>
                     </div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/Projector Screen Installation.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1596726895343-5b2f2b1b8393?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
-                        <h3 data-i18n="homeTheater.service2.title">投影幕布安装</h3>
-                        <p data-i18n="homeTheater.service2.description">各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布</p>
-                        <div class="price" data-i18n="homeTheater.service2.price">从 $208 起</div>
-                        <a href="#contact" class="btn" data-i18n="homeTheater.button">预约服务</a>
+                        <h3>投影幕布安装</h3>
+                        <p>各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布</p>
+                        <div class="price">从 $208 起</div>
+                        <a href="#contact" class="btn">预约服务</a>
                     </div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/KTV Sound System Calibration Sydney.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
-                        <h3 data-i18n="homeTheater.service3.title">KTV系统安装</h3>
-                        <p data-i18n="homeTheater.service3.description">专业KTV系统设计安装，包括音响、点歌系统、效果器调试等</p>
-                        <div class="price" data-i18n="homeTheater.service3.price">根据需求报价</div>
-                        <a href="#contact" class="btn" data-i18n="homeTheater.button">预约服务</a>
+                        <h3>KTV系统安装</h3>
+                        <p>专业KTV系统设计安装，包括音响、点歌系统、效果器调试等</p>
+                        <div class="price">根据需求报价</div>
+                        <a href="#contact" class="btn">预约服务</a>
                     </div>
                 </div>
             </div>
@@ -542,54 +483,57 @@
     <section class="section" id="audio-services">
         <div class="container">
             <div class="section-title">
-                <h2 data-i18n="audioServices.title">专业音频服务</h2>
-                <p data-i18n="audioServices.description">资深音响工程师提供专业音频设备调试与优化服务，让您的设备发挥最佳性能</p>
+                <h2>专业音频服务</h2>
+                <p>资深音响工程师提供专业音频设备调试与优化服务，让您的设备发挥最佳性能</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('images/acoustics.jpg');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1606152536277-5aa1fd33e250?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
-                        <h3 data-i18n="audioServices.service1.title">专业音频设备调试</h3>
-                        <p data-i18n="audioServices.service1.description">资深音响工程师提供专业级音频系统调试与优化，包括调音台、处理器和系统均衡</p>
-                        <div class="price" data-i18n="audioServices.service1.price">$150/小时起</div>
-                        <a href="#contact" class="btn" data-i18n="audioServices.button">预约服务</a>
+                        <h3>专业音频设备调试</h3>
+                        <p>资深音响工程师提供专业级音频系统调试与优化，包括调音台、处理器和系统均衡</p>
+                        <div class="price">$150/小时起</div>
+                        <a href="#contact" class="btn">预约服务</a>
                     </div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
-                        <h3 data-i18n="audioServices.service2.title">酒吧音响系统</h3>
-                        <p data-i18n="audioServices.service2.description">商业酒吧音响设计与安装，打造完美音效环境，提升顾客体验</p>
-                        <div class="price" data-i18n="audioServices.service2.price">根据需求报价</div>
-                        <a href="#contact" class="btn" data-i18n="audioServices.button">预约服务</a>
+                        <h3>酒吧音响系统</h3>
+                        <p>商业酒吧音响设计与安装，打造完美音效环境，提升顾客体验</p>
+                        <div class="price">根据需求报价</div>
+                        <a href="#contact" class="btn">预约服务</a>
                     </div>
                 </div>
                 
                 <div class="service-card">
-                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80');"></div>
+                    <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80');"></div>
                     <div class="service-content">
-                        <h3 data-i18n="audioServices.service3.title">现场音响调试</h3>
-                        <p data-i18n="audioServices.service3.description">演出、活动现场专业音响调试，确保最佳音质效果</p>
-                        <div class="price" data-i18n="audioServices.service3.price">根据需求报价</div>
-                        <a href="#contact" class="btn" data-i18n="audioServices.button">预约服务</a>
+                        <h3>现场音响调试</h3>
+                        <p>演出、活动现场专业音响调试，确保最佳音质效果</p>
+                        <div class="price">根据需求报价</div>
+                        <a href="#contact" class="btn">预约服务</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 产品商店 -->
-    <section class="product-section" id="products">
+    <!-- 产品商店入口 -->
+    <section class="product-entry" id="products">
         <div class="container">
             <div class="section-title">
-                <h2 data-i18n="products.title">产品商店</h2>
-                <p data-i18n="products.description">精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货</p>
+                <h2>产品商店</h2>
+                <p>精选优质影音设备，专业音响，家庭影院套装，KTV系统</p>
             </div>
             
-            <div class="products-grid" id="products-container">
-                <!-- 商品将通过JavaScript动态添加 -->
+            <div class="product-entry-content">
+                <p>我们提供各类专业影音设备，包括专业音响、点歌机、投影设备及完整家庭影院解决方案。所有产品均经过专业测试，确保最佳性能。</p>
+                <p>支持PayID付款，下单后快速发货，悉尼地区提供专业安装服务。</p>
+                
+                <a href="products.html" class="btn product-entry-btn">浏览所有产品</a>
             </div>
         </div>
     </section>
@@ -598,74 +542,74 @@
     <section class="equipment-section" id="equipment">
         <div class="container">
             <div class="section-title">
-                <h2 data-i18n="equipment.title">专业设备支持</h2>
-                <p data-i18n="equipment.description">我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与优化服务</p>
+                <h2>专业设备支持</h2>
+                <p>我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与优化服务</p>
             </div>
             
             <table class="equipment-table">
                 <tr>
-                    <th data-i18n="equipment.brand">品牌系列</th>
-                    <th data-i18n="equipment.features">特点与应用场景</th>
+                    <th>品牌系列</th>
+                    <th>特点与应用场景</th>
                 </tr>
                 <tr>
                     <td class="brand-header" colspan="2">雅马哈 Yamaha</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.yamaha1.model">DM7、RIVAGE PM系列</td>
-                    <td data-i18n="equipment.yamaha1.desc">高端现场扩声调音台，适用于大型演出、剧院等高要求场合</td>
+                    <td>DM7、RIVAGE PM系列</td>
+                    <td>高端现场扩声调音台，适用于大型演出、剧院等高要求场合</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.yamaha2.model">TF、QL、CL系列</td>
-                    <td data-i18n="equipment.yamaha2.desc">中型数字调音台，适用于现场演出、广播电视、工程安装等场合</td>
+                    <td>TF、QL、CL系列</td>
+                    <td>中型数字调音台，适用于现场演出、广播电视、工程安装等场合</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.yamaha3.model">MG系列</td>
-                    <td data-i18n="equipment.yamaha3.desc">模拟调音台，适用于中小型场所、排练室和固定安装</td>
+                    <td>MG系列</td>
+                    <td>模拟调音台，适用于中小型场所、排练室和固定安装</td>
                 </tr>
                 <tr>
                     <td class="brand-header" colspan="2">Allen & Heath</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.allen1.model">dLive系列</td>
-                    <td data-i18n="equipment.allen1.desc">顶级数字调音系统，适用于大型演出、巡演和高要求场所</td>
+                    <td>dLive系列</td>
+                    <td>顶级数字调音系统，适用于大型演出、巡演和高要求场所</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.allen2.model">Avantis系列</td>
-                    <td data-i18n="equipment.allen2.desc">新一代数字调音台，结合了dLive和SQ系列的优点</td>
+                    <td>Avantis系列</td>
+                    <td>新一代数字调音台，结合了dLive和SQ系列的优点</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.allen3.model">SQ系列</td>
-                    <td data-i18n="equipment.allen3.desc">中型数字调音台，适用于现场演出、教堂、剧院等场所</td>
+                    <td>SQ系列</td>
+                    <td>中型数字调音台，适用于现场演出、教堂、剧院等场所</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.allen4.model">QU系列</td>
-                    <td data-i18n="equipment.allen4.desc">紧凑型数字调音台，适用于中小型场地和固定安装</td>
+                    <td>QU系列</td>
+                    <td>紧凑型数字调音台，适用于中小型场地和固定安装</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.allen5.model">ZED系列</td>
-                    <td data-i18n="equipment.allen5.desc">模拟调音台，适用于酒吧、KTV、排练室等场所</td>
+                    <td>ZED系列</td>
+                    <td>模拟调音台，适用于酒吧、KTV、排练室等场所</td>
                 </tr>
                 <tr>
                     <td class="brand-header" colspan="2">Midas</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.midas1.model">Midas M32</td>
-                    <td data-i18n="equipment.midas1.desc">适用于现场和录音室的数字调音台，提供专业音质和可靠性</td>
+                    <td>Midas M32</td>
+                    <td>适用于现场和录音室的数字调音台，提供专业音质和可靠性</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.midas2.model">Midas WING</td>
-                    <td data-i18n="equipment.midas2.desc">48路数字调音台，适用于大型演出和高端制作</td>
+                    <td>Midas WING</td>
+                    <td>48路数字调音台，适用于大型演出和高端制作</td>
                 </tr>
                 <tr>
                     <td class="brand-header" colspan="2">Behringer 百灵达</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.behringer1.model">Behringer X32</td>
-                    <td data-i18n="equipment.behringer1.desc">数字调音台，适用于现场演出和工作室，性价比高</td>
+                    <td>Behringer X32</td>
+                    <td>数字调音台，适用于现场演出和工作室，性价比高</td>
                 </tr>
                 <tr>
-                    <td data-i18n="equipment.behringer2.model">Behringer XAir</td>
-                    <td data-i18n="equipment.behringer2.desc">系列数字调音台，适用于移动演出和固定安装</td>
+                    <td>Behringer XAir</td>
+                    <td>系列数字调音台，适用于移动演出和固定安装</td>
                 </tr>
             </table>
         </div>
@@ -675,45 +619,45 @@
     <section class="testimonials" id="testimonials">
         <div class="container">
             <div class="section-title">
-                <h2 data-i18n="testimonials.title">客户评价</h2>
-                <p data-i18n="testimonials.description">感谢悉尼各地客户对我们服务的认可与支持</p>
+                <h2>客户评价</h2>
+                <p>感谢悉尼各地客户对我们服务的认可与支持</p>
             </div>
             
             <div class="testimonials-grid">
                 <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.testimonial1.text">"Epping安装客户评价：收费合理，技术专业。投影安装完效果非常清晰，调试得很到位，我非常满意。"</p>
-                    <div class="testimonial-author" data-i18n="testimonials.testimonial1.author">张先生</div>
-                    <div class="testimonial-location" data-i18n="testimonials.testimonial1.location">Epping</div>
+                    <p class="testimonial-text">"Epping安装客户评价：收费合理，技术专业。投影安装完效果非常清晰，调试得很到位，我非常满意。"</p>
+                    <div class="testimonial-author">张先生</div>
+                    <div class="testimonial-location">Epping</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.testimonial2.text">"我在Pymble住，海淘买了K歌音响，但话筒总是啸叫，Brian过来一下子就找到了问题所在，直接帮我解决了啸叫问题。"</p>
-                    <div class="testimonial-author" data-i18n="testimonials.testimonial2.author">李女士</div>
-                    <div class="testimonial-location" data-i18n="testimonials.testimonial2.location">Pymble</div>
+                    <p class="testimonial-text">"我在Pymble住，海淘买了K歌音响，但话筒总是啸叫，Brian过来一下子就找到了问题所在，直接帮我解决了啸叫问题。"</p>
+                    <div class="testimonial-author">李女士</div>
+                    <div class="testimonial-location">Pymble</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.testimonial3.text">"原来的投影幕布太小了，换了个150寸的幕布，师傅安装得很专业，看电影太爽了，就像在家里拥有了一个小型电影院！"</p>
-                    <div class="testimonial-author" data-i18n="testimonials.testimonial3.author">王先生</div>
-                    <div class="testimonial-location" data-i18n="testimonials.testimonial3.location">Burwood</div>
+                    <p class="testimonial-text">"原来的投影幕布太小了，换了个150寸的幕布，师傅安装得很专业，看电影太爽了，就像在家里拥有了一个小型电影院！"</p>
+                    <div class="testimonial-author">王先生</div>
+                    <div class="testimonial-location">Burwood</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.testimonial4.text">"专业团队为我们酒吧设计了完整的音响系统，现在音质效果提升明显，顾客反馈非常好，生意也更好了！"</p>
-                    <div class="testimonial-author" data-i18n="testimonials.testimonial4.author">James</div>
-                    <div class="testimonial-location" data-i18n="testimonials.testimonial4.location">Chatswood酒吧经理</div>
+                    <p class="testimonial-text">"专业团队为我们酒吧设计了完整的音响系统，现在音质效果提升明显，顾客反馈非常好，生意也更好了！"</p>
+                    <div class="testimonial-author">James</div>
+                    <div class="testimonial-location">Chatswood酒吧经理</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.testimonial5.text">"师傅很专业，不仅安装调试到位，还根据我的房间声学特点做了优化，现在看电影的沉浸感特别强，物超所值！"</p>
-                    <div class="testimonial-author" data-i18n="testimonials.testimonial5.author">刘先生</div>
-                    <div class="testimonial-location" data-i18n="testimonials.testimonial5.location">Hurstville</div>
+                    <p class="testimonial-text">"师傅很专业，不仅安装调试到位，还根据我的房间声学特点做了优化，现在看电影的沉浸感特别强，物超所值！"</p>
+                    <div class="testimonial-author">刘先生</div>
+                    <div class="testimonial-location">Hurstville</div>
                 </div>
                 
                 <div class="testimonial-card">
-                    <p class="testimonial-text" data-i18n="testimonials.testimonial6.text">"为我们公司安装了完整的视频会议系统，画面清晰，声音传输稳定，远程会议效果大大提升，专业团队就是不一样！"</p>
-                    <div class="testimonial-author" data-i18n="testimonials.testimonial6.author">Sarah</div>
-                    <div class="testimonial-location" data-i18n="testimonials.testimonial6.location">Sydney CBD</div>
+                    <p class="testimonial-text">"为我们公司安装了完整的视频会议系统，画面清晰，声音传输稳定，远程会议效果大大提升，专业团队就是不一样！"</p>
+                    <div class="testimonial-author">Sarah</div>
+                    <div class="testimonial-location">Sydney CBD</div>
                 </div>
             </div>
         </div>
@@ -723,16 +667,16 @@
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-title">
-                <h2 data-i18n="contact.title">联系我们</h2>
-                <p data-i18n="contact.description">我们的专业团队随时为您提供咨询与上门勘察服务</p>
+                <h2>联系我们</h2>
+                <p>我们的专业团队随时为您提供咨询与上门勘察服务</p>
             </div>
             
             <div class="contact-info">
-                <p data-i18n="contact.phone">电话: <strong>0432 869 555</strong></p>
-                <p data-i18n="contact.email">邮箱: <strong>Info@echospace.com.au</strong></p>
-                <p data-i18n="contact.area">服务范围: 悉尼全市及周边地区</p>
+                <p>电话: <strong>0432 869 555</strong></p>
+                <p>邮箱: <strong>Info@echospace.com.au</strong></p>
+                <p>服务范围: 悉尼全市及周边地区</p>
                 
-                <a href="tel:0432869555" class="btn" data-i18n="contact.button">立即致电咨询</a>
+                <a href="tel:0432869555" class="btn">立即致电咨询</a>
             </div>
         </div>
     </section>
@@ -744,545 +688,50 @@
                 <a href="#" class="logo">ECHO<span>SPACE</span></a>
                 
                 <ul class="footer-links">
-                    <li><a href="#home-theater" data-i18n="nav.homeTheater">家庭影院</a></li>
-                    <li><a href="#audio-services" data-i18n="nav.audioServices">音频服务</a></li>
-                    <li><a href="#products" data-i18n="nav.products">产品商店</a></li>
-                    <li><a href="#equipment" data-i18n="nav.equipment">专业设备</a></li>
-                    <li><a href="#testimonials" data-i18n="nav.testimonials">客户评价</a></li>
-                    <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
+                    <li><a href="#home-theater">家庭影院</a></li>
+                    <li><a href="#audio-services">音频服务</a></li>
+                    <!-- 更新页脚中的产品商店链接 -->
+                    <li><a href="products.html">产品商店</a></li>
+                    <li><a href="#equipment">专业设备</a></li>
+                    <li><a href="#testimonials">客户评价</a></li>
+                    <li><a href="#contact">联系我们</a></li>
                 </ul>
                 
-                <p data-i18n="footer.copyright">&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
+                <p>&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
             </div>
         </div>
     </footer>
 
-    <!-- 购买模态框 -->
-    <div id="purchase-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2 id="modal-product-name">商品名称</h2>
-            
-            <div class="order-info">
-                <h3>订单信息</h3>
-                <p>订单号: <strong id="order-number">EC-123456</strong></p>
-                <p>商品: <span id="product-details">NH 12寸专业音响</span></p>
-                <p>价格: <strong id="product-price">$1299</strong></p>
-            </div>
-            
-            <div class="payid-info">
-                <h3>PayID付款</h3>
-                <p>请使用PayID向以下账户付款:</p>
-                <p><strong>0432 869 555</strong></p>
-                <p>付款时请备注订单号: <strong id="payid-order-number">EC-123456</strong></p>
-            </div>
-            
-            <form id="customer-info-form">
-                <div class="form-group">
-                    <label for="customer-name">姓名</label>
-                    <input type="text" id="customer-name" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customer-email">邮箱</label>
-                    <input type="email" id="customer-email" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="customer-address">送货地址</label>
-                    <textarea id="customer-address" rows="3" required></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="payment-proof">付款截图 (可选)</label>
-                    <input type="file" id="payment-proof" accept="image/*">
-                </div>
-                
-                <button type="submit" class="btn">确认订单</button>
-            </form>
-        </div>
-    </div>
-
     <script>
-        // 商品数据
-        const products = [
-            {
-                id: 1,
-                name: "NH 12寸专业音响",
-                nameEn: "NH 12-inch Professional Speaker",
-                description: "专业级12寸音响，适合KTV、演出和家庭影院使用，提供卓越音质和强劲低音",
-                descriptionEn: "Professional 12-inch speaker, suitable for KTV, performances and home theater use, providing excellent sound quality and strong bass",
-                price: 1299,
-                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/nh12.png"
-            },
-            {
-                id: 2,
-                name: "Sun shine国际版点歌机",
-                nameEn: "Sunshine International Version Karaoke Machine",
-                description: "海量中文曲库，实时在线更新中文歌曲，更适合澳洲本地客户使用",
-                descriptionEn: "Massive Chinese song library, real-time online updates of Chinese songs, more suitable for Australian local customers",
-                price: 899,
-                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/sunshine%20karaoke%20machine.png"
-            },
-            {
-                id: 3,
-                name: "投影支架",
-                nameEn: "Projector Mount",
-                description: "高质量投影仪支架，适用于各种天花板和墙壁安装，稳固耐用",
-                descriptionEn: "High-quality projector mount, suitable for various ceiling and wall installations, stable and durable",
-                price: 388,
-                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/projector%20mount.png"
-            },
-            {
-                id: 4,
-                name: "家庭专业音响K歌套装",
-                nameEn: "Home Professional Audio Karaoke Set",
-                description: "完整家庭KTV解决方案，包含专业音响、麦克风、点歌机和效果器",
-                descriptionEn: "Complete home KTV solution, including professional audio, microphone, karaoke machine and effector",
-                price: 7500,
-                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/hometheater01.jpg"
-            },
-            {
-                id: 5,
-                name: "影音房整体方案设计",
-                nameEn: "Complete Audio-Visual Room Design Solution",
-                description: "专业影音室设计方案，包括声学处理、设备选型和系统集成",
-                descriptionEn: "Professional audio-visual room design solution, including acoustic treatment, equipment selection and system integration",
-                price: 850,
-                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/Room%20Design%20Solution.png"
-            }
-        ];
-
-        // 多语言支持
-        const translations = {
-            'zh': {
-                // 导航
-                'nav.homeTheater': '家庭影院',
-                'nav.audioServices': '音频服务',
-                'nav.products': '产品商店',
-                'nav.equipment': '专业设备',
-                'nav.testimonials': '客户评价',
-                'nav.contact': '联系我们',
-                
-                // 英雄区域
-                'hero.title': '悉尼专业影音系统解决方案',
-                'hero.description': '我们提供家庭影院设计安装、专业音频设备调试、商业影音系统集成服务，专业音响工程师团队为您打造卓越影音体验',
-                'hero.button': '立即咨询',
-                
-                // 家庭影院
-                'homeTheater.title': '家庭影院服务',
-                'homeTheater.description': '我们提供专业的家庭影院设计、安装与调试一站式服务，打造沉浸式视听体验',
-                'homeTheater.service1.title': '投影仪安装与调试',
-                'homeTheater.service1.description': '专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果',
-                'homeTheater.service1.price': '从 $219 起',
-                'homeTheater.service2.title': '投影幕布安装',
-                'homeTheater.service2.description': '各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布',
-                'homeTheater.service2.price': '从 $208 起',
-                'homeTheater.service3.title': 'KTV系统安装',
-                'homeTheater.service3.description': '专业KTV系统设计安装，包括音响、点歌系统、效果器调试等',
-                'homeTheater.service3.price': '根据需求报价',
-                'homeTheater.button': '预约服务',
-                
-                // 音频服务
-                'audioServices.title': '专业音频服务',
-                'audioServices.description': '资深音响工程师提供专业音频设备调试与优化服务，让您的设备发挥最佳性能',
-                'audioServices.service1.title': '专业音频设备调试',
-                'audioServices.service1.description': '资深音响工程师提供专业级音频系统调试与优化，包括调音台、处理器和系统均衡',
-                'audioServices.service1.price': '$150/小时起',
-                'audioServices.service2.title': '酒吧音响系统',
-                'audioServices.service2.description': '商业酒吧音响设计与安装，打造完美音效环境，提升顾客体验',
-                'audioServices.service2.price': '根据需求报价',
-                'audioServices.service3.title': '现场音响调试',
-                'audioServices.service3.description': '演出、活动现场专业音响调试，确保最佳音质效果',
-                'audioServices.service3.price': '根据需求报价',
-                'audioServices.button': '预约服务',
-                
-                // 产品商店
-                'products.title': '产品商店',
-                'products.description': '精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货',
-                'products.buyButton': '立即购买',
-                
-                // 设备
-                'equipment.title': '专业设备支持',
-                'equipment.description': '我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与优化服务',
-                'equipment.brand': '品牌系列',
-                'equipment.features': '特点与应用场景',
-                'equipment.yamaha1.model': 'DM7、RIVAGE PM系列',
-                'equipment.yamaha1.desc': '高端现场扩声调音台，适用于大型演出、剧院等高要求场合',
-                'equipment.yamaha2.model': 'TF、QL、CL系列',
-                'equipment.yamaha2.desc': '中型数字调音台，适用于现场演出、广播电视、工程安装等场合',
-                'equipment.yamaha3.model': 'MG系列',
-                'equipment.yamaha3.desc': '模拟调音台，适用于中小型场所、排练室和固定安装',
-                'equipment.allen1.model': 'dLive系列',
-                'equipment.allen1.desc': '顶级数字调音系统，适用于大型演出、巡演和高要求场所',
-                'equipment.allen2.model': 'Avantis系列',
-                'equipment.allen2.desc': '新一代数字调音台，结合了dLive和SQ系列的优点',
-                'equipment.allen3.model': 'SQ系列',
-                'equipment.allen3.desc': '中型数字调音台，适用于现场演出、教堂、剧院等场所',
-                'equipment.allen4.model': 'QU系列',
-                'equipment.allen4.desc': '紧凑型数字调音台，适用于中小型场地和固定安装',
-                'equipment.allen5.model': 'ZED系列',
-                'equipment.allen5.desc': '模拟调音台，适用于酒吧、KTV、排练室等场所',
-                'equipment.midas1.model': 'Midas M32',
-                'equipment.midas1.desc': '适用于现场和录音室的数字调音台，提供专业音质和可靠性',
-                'equipment.midas2.model': 'Midas WING',
-                'equipment.midas2.desc': '48路数字调音台，适用于大型演出和高端制作',
-                'equipment.behringer1.model': 'Behringer X32',
-                'equipment.behringer1.desc': '数字调音台，适用于现场演出和工作室，性价比高',
-                'equipment.behringer2.model': 'Behringer XAir',
-                'equipment.behringer2.desc': '系列数字调音台，适用于移动演出和固定安装',
-                
-                // 评价
-                'testimonials.title': '客户评价',
-                'testimonials.description': '感谢悉尼各地客户对我们服务的认可与支持',
-                'testimonials.testimonial1.text': '"Epping安装客户评价：收费合理，技术专业。投影安装完效果非常清晰，调试得很到位，我非常满意。"',
-                'testimonials.testimonial1.author': '张先生',
-                'testimonials.testimonial1.location': 'Epping',
-                'testimonials.testimonial2.text': '"我在Pymble住，海淘买了K歌音响，但话筒总是啸叫，Brian过来一下子就找到了问题所在，直接帮我解决了啸叫问题。"',
-                'testimonials.testimonial2.author': '李女士',
-                'testimonials.testimonial2.location': 'Pymble',
-                'testimonials.testimonial3.text': '"原来的投影幕布太小了，换了个150寸的幕布，师傅安装得很专业，看电影太爽了，就像在家里拥有了一个小型电影院！"',
-                'testimonials.testimonial3.author': '王先生',
-                'testimonials.testimonial3.location': 'Burwood',
-                'testimonials.testimonial4.text': '"专业团队为我们酒吧设计了完整的音响系统，现在音质效果提升明显，顾客反馈非常好，生意也更好了！"',
-                'testimonials.testimonial4.author': 'James',
-                'testimonials.testimonial4.location': 'Chatswood酒吧经理',
-                'testimonials.testimonial5.text': '"师傅很专业，不仅安装调试到位，还根据我的房间声学特点做了优化，现在看电影的沉浸感特别强，物超所值！"',
-                'testimonials.testimonial5.author': '刘先生',
-                'testimonials.testimonial5.location': 'Hurstville',
-                'testimonials.testimonial6.text': '"为我们公司安装了完整的视频会议系统，画面清晰，声音传输稳定，远程会议效果大大提升，专业团队就是不一样！"',
-                'testimonials.testimonial6.author': 'Sarah',
-                'testimonials.testimonial6.location': 'Sydney CBD',
-                
-                // 联系
-                'contact.title': '联系我们',
-                'contact.description': '我们的专业团队随时为您提供咨询与上门勘察服务',
-                'contact.phone': '电话:',
-                'contact.email': '邮箱:',
-                'contact.area': '服务范围: 悉尼全市及周边地区',
-                'contact.button': '立即致电咨询',
-                
-                // 页脚
-                'footer.copyright': '&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留'
-            },
-            'en': {
-                // 导航
-                'nav.homeTheater': 'Home Theater',
-                'nav.audioServices': 'Audio Services',
-                'nav.products': 'Products',
-                'nav.equipment': 'Equipment',
-                'nav.testimonials': 'Testimonials',
-                'nav.contact': 'Contact Us',
-                
-                // 英雄区域
-                'hero.title': 'Professional Audio-Visual Solutions in Sydney',
-                'hero.description': 'We provide home theater design and installation, professional audio equipment debugging, commercial audio-visual system integration services, with professional audio engineer team to create an exceptional audio-visual experience for you',
-                'hero.button': 'Consult Now',
-                
-                // 家庭影院
-                'homeTheater.title': 'Home Theater Services',
-                'homeTheater.description': 'We provide professional home theater design, installation and debugging services to create an immersive audio-visual experience',
-                'homeTheater.service1.title': 'Projector Installation & Calibration',
-                'homeTheater.service1.description': 'Professional projector installation, positioning, focusing and calibration services to ensure optimal viewing experience',
-                'homeTheater.service1.price': 'From $219',
-                'homeTheater.service2.title': 'Projection Screen Installation',
-                'homeTheater.service2.description': 'Professional installation services for various types of projection screens, including fixed, electric and tripod screens',
-                'homeTheater.service2.price': 'From $208',
-                'homeTheater.service3.title': 'KTV System Installation',
-                'homeTheater.service3.description': 'Professional KTV system design and installation, including audio, song selection system, effect processor debugging, etc',
-                'homeTheater.service3.price': 'Quote on request',
-                'homeTheater.button': 'Book Service',
-                
-                // 音频服务
-                'audioServices.title': 'Professional Audio Services',
-                'audioServices.description': 'Experienced audio engineers provide professional audio equipment debugging and optimization services to maximize your equipment performance',
-                'audioServices.service1.title': 'Professional Audio Equipment Debugging',
-                'audioServices.service1.description': 'Experienced audio engineers provide professional-level audio system debugging and optimization, including mixer, processor and system equalization',
-                'audioServices.service1.price': 'From $150/hour',
-                'audioServices.service2.title': 'Bar Audio System',
-                'audioServices.service2.description': 'Commercial bar audio design and installation, creating perfect sound environment to enhance customer experience',
-                'audioServices.service2.price': 'Quote on request',
-                'audioServices.service3.title': 'Live Sound Debugging',
-                'audioServices.service3.description': 'Professional audio debugging for performances and events to ensure optimal sound quality',
-                'audioServices.service3.price': 'Quote on request',
-                'audioServices.button': 'Book Service',
-                
-                // 产品商店
-                'products.title': 'Product Store',
-                'products.description': 'Selected high-quality audio-visual equipment, support PayID payment, complete the purchase with order number备注 to ship',
-                'products.buyButton': 'Buy Now',
-                
-                // 设备
-                'equipment.title': 'Professional Equipment Support',
-                'equipment.description': 'Our engineers are familiar with various professional audio equipment and can provide you with the best debugging and optimization services',
-                'equipment.brand': 'Brand Series',
-                'equipment.features': 'Features & Applications',
-                'equipment.yamaha1.model': 'DM7, RIVAGE PM Series',
-                'equipment.yamaha1.desc': 'High-end live sound consoles, suitable for large performances, theaters and other demanding occasions',
-                'equipment.yamaha2.model': 'TF, QL, CL Series',
-                'equipment.yamaha2.desc': 'Medium digital consoles, suitable for live performances, broadcasting, engineering installation, etc',
-                'equipment.yamaha3.model': 'MG Series',
-                'equipment.yamaha3.desc': 'Analog consoles, suitable for small and medium venues, rehearsal rooms and fixed installations',
-                'equipment.allen1.model': 'dLive Series',
-                'equipment.allen1.desc': 'Top-level digital mixing system, suitable for large performances, tours and demanding venues',
-                'equipment.allen2.model': 'Avantis Series',
-                'equipment.allen2.desc': 'New generation digital console, combining the advantages of dLive and SQ series',
-                'equipment.allen3.model': 'SQ Series',
-                'equipment.allen3.desc': 'Medium digital consoles, suitable for live performances, churches, theaters and other venues',
-                'equipment.allen4.model': 'QU Series',
-                'equipment.allen4.desc': 'Compact digital consoles, suitable for small and medium venues and fixed installations',
-                'equipment.allen5.model': 'ZED Series',
-                'equipment.allen5.desc': 'Analog consoles, suitable for bars, KTV, rehearsal rooms and other venues',
-                'equipment.midas1.model': 'Midas M32',
-                'equipment.midas1.desc': 'Digital mixing console for live and studio applications, providing professional sound quality and reliability',
-                'equipment.midas2.model': 'Midas WING',
-                'equipment.midas2.desc': '48-channel digital console, suitable for large performances and high-end productions',
-                'equipment.behringer1.model': 'Behringer X32',
-                'equipment.behringer1.desc': 'Digital console for live performances and studios, offering high cost-performance ratio',
-                'equipment.behringer2.model': 'Behringer XAir',
-                'equipment.behringer2.desc': 'Series of digital consoles, suitable for mobile performances and fixed installations',
-                
-                // 评价
-                'testimonials.title': 'Customer Testimonials',
-                'testimonials.description': 'Thanks to customers across Sydney for their recognition and support of our services',
-                'testimonials.testimonial1.text': '"Epping installation customer review: Reasonable pricing, professional skills. The projection installation effect is very clear, well debugged, I am very satisfied."',
-                'testimonials.testimonial1.author': 'Mr. Zhang',
-                'testimonials.testimonial1.location': 'Epping',
-                'testimonials.testimonial2.text': '"I live in Pymble, bought KTV audio equipment from overseas, but the microphone always had feedback. Brian came and immediately found the problem and solved the feedback issue for me."',
-                'testimonials.testimonial2.author': 'Ms. Li',
-                'testimonials.testimonial2.location': 'Pymble',
-                'testimonials.testimonial3.text': '"The original projection screen was too small, replaced with a 150-inch screen. The technician installed it very professionally, watching movies is so enjoyable, it\'s like having a small cinema at home!"',
-                'testimonials.testimonial3.author': 'Mr. Wang',
-                'testimonials.testimonial3.location': 'Burwood',
-                'testimonials.testimonial4.text': '"The professional team designed a complete audio system for our bar. Now the sound quality has significantly improved, customer feedback is very good, and business is better!"',
-                'testimonials.testimonial4.author': 'James',
-                'testimonials.testimonial4.location': 'Chatswood Bar Manager',
-                'testimonials.testimonial5.text': '"The technician is very professional, not only installed and debugged perfectly, but also optimized according to the acoustic characteristics of my room. Now the immersion of watching movies is particularly strong, great value for money!"',
-                'testimonials.testimonial5.author': 'Mr. Liu',
-                'testimonials.testimonial5.location': 'Hurstville',
-                'testimonials.testimonial6.text': '"Installed a complete video conference system for our company. The picture is clear, the sound transmission is stable, the remote meeting effect is greatly improved. Professional teams are different!"',
-                'testimonials.testimonial6.author': 'Sarah',
-                'testimonials.testimonial6.location': 'Sydney CBD',
-                
-                // 联系
-                'contact.title': 'Contact Us',
-                'contact.description': 'Our professional team is ready to provide consultation and on-site inspection services',
-                'contact.phone': 'Phone:',
-                'contact.email': 'Email:',
-                'contact.area': 'Service Area: Sydney and surrounding areas',
-                'contact.button': 'Call Now',
-                
-                // 页脚
-                'footer.copyright': '&copy; 2025 Echospace Sydney Professional Audio-Visual Services | All Rights Reserved'
-            }
-        };
-
         // 语言切换功能
-        function switchLanguage(lang) {
-            document.documentElement.lang = lang;
-            
-            // 更新按钮状态
-            document.getElementById('zh-btn').classList.toggle('active', lang === 'zh');
-            document.getElementById('en-btn').classList.toggle('active', lang === 'en');
-            
-            // 更新所有文本
-            document.querySelectorAll('[data-i18n]').forEach(element => {
-                const key = element.getAttribute('data-i18n');
-                if (translations[lang][key]) {
-                    if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                        element.value = translations[lang][key];
-                    } else {
-                        element.innerHTML = translations[lang][key];
-                    }
-                }
-            });
-            
-            // 更新产品名称和描述
-            updateProductsLanguage(lang);
-        }
+        document.getElementById('zh-btn').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('en-btn').classList.remove('active');
+            // 这里可以添加多语言切换逻辑
+        });
         
-        // 更新产品语言
-        function updateProductsLanguage(lang) {
-            const productCards = document.querySelectorAll('.product-card');
-            productCards.forEach((card, index) => {
-                if (products[index]) {
-                    const nameElement = card.querySelector('h3');
-                    const descElement = card.querySelector('p');
-                    
-                    if (lang === 'zh') {
-                        nameElement.textContent = products[index].name;
-                        descElement.textContent = products[index].description;
-                    } else {
-                        nameElement.textContent = products[index].nameEn;
-                        descElement.textContent = products[index].descriptionEn;
-                    }
-                }
-            });
-        }
-        
-        // 生成随机订单号
-        function generateOrderNumber() {
-            const prefix = 'EC-';
-            const randomNum = Math.floor(100000 + Math.random() * 900000);
-            return prefix + randomNum;
-        }
-        
-        // 显示购买模态框
-        function showPurchaseModal(product) {
-            const modal = document.getElementById('purchase-modal');
-            const orderNumber = generateOrderNumber();
-            
-            document.getElementById('modal-product-name').textContent = product.name;
-            document.getElementById('order-number').textContent = orderNumber;
-            document.getElementById('payid-order-number').textContent = orderNumber;
-            document.getElementById('product-details').textContent = product.name;
-            document.getElementById('product-price').textContent = '$' + product.price;
-            
-            // 重置表单
-            document.getElementById('customer-info-form').reset();
-            
-            modal.style.display = 'block';
-            
-            // 存储当前订单信息
-            window.currentOrder = {
-                product: product,
-                orderNumber: orderNumber,
-                timestamp: new Date().toISOString()
-            };
-        }
-        
-        // 初始化产品展示
-        function initProducts() {
-            const productsContainer = document.getElementById('products-container');
-            productsContainer.innerHTML = '';
-            
-            products.forEach(product => {
-                const productCard = document.createElement('div');
-                productCard.className = 'product-card';
-                
-                productCard.innerHTML = `
-                    <div class="product-img" style="background-image: url('${product.image}');"></div>
-                    <div class="product-content">
-                        <h3>${product.name}</h3>
-                        <p>${product.description}</p>
-                        <div class="price">$${product.price}</div>
-                        <button class="btn buy-btn" data-product-id="${product.id}">立即购买</button>
-                    </div>
-                `;
-                
-                productsContainer.appendChild(productCard);
-            });
-            
-            // 添加购买按钮事件监听
-            document.querySelectorAll('.buy-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const productId = parseInt(this.getAttribute('data-product-id'));
-                    const product = products.find(p => p.id === productId);
-                    
-                    if (product) {
-                        showPurchaseModal(product);
-                    }
-                });
-            });
-        }
+        document.getElementById('en-btn').addEventListener('click', function() {
+            this.classList.add('active');
+            document.getElementById('zh-btn').classList.remove('active');
+            // 这里可以添加多语言切换逻辑
+        });
         
         // 平滑滚动
-        function initSmoothScroll() {
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        }
-        
-        // 初始化模态框事件
-        function initModalEvents() {
-            const modal = document.getElementById('purchase-modal');
-            const closeBtn = document.querySelector('.close-modal');
-            
-            // 关闭模态框
-            closeBtn.addEventListener('click', function() {
-                modal.style.display = 'none';
-            });
-            
-            // 点击模态框外部关闭
-            window.addEventListener('click', function(event) {
-                if (event.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-            
-            // 表单提交
-            document.getElementById('customer-info-form').addEventListener('submit', function(e) {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 
-                // 这里可以添加表单验证和提交逻辑
-                // 在实际应用中，应该将订单信息发送到服务器
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
                 
-                alert('订单已提交！请通过PayID完成付款，我们收到付款后将立即安排发货。');
-                modal.style.display = 'none';
-                
-                // 在实际应用中，这里应该重定向到订单确认页面或发送确认邮件
-            });
-        }
-        
-        // 图片优化
-        function optimizeImages() {
-            const images = document.querySelectorAll('.service-img, .product-img');
-            images.forEach(img => {
-                const bg = img.style.backgroundImage;
-                
-                // 添加错误处理
-                img.onerror = function() {
-                    this.style.backgroundColor = "#f0f0f0";
-                    this.style.display = "flex";
-                    this.style.alignItems = "center";
-                    this.style.justifyContent = "center";
-                    this.innerHTML = "<span>图片加载失败</span>";
-                };
-                
-                // 如果是本地图片，尝试压缩处理
-                if (bg && bg.includes('images/')) {
-                    const imgUrl = bg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
-                    const imgElement = new Image();
-                    
-                    imgElement.onload = function() {
-                        // 如果图片宽度大于600px，则使用较小版本
-                        if (this.width > 600) {
-                            // 这里可以添加图片压缩逻辑
-                            // 实际项目中可以使用云服务或服务器端压缩
-                            console.log(`建议压缩图片: ${imgUrl}, 当前尺寸: ${this.width}x${this.height}`);
-                        }
-                    };
-                    
-                    imgElement.src = imgUrl;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
                 }
             });
-        }
-        
-        // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
-            initProducts();
-            initSmoothScroll();
-            initModalEvents();
-            optimizeImages();
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
