@@ -1,0 +1,854 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品商店 | Echospace 悉尼专业影音系统服务</title>
+    <meta name="description" content="Echospace产品商店 - 精选优质影音设备，专业音响，家庭影院套装，KTV系统，投影设备，支持PayID付款，悉尼地区专业服务">
+    <style>
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #b21f1f;
+            --accent: #fdbb2d;
+            --dark: #0a0e17;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 导航栏样式 */
+        header {
+            background: linear-gradient(135deg, var(--primary), #2c3e8c);
+            color: white;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 25px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .language-switch {
+            display: flex;
+            align-items: center;
+        }
+        
+        .language-switch button {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .language-switch button.active {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        .language-switch button:hover {
+            background: var(--accent);
+            color: var(--dark);
+        }
+        
+        /* 面包屑导航 */
+        .breadcrumb {
+            padding: 20px 0;
+            background-color: #f1f3f5;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .breadcrumb a:hover {
+            text-decoration: underline;
+        }
+        
+        /* 产品区域样式 */
+        .product-section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h1 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .product-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .product-img::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .product-card:hover .product-img::after {
+            opacity: 1;
+        }
+        
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+        
+        .product-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .price {
+            color: var(--secondary);
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: var(--gray);
+            font-size: 1rem;
+            margin-left: 10px;
+        }
+        
+        .product-features {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        
+        .product-features li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--dark);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background: #ffcc44;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-block {
+            display: block;
+            width: 100%;
+        }
+        
+        /* 分类筛选 */
+        .category-filter {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 8px 20px;
+            margin: 5px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin: 20px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .footer-links li {
+            margin: 0 15px;
+        }
+        
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+        
+        /* 模态框样式 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1001;
+            overflow: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray);
+        }
+        
+        .order-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .payid-info {
+            background: var(--primary);
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-links {
+                margin-top: 20px;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-links li {
+                margin: 10px 0;
+            }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title h1 {
+                font-size: 2.2rem;
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header>
+        <div class="container nav-container">
+            <a href="index.html" class="logo">ECHO<span>SPACE</span></a>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">首页</a></li>
+                <li><a href="index.html#home-theater">家庭影院</a></li>
+                <li><a href="index.html#audio-services">音频服务</a></li>
+                <li><a href="products.html" class="active">产品商店</a></li>
+                <li><a href="index.html#equipment">专业设备</a></li>
+                <li><a href="index.html#testimonials">客户评价</a></li>
+                <li><a href="index.html#contact">联系我们</a></li>
+            </ul>
+            
+            <div class="language-switch">
+                <button id="zh-btn" class="active">中文</button>
+                <button id="en-btn">EN</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 面包屑导航 -->
+    <div class="breadcrumb container">
+        <a href="index.html">首页</a> &gt; <span>产品商店</span>
+    </div>
+
+    <!-- 产品区域 -->
+    <section class="product-section">
+        <div class="container">
+            <div class="section-title">
+                <h1>产品商店</h1>
+                <p>精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货</p>
+            </div>
+            
+            <!-- 分类筛选 -->
+            <div class="category-filter">
+                <button class="filter-btn active" data-filter="all">全部产品</button>
+                <button class="filter-btn" data-filter="speaker">专业音响</button>
+                <button class="filter-btn" data-filter="karaoke">KTV系统</button>
+                <button class="filter-btn" data-filter="projector">投影设备</button>
+                <button class="filter-btn" data-filter="package">套装方案</button>
+            </div>
+            
+            <div class="products-grid" id="products-container">
+                <!-- 商品将通过JavaScript动态添加 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">ECHO<span>SPACE</span></a>
+                
+                <ul class="footer-links">
+                    <li><a href="index.html#home-theater">家庭影院</a></li>
+                    <li><a href="index.html#audio-services">音频服务</a></li>
+                    <li><a href="products.html">产品商店</a></li>
+                    <li><a href="index.html#equipment">专业设备</a></li>
+                    <li><a href="index.html#testimonials">客户评价</a></li>
+                    <li><a href="index.html#contact">联系我们</a></li>
+                </ul>
+                
+                <p>&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 购买模态框 -->
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-product-name">商品名称</h2>
+            
+            <div class="order-info">
+                <h3>订单信息</h3>
+                <p>订单号: <strong id="order-number">EC-123456</strong></p>
+                <p>商品: <span id="product-details">NH 12寸专业音响</span></p>
+                <p>价格: <strong id="product-price">$1299</strong></p>
+            </div>
+            
+            <div class="payid-info">
+                <h3>PayID付款</h3>
+                <p>请使用PayID向以下账户付款:</p>
+                <p><strong>0432 869 555</strong></p>
+                <p>付款时请备注订单号: <strong id="payid-order-number">EC-123456</strong></p>
+            </div>
+            
+            <form id="customer-info-form">
+                <div class="form-group">
+                    <label for="customer-name">姓名</label>
+                    <input type="text" id="customer-name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customer-phone">电话</label>
+                    <input type="tel" id="customer-phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customer-email">邮箱</label>
+                    <input type="email" id="customer-email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="customer-address">送货地址</label>
+                    <textarea id="customer-address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="delivery-time">期望送货时间</label>
+                    <select id="delivery-time">
+                        <option value="anytime">任何时间</option>
+                        <option value="weekday">工作日</option>
+                        <option value="weekend">周末</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="payment-proof">付款截图 (可选)</label>
+                    <input type="file" id="payment-proof" accept="image/*">
+                </div>
+                
+                <button type="submit" class="btn btn-block">确认订单</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 商品数据
+        const products = [
+            {
+                id: 1,
+                name: "NH 12寸专业音响",
+                description: "专业级12寸音响，适合KTV、演出和家庭影院使用，提供卓越音质和强劲低音",
+                price: 1299,
+                originalPrice: 1599,
+                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/nh12.png",
+                category: "speaker",
+                features: [
+                    "12寸低音单元，3寸高音单元",
+                    "功率: 300W RMS, 600W峰值",
+                    "频率响应: 45Hz-20kHz",
+                    "灵敏度: 98dB"
+                ],
+                badge: "热卖"
+            },
+            {
+                id: 2,
+                name: "Sun shine国际版点歌机",
+                description: "海量中文曲库，实时在线更新中文歌曲，更适合澳洲本地客户使用",
+                price: 899,
+                originalPrice: 1099,
+                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/sunshine%20karaoke%20machine.png",
+                category: "karaoke",
+                features: [
+                    "内置超过20万首中文歌曲",
+                    "支持手机点歌",
+                    "4TB硬盘存储",
+                    "支持1080P高清输出"
+                ],
+                badge: "新品"
+            },
+            {
+                id: 3,
+                name: "投影支架",
+                description: "高质量投影仪支架，适用于各种天花板和墙壁安装，稳固耐用",
+                price: 388,
+                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/projector%20mount.png",
+                category: "projector",
+                features: [
+                    "承重: 最大15kg",
+                    "360度旋转调节",
+                    "适用于大多数投影仪型号",
+                    "安装简单方便"
+                ]
+            },
+            {
+                id: 4,
+                name: "家庭专业音响K歌套装",
+                description: "完整家庭KTV解决方案，包含专业音响、麦克风、点歌机和效果器",
+                price: 7500,
+                originalPrice: 8999,
+                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/hometheater01.jpg",
+                category: "package",
+                features: [
+                    "2只10寸专业音响",
+                    "双无线麦克风",
+                    "点歌机含3万首歌曲",
+                    "专业音频效果器",
+                    "免费安装指导"
+                ],
+                badge: "套餐优惠"
+            },
+            {
+                id: 5,
+                name: "影音房整体方案设计",
+                description: "专业影音室设计方案，包括声学处理、设备选型和系统集成",
+                price: 850,
+                image: "https://raw.githubusercontent.com/Determined0/echo/main/images/Room%20Design%20Solution.png",
+                category: "package",
+                features: [
+                    "专业声学评估",
+                    "设备选型建议",
+                    "3D效果图设计",
+                    "安装指导服务",
+                    "后期调试支持"
+                ]
+            },
+            {
+                id: 6,
+                name: "专业无线麦克风套装",
+                description: "UHF无线麦克风，抗干扰强，音质清晰，适合KTV和演出使用",
+                price: 699,
+                originalPrice: 899,
+                image: "https://images.unsplash.com/photo-1596726895343-5b2f2b1b8393?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                category: "karaoke",
+                features: [
+                    "UHF频段，抗干扰强",
+                    "有效距离: 50米",
+                    "电池续航: 8小时",
+                    "一键静音和频率调节"
+                ],
+                badge: "热卖"
+            },
+            {
+                id: 7,
+                name: "120寸电动投影幕布",
+                description: "高清白塑电动幕布，16:9比例，遥控控制，安装方便",
+                price: 499,
+                originalPrice: 649,
+                image: "https://images.unsplash.com/photo-1591892155730-7aafc6e31ef0?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                category: "projector",
+                features: [
+                    "尺寸: 120寸 (16:9)",
+                    "材质: 高清白塑",
+                    "电动遥控升降",
+                    "内置安装支架"
+                ]
+            },
+            {
+                id: 8,
+                name: "8通道专业混音器",
+                description: "数字混音器，支持多种音效，适合小型演出和KTV系统",
+                price: 1299,
+                image: "https://images.unsplash.com/photo-1606152536277-5aa1fd33e250?ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=80",
+                category: "speaker",
+                features: [
+                    "8个XLR/TRS组合输入",
+                    "内置数字效果器",
+                    "USB音频接口",
+                    "iPad控制支持"
+                ]
+            }
+        ];
+
+        // 生成随机订单号
+        function generateOrderNumber() {
+            const prefix = 'EC-';
+            const randomNum = Math.floor(100000 + Math.random() * 900000);
+            return prefix + randomNum;
+        }
+        
+        // 显示购买模态框
+        function showPurchaseModal(product) {
+            const modal = document.getElementById('purchase-modal');
+            const orderNumber = generateOrderNumber();
+            
+            document.getElementById('modal-product-name').textContent = product.name;
+            document.getElementById('order-number').textContent = orderNumber;
+            document.getElementById('payid-order-number').textContent = orderNumber;
+            document.getElementById('product-details').textContent = product.name;
+            document.getElementById('product-price').textContent = '$' + product.price;
+            
+            // 重置表单
+            document.getElementById('customer-info-form').reset();
+            
+            modal.style.display = 'block';
+            
+            // 存储当前订单信息
+            window.currentOrder = {
+                product: product,
+                orderNumber: orderNumber,
+                timestamp: new Date().toISOString()
+            };
+        }
+        
+        // 初始化产品展示
+        function initProducts() {
+            const productsContainer = document.getElementById('products-container');
+            productsContainer.innerHTML = '';
+            
+            // 获取当前筛选类别
+            const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+            
+            // 筛选产品
+            const filteredProducts = activeFilter === 'all' 
+                ? products 
+                : products.filter(product => product.category === activeFilter);
+            
+            filteredProducts.forEach(product => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.dataset.category = product.category;
+                
+                let badgeHtml = '';
+                if (product.badge) {
+                    badgeHtml = `<div class="product-badge">${product.badge}</div>`;
+                }
+                
+                let originalPriceHtml = '';
+                if (product.originalPrice) {
+                    originalPriceHtml = `<span class="original-price">$${product.originalPrice}</span>`;
+                }
+                
+                let featuresHtml = '';
+                if (product.features && product.features.length > 0) {
+                    featuresHtml = `<ul class="product-features">`;
+                    product.features.forEach(feature => {
+                        featuresHtml += `<li>${feature}</li>`;
+                    });
+                    featuresHtml += `</ul>`;
+                }
+                
+                productCard.innerHTML = `
+                    <div class="product-img" style="background-image: url('${product.image}');">
+                        ${badgeHtml}
+                    </div>
+                    <div class="product-content">
+                        <h3>${product.name}</h3>
+                        <p>${product.description}</p>
+                        ${featuresHtml}
+                        <div class="price">$${product.price} ${originalPriceHtml}</div>
+                        <button class="btn btn-block buy-btn" data-product-id="${product.id}">立即购买</button>
+                    </div>
+                `;
+                
+                productsContainer.appendChild(productCard);
+            });
+            
+            // 添加购买按钮事件监听
+            document.querySelectorAll('.buy-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-product-id'));
+                    const product = products.find(p => p.id === productId);
+                    
+                    if (product) {
+                        showPurchaseModal(product);
+                    }
+                });
+            });
+        }
+        
+        // 初始化筛选功能
+        function initFilters() {
+            document.querySelectorAll('.filter-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    // 移除所有active类
+                    document.querySelectorAll('.filter-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // 添加active类到当前按钮
+                    this.classList.add('active');
+                    
+                    // 重新初始化产品
+                    initProducts();
+                });
+            });
+        }
+        
+        // 初始化模态框事件
+        function initModalEvents() {
+            const modal = document.getElementById('purchase-modal');
+            const closeBtn = document.querySelector('.close-modal');
+            
+            // 关闭模态框
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+            
+            // 点击模态框外部关闭
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+            
+            // 表单提交
+            document.getElementById('customer-info-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // 这里可以添加表单验证和提交逻辑
+                // 在实际应用中，应该将订单信息发送到服务器
+                
+                alert('订单已提交！请通过PayID完成付款，我们收到付款后将立即安排发货。');
+                modal.style.display = 'none';
+                
+                // 在实际应用中，这里应该重定向到订单确认页面或发送确认邮件
+            });
+        }
+        
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            initProducts();
+            initFilters();
+            initModalEvents();
+        });
+    </script>
+</body>
+</html>
