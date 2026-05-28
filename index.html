@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Echospace | 悉尼专业家庭影院与音视频系统服务</title>
 <meta name="description" content="悉尼专业家庭影院设计安装、音视频设备调试、投影仪安装、KTV系统集成、LED显示屏、CCTV系统，专业音响师团队，优质影音体验保障。">
-<meta name="keywords" content="悉尼家庭影院,投影仪安装,音频调试,悉尼KTV安装,LED显示屏安装维修、监控安装，酒吧音响灯光安装,专业音响调试">
-<meta name="keywords" content="悉尼家庭影院,投影仪安装,音频调试,悉尼酒吧CLUB音响调试，悉尼KTV安装,LED显示屏安装维修，酒吧音响灯光安装、维修,专业音响调试">
+<meta name="keywords" content="悉尼家庭影院,投影仪安装,音频调试,悉尼KTV安装,LED显示屏安装维修,监控安装,酒吧音响灯光安装,专业音响调试,悉尼酒吧CLUB音响调试">
 <style>
 :root {
   --primary: #1a2a6c;
@@ -201,7 +200,7 @@ header {
   height: 200px;
   background-size: cover;
   background-position: center;
-  background-color: #f0f0f0; /* 灰色背景，以防图片加载失败 */
+  background-color: #f0f0f0;
 }
 
 .service-content, .product-content {
@@ -430,14 +429,14 @@ footer {
   color: var(--accent);
 }
 
-/* CCTV 区块轻微高亮（可删） */
 #cctv { background: linear-gradient(to bottom, #f8f9fa, #eef2f6); }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
-  .nav-container { flex-direction: column; }
-  .nav-links { margin-top: 20px; flex-direction: column; align-items: center; }
-  .nav-links li { margin: 10px 0; }
+  header { padding: 10px 0; position: relative; }
+  .nav-container { flex-direction: column; gap: 10px; }
+  .nav-links { flex-wrap: wrap; justify-content: center; margin-top: 5px; }
+  .nav-links li { margin: 5px 10px; }
   .hero h1 { font-size: 2.2rem; }
   .services-grid, .testimonials-grid, .products-grid { grid-template-columns: 1fr; }
   .section { padding: 60px 0; }
@@ -446,6 +445,7 @@ footer {
 </style>
 </head>
 <body>
+
 <!-- 导航栏 -->
 <header>
   <div class="container nav-container">
@@ -487,7 +487,7 @@ footer {
 
     <div class="services-grid">
       <div class="service-card">
-        <div class="service-img" style="background-image: url('images/Projector Installation in Sydney, Australia at Reasonable Rates.jpg');"></div>
+        <div class="service-img" style="background-image: url('images/Projector%20Installation%20in%20Sydney,%20Australia%20at%20Reasonable%20Rates.jpg');"></div>
         <div class="service-content">
           <h3 data-i18n="homeTheater.service1.title">投影仪安装与调试</h3>
           <p data-i18n="homeTheater.service1.description">专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果</p>
@@ -497,7 +497,7 @@ footer {
       </div>
 
       <div class="service-card">
-        <div class="service-img" style="background-image: url('images/Projector Screen Installation.jpg');"></div>
+        <div class="service-img" style="background-image: url('images/Projector%20Screen%20Installation.jpg');"></div>
         <div class="service-content">
           <h3 data-i18n="homeTheater.service2.title">投影幕布安装</h3>
           <p data-i18n="homeTheater.service2.description">各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布</p>
@@ -507,7 +507,7 @@ footer {
       </div>
 
       <div class="service-card">
-        <div class="service-img" style="background-image: url('images/KTV Sound System Calibration Sydney.jpg');"></div>
+        <div class="service-img" style="background-image: url('images/KTV%20Sound%20System%20Calibration%20Sydney.jpg');"></div>
         <div class="service-content">
           <h3 data-i18n="homeTheater.service3.title">KTV系统安装</h3>
           <p data-i18n="homeTheater.service3.description">专业KTV系统设计安装，包括音响、点歌系统、效果器调试等</p>
@@ -566,16 +566,15 @@ footer {
   <div class="container">
     <div class="section-title">
       <h2 data-i18n="cctv.title">监控 CCTV 安装</h2>
-      <p data-i18n="cctv.description">4 路摄像头 + 4 路监控主机 + 1TB 硬盘 + 手机远程查看，标准走线与调试，全悉尼上门安装</p>
+      <p data-i18n="cctv.description">4 路摄像头 + 4 路监控主机 + 2TB 硬盘 + 手机远程查看，标准走线与调试，全悉尼上门安装</p>
     </div>
 
     <div class="services-grid">
-      <!-- 套餐卡片 -->
       <div class="service-card">
         <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=1200&q=80');"></div>
         <div class="service-content">
           <h3 data-i18n="cctv.bundle.title">4 路摄像头 + 监控主机套餐</h3>
-          <p data-i18n="cctv.bundle.includes">
+          <p id="cctv-includes-p">
             • 4× 室内外通用高清摄像头（含支架）<br>
             • 4 路网络录像机（NVR/DVR 其一，按现场网络方案配置）<br>
             • 2TB 监控级硬盘（循环录像）<br>
@@ -588,12 +587,11 @@ footer {
         </div>
       </div>
 
-      <!-- 增值服务卡片 -->
       <div class="service-card">
         <div class="service-img" style="background-image: url('https://images.unsplash.com/photo-1587271371132-79b88a9d3b5d?auto=format&fit=crop&w=1200&q=80');"></div>
         <div class="service-content">
           <h3 data-i18n="cctv.addon.title">可选升级与增值服务</h3>
-          <p data-i18n="cctv.addon.items">
+          <p id="cctv-addons-p">
             • 升级至 6/8 路主机与更多摄像头<br>
             • 室外抗逆光、全彩夜视、变焦/云台机型<br>
             • 云存储/消息推送/邮箱报警等功能配置<br>
@@ -614,10 +612,7 @@ footer {
       <h2 data-i18n="products.title">产品商店</h2>
       <p data-i18n="products.description">精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货</p>
     </div>
-
-    <div class="products-grid" id="products-container">
-      <!-- 商品通过 JavaScript 动态添加 -->
-    </div>
+    <div class="products-grid" id="products-container"></div>
   </div>
 </section>
 
@@ -650,7 +645,7 @@ footer {
       <tr><td class="brand-header" colspan="2">Allen & Heath</td></tr>
       <tr>
         <td data-i18n="equipment.allen1.model">dLive系列</td>
-        <td data-i18n="equipment.allen1.desc">顶级数字调音系统，适用于大型演出、巡演和高要求场所</td>
+        <td data-i18n="equipment.allen1.desc">顶级数字调音系统，适用于大型演出、巡演 and 高要求场所</td>
       </tr>
       <tr>
         <td data-i18n="equipment.allen2.model">Avantis系列</td>
@@ -704,31 +699,26 @@ footer {
         <div class="testimonial-author" data-i18n="testimonials.testimonial1.author">张先生</div>
         <div class="testimonial-location" data-i18n="testimonials.testimonial1.location">Epping</div>
       </div>
-
       <div class="testimonial-card">
         <p class="testimonial-text" data-i18n="testimonials.testimonial2.text">"我在Pymble住，海淘买了K歌音响，但话筒总是啸叫，Brian过来一下子就找到了问题所在，直接帮我解决了啸叫问题。"</p>
         <div class="testimonial-author" data-i18n="testimonials.testimonial2.author">李女士</div>
         <div class="testimonial-location" data-i18n="testimonials.testimonial2.location">Pymble</div>
       </div>
-
       <div class="testimonial-card">
         <p class="testimonial-text" data-i18n="testimonials.testimonial3.text">"原来的投影幕布太小了，换了个150寸的幕布，师傅安装得很专业，看电影太爽了，就像在家里拥有了一个小型电影院！"</p>
         <div class="testimonial-author" data-i18n="testimonials.testimonial3.author">王先生</div>
         <div class="testimonial-location" data-i18n="testimonials.testimonial3.location">Burwood</div>
       </div>
-
       <div class="testimonial-card">
         <p class="testimonial-text" data-i18n="testimonials.testimonial4.text">"专业团队为我们酒吧设计了完整的音响系统，现在音质效果提升明显，顾客反馈非常好，生意也更好了！"</p>
         <div class="testimonial-author" data-i18n="testimonials.testimonial4.author">James</div>
         <div class="testimonial-location" data-i18n="testimonials.testimonial4.location">Chatswood酒吧经理</div>
       </div>
-
       <div class="testimonial-card">
         <p class="testimonial-text" data-i18n="testimonials.testimonial5.text">"师傅很专业，不仅安装调试到位，还根据我的房间声学特点做了优化，现在看电影的沉浸感特别强，物超所值！"</p>
         <div class="testimonial-author" data-i18n="testimonials.testimonial5.author">刘先生</div>
         <div class="testimonial-location" data-i18n="testimonials.testimonial5.location">Hurstville</div>
       </div>
-
       <div class="testimonial-card">
         <p class="testimonial-text" data-i18n="testimonials.testimonial6.text">"为我们公司安装了完整的视频会议系统，画面清晰，声音传输稳定，远程会议效果大大提升，专业团队就是不一样！"</p>
         <div class="testimonial-author" data-i18n="testimonials.testimonial6.author">Sarah</div>
@@ -747,10 +737,9 @@ footer {
     </div>
 
     <div class="contact-info">
-      <p data-i18n="contact.phone">电话: <strong>0432 869 555</strong></p>
-      <p data-i18n="contact.email">邮箱: <strong>Info@echospace.com.au</strong></p>
+      <p><span data-i18n="contact.phone">电话:</span> <strong>0432 869 555</strong></p>
+      <p><span data-i18n="contact.email">邮箱:</span> <strong>Info@echospace.com.au</strong></p>
       <p data-i18n="contact.area">服务范围: 悉尼全市及周边地区</p>
-
       <a href="tel:0432869555" class="btn" data-i18n="contact.button">立即致电咨询</a>
     </div>
   </div>
@@ -761,7 +750,6 @@ footer {
   <div class="container">
     <div class="footer-content">
       <a href="#" class="logo">ECHO<span>SPACE</span></a>
-
       <ul class="footer-links">
         <li><a href="#home-theater" data-i18n="nav.homeTheater">家庭影院</a></li>
         <li><a href="#audio-services" data-i18n="nav.audioServices">音频服务</a></li>
@@ -771,8 +759,7 @@ footer {
         <li><a href="#testimonials" data-i18n="nav.testimonials">客户评价</a></li>
         <li><a href="#contact" data-i18n="nav.contact">联系我们</a></li>
       </ul>
-
-      <p data-i18n="footer.copyright">&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
+      <p data-i18n="footer.copyright">&copy; 2026 Echospace 悉尼专业影音系统服务 | 所有权利保留</p>
     </div>
   </div>
 </footer>
@@ -784,47 +771,52 @@ footer {
     <h2 id="modal-product-name">商品名称</h2>
 
     <div class="order-info">
-      <h3>订单信息</h3>
-      <p>订单号: <strong id="order-number">EC-123456</strong></p>
-      <p>商品: <span id="product-details">NH 12寸专业音响</span></p>
-      <p>价格: <strong id="product-price">$1299</strong></p>
+      <h3 data-i18n="modal.orderTitle">订单信息</h3>
+      <p><span data-i18n="modal.orderNum">订单号:</span> <strong id="order-number">EC-123456</strong></p>
+      <p><span data-i18n="modal.orderProd">商品:</span> <span id="product-details">-</span></p>
+      <p><span data-i18n="modal.orderPrice">价格:</span> <strong id="product-price">-</strong></p>
     </div>
 
     <div class="payid-info">
-      <h3>PayID付款</h3>
-      <p>请使用PayID向以下账户付款:</p>
+      <h3 data-i18n="modal.payTitle">PayID付款</h3>
+      <p data-i18n="modal.payDesc">请使用PayID向以下账户付款:</p>
       <p><strong>0432 869 555</strong></p>
-      <p>付款时请备注订单号: <strong id="payid-order-number">EC-123456</strong></p>
+      <p><span data-i18n="modal.payNote">付款时请备注订单号:</span> <strong id="payid-order-number">EC-123456</strong></p>
     </div>
 
     <form id="customer-info-form">
       <div class="form-group">
-        <label for="customer-name">姓名</label>
+        <label for="customer-name" data-i18n="form.name">姓名</label>
         <input type="text" id="customer-name" required>
+      </div>
+      
+      <!-- 优化：补充非常核心的联系电话字段 -->
+      <div class="form-group">
+        <label for="customer-phone" data-i18n="form.phone">联系电话</label>
+        <input type="tel" id="customer-phone" required>
       </div>
 
       <div class="form-group">
-        <label for="customer-email">邮箱</label>
+        <label for="customer-email" data-i18n="form.email">邮箱</label>
         <input type="email" id="customer-email" required>
       </div>
 
       <div class="form-group">
-        <label for="customer-address">送货地址</label>
+        <label for="customer-address" data-i18n="form.address">送货地址</label>
         <textarea id="customer-address" rows="3" required></textarea>
       </div>
 
       <div class="form-group">
-        <label for="payment-proof">付款截图 (可选)</label>
+        <label for="payment-proof" data-i18n="form.proof">付款截图 (可选)</label>
         <input type="file" id="payment-proof" accept="image/*">
       </div>
 
-      <button type="submit" class="btn">确认订单</button>
+      <button type="submit" class="btn" data-i18n="form.submit">确认订单</button>
     </form>
   </div>
 </div>
 
 <script>
-// 商品数据
 const products = [
   {
     id: 1,
@@ -871,11 +863,10 @@ const products = [
     price: 850,
     image: "https://raw.githubusercontent.com/Determined0/echo/main/images/Room%20Design%20Solution.png"
   },
-  /* 新增：4 路监控套餐 */
   {
     id: 6,
-    name: "4路监控套餐（4×摄像头 + 4路主机 + 1TB + 安装）",
-    nameEn: "4-Channel CCTV Package (4 Cameras + 4CH NVR/DVR + 1TB + Installation)",
+    name: "4路监控套餐（4×摄像头 + 4路主机 + 2TB + 安装）",
+    nameEn: "4-Channel CCTV Package (4 Cameras + 4CH NVR/DVR + 2TB + Installation)",
     description: "含 4 路高清摄像头、4 路监控主机、2TB 硬盘、标准布线安装与手机远程查看设置，悉尼区域上门安装，36 个月质保",
     descriptionEn: "Includes 4 HD cameras, 4-channel recorder (NVR/DVR), 2TB HDD, standard cabling & installation, mobile app setup, Sydney metro on-site, 36-month warranty",
     price: 2699,
@@ -883,10 +874,8 @@ const products = [
   }
 ];
 
-// 多语言支持
 const translations = {
 'zh': {
-  // 导航
   'nav.homeTheater': '家庭影院',
   'nav.audioServices': '音频服务',
   'nav.cctv': '监控安装',
@@ -895,31 +884,28 @@ const translations = {
   'nav.testimonials': '客户评价',
   'nav.contact': '联系我们',
 
-  // 英雄区域
   'hero.title': '悉尼专业影音系统解决方案',
   'hero.description': '我们提供家庭影院设计安装、专业音频设备调试、商业影音系统集成服务，专业音响工程师团队为您打造卓越影音体验',
   'hero.button': '立即咨询',
 
-  // 家庭影院
   'homeTheater.title': '家庭影院服务',
   'homeTheater.description': '我们提供专业的家庭影院设计、安装与调试一站式服务，打造沉浸式视听体验',
   'homeTheater.service1.title': '投影仪安装与调试',
   'homeTheater.service1.description': '专业投影仪安装、定位、聚焦和校准服务，确保最佳观影效果',
   'homeTheater.service1.price': '从 $219 起',
   'homeTheater.service2.title': '投影幕布安装',
-  'homeTheater.service2.description': '各类投影幕布的专业安装服务，包括固定式、电动式和支架式幕布',
+  'homeTheater.service2.description': '各类投影幕布的专业安装服务，包括固定式、电动式 and 支架式幕布',
   'homeTheater.service2.price': '从 $208 起',
   'homeTheater.service3.title': 'KTV系统安装',
   'homeTheater.service3.description': '专业KTV系统设计安装，包括音响、点歌系统、效果器调试等',
   'homeTheater.service3.price': '根据需求报价',
   'homeTheater.button': '预约服务',
 
-  // 音频服务
   'audioServices.title': '专业音频服务',
   'audioServices.description': '资深音响工程师提供专业音频设备调试与优化服务，让您的设备发挥最佳性能',
   'audioServices.service1.title': '专业音频设备调试',
   'audioServices.service1.description': '资深音响工程师提供专业级音频系统调试与优化，包括调音台、处理器和系统均衡',
-  'audioServices.service1.price': '$380/小时起',
+  'audioServices.service1.price': '$150/小时起',
   'audioServices.service2.title': '酒吧音响系统',
   'audioServices.service2.description': '商业酒吧音响设计与安装，打造完美音效环境，提升顾客体验',
   'audioServices.service2.price': '根据需求报价',
@@ -928,24 +914,19 @@ const translations = {
   'audioServices.service3.price': '根据需求报价',
   'audioServices.button': '预约服务',
 
-  // CCTV 模块
   'cctv.title': '监控 CCTV 安装',
-  'cctv.description': '4 路摄像头 + 4 路监控主机 + 1TB 硬盘 + 手机远程查看，标准走线与调试，全悉尼上门安装',
+  'cctv.description': '4 路摄像头 + 4 路监控主机 + 2TB 硬盘 + 手机远程查看，标准走线与调试，全悉尼上门安装',
   'cctv.bundle.title': '4 路摄像头 + 监控主机套餐',
-  'cctv.bundle.includes': '• 4× 室内外通用高清摄像头（含支架）<br>• 4 路网络录像机（NVR/DVR 其一，按现场网络方案配置）<br>• 1TB 监控级硬盘（循环录像）<br>• 标准布线与走线固定（含辅材）<br>• 手机 App 远程查看设置（iOS/Android）<br>• 12 个月安装与基础设备质保',
   'cctv.bundle.price': '限时特惠：$2699（含安装）',
   'cctv.bundle.cta': '立即抢购',
   'cctv.addon.title': '可选升级与增值服务',
-  'cctv.addon.items': '• 升级至 6/8 路主机与更多摄像头<br>• 室外抗逆光、全彩夜视、变焦/云台机型<br>• 云存储/消息推送/邮箱报警等功能配置<br>• 老旧系统换新与混合接入改造',
   'cctv.addon.price': '根据需求报价',
   'cctv.addon.cta': '咨询定制方案',
 
-  // 产品商店
   'products.title': '产品商店',
   'products.description': '精选优质影音设备，支持PayID付款，备注订单号完成购买即可发货',
   'products.buyButton': '立即购买',
 
-  // 设备
   'equipment.title': '专业设备支持',
   'equipment.description': '我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与优化服务',
   'equipment.brand': '品牌系列',
@@ -975,7 +956,6 @@ const translations = {
   'equipment.behringer2.model': 'Behringer XAir',
   'equipment.behringer2.desc': '系列数字调音台，适用于移动演出和固定安装',
 
-  // 评价
   'testimonials.title': '客户评价',
   'testimonials.description': '感谢悉尼各地客户对我们服务的认可与支持',
   'testimonials.testimonial1.text': '"Epping安装客户评价：收费合理，技术专业。投影安装完效果非常清晰，调试得很到位，我非常满意。"',
@@ -997,7 +977,6 @@ const translations = {
   'testimonials.testimonial6.author': 'Sarah',
   'testimonials.testimonial6.location': 'Sydney CBD',
 
-  // 联系
   'contact.title': '联系我们',
   'contact.description': '我们的专业团队随时为您提供咨询与上门勘察服务',
   'contact.phone': '电话:',
@@ -1005,11 +984,24 @@ const translations = {
   'contact.area': '服务范围: 悉尼全市及周边地区',
   'contact.button': '立即致电咨询',
 
-  // 页脚
-  'footer.copyright': '&copy; 2025 Echospace 悉尼专业影音系统服务 | 所有权利保留'
+  'footer.copyright': '&copy; 2026 Echospace 悉尼专业影音系统服务 | 所有权利保留',
+  
+  'modal.orderTitle': '订单信息',
+  'modal.orderNum': '订单号:',
+  'modal.orderProd': '商品:',
+  'modal.orderPrice': '价格:',
+  'modal.payTitle': 'PayID付款',
+  'modal.payDesc': '请使用PayID向以下账户付款:',
+  'modal.payNote': '付款时请备注订单号:',
+  'form.name': '姓名',
+  'form.phone': '联系电话',
+  'form.email': '邮箱',
+  'form.address': '送货地址',
+  'form.proof': '付款截图 (可选)',
+  'form.submit': '确认订单',
+  'alert.success': '订单已提交！请通过PayID完成付款，我们收到付款后将立即安排发货。'
 },
 'en': {
-  // Nav
   'nav.homeTheater': 'Home Theater',
   'nav.audioServices': 'Audio Services',
   'nav.cctv': 'CCTV Install',
@@ -1018,12 +1010,10 @@ const translations = {
   'nav.testimonials': 'Testimonials',
   'nav.contact': 'Contact Us',
 
-  // Hero
   'hero.title': 'Professional Audio-Visual Solutions in Sydney',
   'hero.description': 'We provide home theater design and installation, professional audio equipment debugging, commercial audio-visual system integration services, with professional audio engineer team to create an exceptional audio-visual experience for you',
   'hero.button': 'Consult Now',
 
-  // Home Theater
   'homeTheater.title': 'Home Theater Services',
   'homeTheater.description': 'We provide professional home theater design, installation and debugging services to create an immersive audio-visual experience',
   'homeTheater.service1.title': 'Projector Installation & Calibration',
@@ -1037,12 +1027,11 @@ const translations = {
   'homeTheater.service3.price': 'Quote on request',
   'homeTheater.button': 'Book Service',
 
-  // Audio Services
   'audioServices.title': 'Professional Audio Services',
   'audioServices.description': 'Experienced audio engineers provide professional audio equipment debugging and optimization services to maximize your equipment performance',
   'audioServices.service1.title': 'Professional Audio Equipment Debugging',
   'audioServices.service1.description': 'Experienced audio engineers provide professional-level audio system debugging and optimization, including mixer, processor and system equalization',
-  'audioServices.service1.price': 'From $380/hour',
+  'audioServices.service1.price': 'From $150/hour',
   'audioServices.service2.title': 'Bar Audio System',
   'audioServices.service2.description': 'Commercial bar audio design and installation, creating perfect sound environment to enhance customer experience',
   'audioServices.service2.price': 'Quote on request',
@@ -1051,24 +1040,19 @@ const translations = {
   'audioServices.service3.price': 'Quote on request',
   'audioServices.button': 'Book Service',
 
-  // CCTV module
   'cctv.title': 'CCTV Installation',
-  'cctv.description': '4 cameras + 4CH recorder + 1TB HDD + mobile view. Standard cabling & commissioning. On-site across Sydney.',
+  'cctv.description': '4 cameras + 4CH recorder + 2TB HDD + mobile view. Standard cabling & commissioning. On-site across Sydney.',
   'cctv.bundle.title': '4-Camera + 4CH Recorder Package',
-  'cctv.bundle.includes': '• 4× indoor/outdoor HD cameras (with brackets)<br>• 4-channel NVR/DVR (chosen per site network)<br>• 1TB surveillance HDD (loop recording)<br>• Standard cabling & fixing (consumables included)<br>• Mobile app remote view setup (iOS/Android)<br>• 12-month installation & basic hardware warranty',
   'cctv.bundle.price': 'Special: $2699 (installation included)',
   'cctv.bundle.cta': 'Buy Now',
   'cctv.addon.title': 'Upgrades & Add-ons',
-  'cctv.addon.items': '• Upgrade to 6/8CH and more cameras<br>• Outdoor WDR, full-color night, varifocal/PTZ<br>• Cloud, push/email alerts and more<br>• Legacy system replacement/mixed integration',
   'cctv.addon.price': 'Quote on request',
   'cctv.addon.cta': 'Consult Custom Plan',
 
-  // Products
   'products.title': 'Product Store',
-  'products.description': 'Selected high-quality audio-visual equipment, support PayID payment, complete the purchase with order number备注 to ship',
+  'products.description': 'Selected high-quality audio-visual equipment, support PayID payment, complete the purchase with order number memo to ship',
   'products.buyButton': 'Buy Now',
 
-  // Equipment
   'equipment.title': 'Professional Equipment Support',
   'equipment.description': 'Our engineers are familiar with various professional audio equipment and can provide you with the best debugging and optimization services',
   'equipment.brand': 'Brand Series',
@@ -1098,7 +1082,6 @@ const translations = {
   'equipment.behringer2.model': 'Behringer XAir',
   'equipment.behringer2.desc': 'Series of digital consoles, suitable for mobile performances and fixed installations',
 
-  // Testimonials
   'testimonials.title': 'Customer Testimonials',
   'testimonials.description': 'Thanks to customers across Sydney for their recognition and support of our services',
   'testimonials.testimonial1.text': '"Epping installation customer review: Reasonable pricing, professional skills. The projection installation effect is very clear, well debugged, I am very satisfied."',
@@ -1120,7 +1103,6 @@ const translations = {
   'testimonials.testimonial6.author': 'Sarah',
   'testimonials.testimonial6.location': 'Sydney CBD',
 
-  // Contact
   'contact.title': 'Contact Us',
   'contact.description': 'Our professional team is ready to provide consultation and on-site inspection services',
   'contact.phone': 'Phone:',
@@ -1128,73 +1110,99 @@ const translations = {
   'contact.area': 'Service Area: Sydney and surrounding areas',
   'contact.button': 'Call Now',
 
-  // Footer
-  'footer.copyright': '&copy; 2025 Echospace Sydney Professional Audio-Visual Services | All Rights Reserved'
+  'footer.copyright': '&copy; 2026 Echospace Sydney Professional Audio-Visual Services | All Rights Reserved',
+  
+  'modal.orderTitle': 'Order Info',
+  'modal.orderNum': 'Order No:',
+  'modal.orderProd': 'Product:',
+  'modal.orderPrice': 'Price:',
+  'modal.payTitle': 'PayID Payment',
+  'modal.payDesc': 'Please pay via PayID to:',
+  'modal.payNote': 'Please note the Order No when paying:',
+  'form.name': 'Name',
+  'form.phone': 'Phone',
+  'form.email': 'Email',
+  'form.address': 'Address',
+  'form.proof': 'Payment Proof (Optional)',
+  'form.submit': 'Confirm Order',
+  'alert.success': 'Order submitted! Please complete payment via PayID, we will arrange delivery immediately upon receipt.'
 }
 };
 
-// 语言切换
+const cctvDetails = {
+  'zh': {
+    includes: '• 4× 室内外通用高清摄像头（含支架）<br>• 4 路网络录像机（NVR/DVR 其一，按现场网络方案配置）<br>• 2TB 监控级硬盘（循环录像）<br>• 标准布线与走线固定（含辅材）<br>• 手机 App 远程查看设置（iOS/Android）<br>• 36 个月设备质保',
+    addons: '• 升级至 6/8 路主机与更多摄像头<br>• 室外抗逆光、全彩夜视、变焦/云台机型<br>• 云存储/消息推送/邮箱报警等功能配置<br>• 老旧系统换新与混合接入改造'
+  },
+  'en': {
+    includes: '• 4× indoor/outdoor HD cameras (with brackets)<br>• 4-channel NVR/DVR (chosen per site network)<br>• 2TB surveillance HDD (loop recording)<br>• Standard cabling & fixing (consumables included)<br>• Mobile app remote view setup (iOS/Android)<br>• 36-month installation & hardware warranty',
+    addons: '• Upgrade to 6/8CH and more cameras<br>• Outdoor WDR, full-color night, varifocal/PTZ<br>• Cloud, push/email alerts and more<br>• Legacy system replacement/mixed integration'
+  }
+};
+
+let currentLang = 'zh';
+
 function switchLanguage(lang) {
+  currentLang = lang;
   document.documentElement.lang = lang;
   document.getElementById('zh-btn').classList.toggle('active', lang === 'zh');
   document.getElementById('en-btn').classList.toggle('active', lang === 'en');
 
+  // 全局data-i18n属性翻译
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
-    if (translations[lang][key]) {
+    if (translations[lang] && translations[lang][key]) {
       if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-        element.value = translations[lang][key];
+        element.placeholder = translations[lang][key]; 
       } else {
         element.innerHTML = translations[lang][key];
       }
     }
   });
 
-  // 更新产品卡片语言
+  // 动态同步CCTV块的HTML文本
+  document.getElementById('cctv-includes-p').innerHTML = cctvDetails[lang].includes;
+  document.getElementById('cctv-addons-p').innerHTML = cctvDetails[lang].addons;
+
+  // 更新产品商店列表里的语言
   updateProductsLanguage(lang);
 }
 
-// 更新产品语言
 function updateProductsLanguage(lang) {
   const productCards = document.querySelectorAll('.product-card');
-  productCards.forEach((card, index) => {
-    if (products[index]) {
-      const nameElement = card.querySelector('h3');
-      const descElement = card.querySelector('p');
-
-      if (lang === 'zh') {
-        nameElement.textContent = products[index].name;
-        descElement.textContent = products[index].description;
-      } else {
-        nameElement.textContent = products[index].nameEn;
-        descElement.textContent = products[index].descriptionEn;
-      }
+  productCards.forEach((card) => {
+    const buyBtn = card.querySelector('.buy-btn');
+    if (!buyBtn) return;
+    const productId = parseInt(buyBtn.getAttribute('data-product-id'));
+    const product = products.find(p => p.id === productId);
+    
+    if (product) {
+      card.querySelector('h3').textContent = (lang === 'zh') ? product.name : product.nameEn;
+      card.querySelector('p').textContent = (lang === 'zh') ? product.description : product.descriptionEn;
+      card.querySelector('.buy-btn').textContent = translations[lang]['products.buyButton'];
     }
   });
 }
 
-// 生成随机订单号
 function generateOrderNumber() {
   const prefix = 'EC-';
   const randomNum = Math.floor(100000 + Math.random() * 900000);
   return prefix + randomNum;
 }
 
-// 显示购买模态框
 function showPurchaseModal(product) {
   const modal = document.getElementById('purchase-modal');
   const orderNumber = generateOrderNumber();
 
-  document.getElementById('modal-product-name').textContent = product.name;
+  document.getElementById('modal-product-name').textContent = (currentLang === 'zh') ? product.name : product.nameEn;
   document.getElementById('order-number').textContent = orderNumber;
   document.getElementById('payid-order-number').textContent = orderNumber;
-  document.getElementById('product-details').textContent = product.name;
+  document.getElementById('product-details').textContent = (currentLang === 'zh') ? product.name : product.nameEn;
   document.getElementById('product-price').textContent = '$' + product.price;
 
   document.getElementById('customer-info-form').reset();
   modal.style.display = 'block';
 
-  // 存储当前订单信息
   window.currentOrder = {
     product: product,
     orderNumber: orderNumber,
@@ -1202,29 +1210,29 @@ function showPurchaseModal(product) {
   };
 }
 
-// 初始化产品展示
 function initProducts() {
   const productsContainer = document.getElementById('products-container');
+  if(!productsContainer) return;
   productsContainer.innerHTML = '';
 
   products.forEach(product => {
     const productCard = document.createElement('div');
     productCard.className = 'product-card';
 
+    // 修复：确保渲染出来的组件具有正确的初始文本，并在后续能被正常捕获
     productCard.innerHTML = `
       <div class="product-img" style="background-image: url('${product.image}');"></div>
       <div class="product-content">
           <h3>${product.name}</h3>
           <p>${product.description}</p>
           <div class="price">$${product.price}</div>
-          <button class="btn buy-btn" data-product-id="${product.id}" data-i18n="products.buyButton">立即购买</button>
+          <button class="btn buy-btn" data-product-id="${product.id}">立即购买</button>
       </div>
     `;
-
     productsContainer.appendChild(productCard);
   });
 
-  // 添加购买按钮事件监听
+  // 事件委托/重新绑定
   document.querySelectorAll('.buy-btn').forEach(button => {
     button.addEventListener('click', function() {
       const productId = parseInt(this.getAttribute('data-product-id'));
@@ -1232,9 +1240,11 @@ function initProducts() {
       if (product) showPurchaseModal(product);
     });
   });
+  
+  // 保持当前选定语言一致
+  updateProductsLanguage(currentLang);
 }
 
-// 平滑滚动
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -1249,64 +1259,48 @@ function initSmoothScroll() {
   });
 }
 
-// 初始化模态框事件
 function initModalEvents() {
   const modal = document.getElementById('purchase-modal');
   const closeBtn = document.querySelector('.close-modal');
 
-  // 关闭模态框
-  closeBtn.addEventListener('click', function() {
-    modal.style.display = 'none';
-  });
+  if(closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+  }
 
-  // 点击模态框外部关闭
   window.addEventListener('click', function(event) {
     if (event.target === modal) modal.style.display = 'none';
   });
 
-  // 表单提交
   document.getElementById('customer-info-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert('订单已提交！请通过PayID完成付款，我们收到付款后将立即安排发货。');
+    alert(translations[currentLang]['alert.success']);
     modal.style.display = 'none';
   });
 }
 
-// 图片优化
 function optimizeImages() {
   const images = document.querySelectorAll('.service-img, .product-img');
   images.forEach(img => {
-    const bg = img.style.backgroundImage;
     img.onerror = function() {
       this.style.backgroundColor = "#f0f0f0";
       this.style.display = "flex";
       this.style.alignItems = "center";
       this.style.justifyContent = "center";
-      this.innerHTML = "<span>图片加载失败</span>";
+      this.innerHTML = "<span style='font-size:0.8rem;color:#aaa;'>Image Load Failed</span>";
     };
-    if (bg && bg.includes('images/')) {
-      const imgUrl = bg.replace(/url\(['"]?(.*?)['"]?\)/i, '$1');
-      const imgElement = new Image();
-      imgElement.onload = function() {
-        if (this.width > 600) {
-          console.log(`建议压缩图片: ${imgUrl}, 当前尺寸: ${this.width}x${this.height}`);
-        }
-      };
-      imgElement.src = imgUrl;
-    }
   });
 }
 
-// 页面加载完成后初始化
 document.addEventListener('DOMContentLoaded', function() {
   initProducts();
   initSmoothScroll();
   initModalEvents();
   optimizeImages();
+  // 执行一次初始化语言
+  switchLanguage('zh');
 });
 </script>
 </body>
 </html>
-
-
-
