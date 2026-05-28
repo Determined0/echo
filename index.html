@@ -395,6 +395,13 @@ header {
   border-radius: 4px;
 }
 
+.fs-error-msg {
+  color: #b21f1f;
+  font-size: 0.85rem;
+  margin-top: 5px;
+  display: block;
+}
+
 /* 页脚样式 */
 footer {
   background: var(--dark);
@@ -446,7 +453,6 @@ footer {
 </head>
 <body>
 
-<!-- 导航栏 -->
 <header>
   <div class="container nav-container">
     <a href="#" class="logo">ECHO<span>SPACE</span></a>
@@ -468,7 +474,6 @@ footer {
   </div>
 </header>
 
-<!-- 英雄区域 -->
 <section class="hero">
   <div class="container">
     <h1 data-i18n="hero.title">悉尼专业影音系统解决方案</h1>
@@ -477,7 +482,6 @@ footer {
   </div>
 </section>
 
-<!-- 家庭影院服务 -->
 <section class="section" id="home-theater">
   <div class="container">
     <div class="section-title">
@@ -519,7 +523,6 @@ footer {
   </div>
 </section>
 
-<!-- 音频服务 -->
 <section class="section" id="audio-services">
   <div class="container">
     <div class="section-title">
@@ -561,7 +564,6 @@ footer {
   </div>
 </section>
 
-<!-- 监控安装（CCTV） -->
 <section class="section" id="cctv">
   <div class="container">
     <div class="section-title">
@@ -605,7 +607,6 @@ footer {
   </div>
 </section>
 
-<!-- 产品商店 -->
 <section class="product-section" id="products">
   <div class="container">
     <div class="section-title">
@@ -616,7 +617,6 @@ footer {
   </div>
 </section>
 
-<!-- 专业设备 -->
 <section class="equipment-section" id="equipment">
   <div class="container">
     <div class="section-title">
@@ -685,7 +685,6 @@ footer {
   </div>
 </section>
 
-<!-- 客户评价 -->
 <section class="testimonials" id="testimonials">
   <div class="container">
     <div class="section-title">
@@ -728,7 +727,6 @@ footer {
   </div>
 </section>
 
-<!-- 联系我们 -->
 <section class="contact-section" id="contact">
   <div class="container">
     <div class="section-title">
@@ -745,7 +743,6 @@ footer {
   </div>
 </section>
 
-<!-- 页脚 -->
 <footer>
   <div class="container">
     <div class="footer-content">
@@ -764,7 +761,6 @@ footer {
   </div>
 </footer>
 
-<!-- 购买模态框 -->
 <div id="purchase-modal" class="modal">
   <div class="modal-content">
     <span class="close-modal">&times;</span>
@@ -784,34 +780,45 @@ footer {
       <p><span data-i18n="modal.payNote">付款时请备注订单号:</span> <strong id="payid-order-number">EC-123456</strong></p>
     </div>
 
-    <!-- 已为你绑定专属 Formspree 端点，并支持图片附件上传 -->
-    <form id="customer-info-form" action="https://formspree.io/f/mjgzjjag" method="POST" enctype="multipart/form-data">
+    <div data-fs-success style="display: none;"></div>
+    <div data-fs-error style="display: none;"></div>
+
+    <form id="customer-info-form" method="POST" enctype="multipart/form-data">
+      <input type="hidden" id="fs-order-number" name="Order_Number" data-fs-field />
+      <input type="hidden" id="fs-product-name" name="Product_Name" data-fs-field />
+      <input type="hidden" id="fs-product-price" name="Product_Price" data-fs-field />
+
       <div class="form-group">
         <label for="customer-name" data-i18n="form.name">姓名</label>
-        <input type="text" id="customer-name" name="Customer_Name" required>
+        <input type="text" id="customer-name" name="Customer_Name" data-fs-field required>
+        <span data-fs-error="Customer_Name" class="fs-error-msg"></span>
       </div>
       
       <div class="form-group">
         <label for="customer-phone" data-i18n="form.phone">联系电话</label>
-        <input type="tel" id="customer-phone" name="Customer_Phone" required>
+        <input type="tel" id="customer-phone" name="Customer_Phone" data-fs-field required>
+        <span data-fs-error="Customer_Phone" class="fs-error-msg"></span>
       </div>
 
       <div class="form-group">
         <label for="customer-email" data-i18n="form.email">邮箱</label>
-        <input type="email" id="customer-email" name="Customer_Email" required>
+        <input type="email" id="customer-email" name="Customer_Email" data-fs-field required>
+        <span data-fs-error="Customer_Email" class="fs-error-msg"></span>
       </div>
 
       <div class="form-group">
         <label for="customer-address" data-i18n="form.address">送货地址</label>
-        <textarea id="customer-address" name="Shipping_Address" rows="3" required></textarea>
+        <textarea id="customer-address" name="Shipping_Address" rows="3" data-fs-field required></textarea>
+        <span data-fs-error="Shipping_Address" class="fs-error-msg"></span>
       </div>
 
       <div class="form-group">
         <label for="payment-proof" data-i18n="form.proof">付款截图 (可选)</label>
-        <input type="file" id="payment-proof" name="Payment_Proof_Attachment" accept="image/*">
+        <input type="file" id="payment-proof" name="Payment_Proof" accept="image/*" data-fs-field>
+        <span data-fs-error="Payment_Proof" class="fs-error-msg"></span>
       </div>
 
-      <button type="submit" class="btn" data-i18n="form.submit">确认订单</button>
+      <button type="submit" class="btn" data-fs-submit-btn data-i18n="form.submit">确认订单</button>
     </form>
   </div>
 </div>
@@ -957,7 +964,7 @@ const translations = {
   'equipment.allen5.model': 'ZED系列',
   'equipment.allen5.desc': '模拟调音台，适用于酒吧、KTV、排练室等场所',
   'equipment.midas1.model': 'Midas M32',
-  'equipment.midas1.desc': '适用于现场和录音室的数字调音台，提供专业音质和可靠性',
+  'equipment.midas1.desc': '适用于现场和录音室的数字调音台，提供专业音质 and 可靠性',
   'equipment.midas2.model': 'Midas WING',
   'equipment.midas2.desc': '48路数字调音台，适用于大型演出和高端制作',
   'equipment.behringer1.model': 'Behringer X32',
@@ -1091,26 +1098,26 @@ const translations = {
   'equipment.behringer2.model': 'Behringer XAir',
   'equipment.behringer2.desc': 'Series of digital consoles, suitable for mobile performances and fixed installations',
 
-  'testimonials.title': 'Customer Testimonials',
-  'testimonials.description': 'Thanks to customers across Sydney for their recognition and support of our services',
-  'testimonials.testimonial1.text': '"Epping installation customer review: Reasonable pricing, professional skills. The projection installation effect is very clear, well debugged, I am very satisfied."',
-  'testimonials.testimonial1.author': 'Mr. Zhang',
-  'testimonials.testimonial1.location': 'Epping',
-  'testimonials.testimonial2.text': '"I live in Pymble, bought KTV audio equipment from overseas, but the microphone always had feedback. Brian came and immediately found the problem and solved the feedback issue for me."',
-  'testimonials.testimonial2.author': 'Ms. Li',
-  'testimonials.testimonial2.location': 'Pymble',
-  'testimonials.testimonial3.text': '"The original projection screen was too small, replaced with a 150-inch screen. The technician installed it very professionally, watching movies is so enjoyable, it\'s like having a small cinema at home!"',
-  'testimonials.testimonial3.author': 'Mr. Wang',
-  'testimonials.testimonial3.location': 'Burwood',
-  'testimonials.testimonial4.text': '"The professional team designed a complete audio system for our bar. Now the sound quality has significantly improved, customer feedback is very good, and business is better!"',
-  'testimonials.testimonial4.author': 'James',
-  'testimonials.testimonial4.location': 'Chatswood Bar Manager',
-  'testimonials.testimonial5.text': '"The technician is very professional, not only installed and debugged perfectly, but also optimized according to the acoustic characteristics of my room. Now the immersion of watching movies is particularly strong, great value for money!"',
-  'testimonials.testimonial5.author': 'Mr. Liu',
-  'testimonials.testimonial5.location': 'Hurstville',
-  'testimonials.testimonial6.text': '"Installed a complete video conference system for our company. The picture is clear, the sound transmission is stable, the remote meeting effect is greatly improved. Professional teams are different!"',
-  'testimonials.testimonial6.author': 'Sarah',
-  'testimonials.testimonial6.location': 'Sydney CBD',
+  'translations.title': 'Customer Testimonials',
+  'translations.description': 'Thanks to customers across Sydney for their recognition and support of our services',
+  'translations.testimonial1.text': '"Epping installation customer review: Reasonable pricing, professional skills. The projection installation effect is very clear, well debugged, I am very satisfied."',
+  'translations.testimonial1.author': 'Mr. Zhang',
+  'translations.testimonial1.location': 'Epping',
+  'translations.testimonial2.text': '"I live in Pymble, bought KTV audio equipment from overseas, but the microphone always had feedback. Brian came and immediately found the problem and solved the feedback issue for me."',
+  'translations.testimonial2.author': 'Ms. Li',
+  'translations.testimonial2.location': 'Pymble',
+  'translations.testimonial3.text': '"The original projection screen was too small, replaced with a 150-inch screen. The technician installed it very professionally, watching movies is so enjoyable, it\'s like having a small cinema at home!"',
+  'translations.testimonial3.author': 'Mr. Wang',
+  'translations.testimonial3.location': 'Burwood',
+  'translations.testimonial4.text': '"The professional team designed a complete audio system for our bar. Now the sound quality has significantly improved, customer feedback is very good, and business is better!"',
+  'translations.testimonial4.author': 'James',
+  'translations.testimonial4.location': 'Chatswood Bar Manager',
+  'translations.testimonial5.text': '"The technician is very professional, not only installed and debugged perfectly, but also optimized according to the acoustic characteristics of my room. Now the immersion of watching movies is particularly strong, great value for money!"',
+  'translations.testimonial5.author': 'Mr. Liu',
+  'translations.testimonial5.location': 'Hurstville',
+  'translations.testimonial6.text': '"Installed a complete video conference system for our company. The picture is clear, the sound transmission is stable, the remote meeting effect is greatly improved. Professional teams are different!"',
+  'translations.testimonial6.author': 'Sarah',
+  'translations.testimonial6.location': 'Sydney CBD',
 
   'contact.title': 'Contact Us',
   'contact.description': 'Our professional team is ready to provide consultation and on-site inspection services',
@@ -1199,12 +1206,18 @@ function generateOrderNumber() {
 function showPurchaseModal(product) {
   const modal = document.getElementById('purchase-modal');
   const orderNumber = generateOrderNumber();
+  const targetProdName = (currentLang === 'zh') ? product.name : product.nameEn;
 
-  document.getElementById('modal-product-name').textContent = (currentLang === 'zh') ? product.name : product.nameEn;
+  document.getElementById('modal-product-name').textContent = targetProdName;
   document.getElementById('order-number').textContent = orderNumber;
   document.getElementById('payid-order-number').textContent = orderNumber;
-  document.getElementById('product-details').textContent = (currentLang === 'zh') ? product.name : product.nameEn;
+  document.getElementById('product-details').textContent = targetProdName;
   document.getElementById('product-price').textContent = '$' + product.price;
+
+  // 1. 动态为 Formspree 隐藏域赋值，伴随表单整体静默发送至接收邮箱
+  document.getElementById('fs-order-number').value = orderNumber;
+  document.getElementById('fs-product-name').value = targetProdName;
+  document.getElementById('fs-product-price').value = '$' + product.price;
 
   document.getElementById('customer-info-form').reset();
   modal.style.display = 'block';
@@ -1276,52 +1289,18 @@ function initModalEvents() {
     if (event.target === modal) modal.style.display = 'none';
   });
 
-  // ======= 核心：接管表单提交并AJAX发送到Formspree =======
-  document.getElementById('customer-info-form').addEventListener('submit', function(e) {
-    e.preventDefault(); // 阻止默认的表单跳转刷新页面
-
-    const form = this;
-    const formData = new FormData(form);
-
-    // 自动追加自动生成的订单基础数据给邮件内容
-    if (window.currentOrder) {
-      const prodName = (currentLang === 'zh') ? window.currentOrder.product.name : window.currentOrder.product.nameEn;
-      formData.append('System_Generated_Order_Number', window.currentOrder.orderNumber);
-      formData.append('Ordered_Product_Name', prodName);
-      formData.append('Product_Price', '$' + window.currentOrder.product.price);
+  // ======= Formspree 官方 Vanilla JS (Ajax) SDK 挂载逻辑 =======
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  
+  formspree('initForm', { 
+    formElement: '#customer-info-form', 
+    formId: 'mjgzjjag',
+    onSuccess: function() {
+      // 触发语言包中的友好提示通知窗
+      alert(translations[currentLang]['alert.success']);
+      // 自动关闭模态购买弹窗
+      modal.style.display = 'none';
     }
-
-    // 禁用提交按钮防止重复点击
-    const submitBtn = form.querySelector('button[type="submit"]');
-    if (submitBtn) submitBtn.disabled = true;
-
-    // AJAX 异步发送给 Formspree
-    fetch(form.action, {
-      method: form.method,
-      body: formData,
-      headers: {
-        'Accept': 'application/json'
-      }
-    }).then(response => {
-      if (submitBtn) submitBtn.disabled = false;
-      if (response.ok) {
-        // 成功提示并关闭弹窗
-        alert(translations[currentLang]['alert.success']);
-        form.reset();
-        modal.style.display = 'none';
-      } else {
-        response.json().then(data => {
-          if (Object.hasOwn(data, 'errors')) {
-            alert(data["errors"].map(error => error["message"]).join(", "));
-          } else {
-            alert("Oops! There was a problem submitting your order. Please try again.");
-          }
-        })
-      }
-    }).catch(error => {
-      if (submitBtn) submitBtn.disabled = false;
-      alert("Oops! Network error. There was a problem submitting your order.");
-    });
   });
 }
 
@@ -1346,5 +1325,7 @@ document.addEventListener('DOMContentLoaded', function() {
   switchLanguage('zh');
 });
 </script>
+
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
