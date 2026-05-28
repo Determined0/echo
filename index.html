@@ -816,7 +816,6 @@ footer {
 </div>
 
 <script>
-// 🚀 已成功将星空顶吸音板注入产品数据库，并锁定 star ceiling.jpg 图片
 const products = [
   {
     id: 1,
@@ -829,8 +828,8 @@ const products = [
   },
   {
     id: 2,
-    name: "Sun shine国际版点歌机",
-    nameEn: "Sunshine International Version Karaoke Machine",
+    name: "国际版点歌机",
+    nameEn: "International Version Karaoke Machine",
     description: "海量中文曲库，实时在线更新中文歌曲，更适合澳洲本地客户使用",
     descriptionEn: "Massive Chinese song library, real-time online updates of Chinese songs, more suitable for Australian local customers",
     price: 899,
@@ -1157,7 +1156,6 @@ function switchLanguage(lang) {
   document.getElementById('zh-btn').classList.toggle('active', lang === 'zh');
   document.getElementById('en-btn').classList.toggle('active', lang === 'en');
 
-  // 全局data-i18n属性翻译
   document.querySelectorAll('[data-i18n]').forEach(element => {
     const key = element.getAttribute('data-i18n');
     if (translations[lang] && translations[lang][key]) {
@@ -1169,11 +1167,9 @@ function switchLanguage(lang) {
     }
   });
 
-  // 动态同步CCTV块的HTML文本
   document.getElementById('cctv-includes-p').innerHTML = cctvDetails[lang].includes;
   document.getElementById('cctv-addons-p').innerHTML = cctvDetails[lang].addons;
 
-  // 更新产品商店列表里的语言
   updateProductsLanguage(lang);
 }
 
@@ -1228,8 +1224,6 @@ function initProducts() {
     const productCard = document.createElement('div');
     productCard.className = 'product-card';
 
-    // 修复：确保渲染出来的组件具有正确的初始文本，并在后续能被正常捕获
-    // QA建议：在本地或生产服务器中，请确保 'star ceiling.jpg' 文件已保存在网站的根目录下
     productCard.innerHTML = `
       <div class="product-img" style="background-image: url('${product.image}');"></div>
       <div class="product-content">
@@ -1242,7 +1236,6 @@ function initProducts() {
     productsContainer.appendChild(productCard);
   });
 
-  // 事件委托/重新绑定
   document.querySelectorAll('.buy-btn').forEach(button => {
     button.addEventListener('click', function() {
       const productId = parseInt(this.getAttribute('data-product-id'));
@@ -1251,7 +1244,6 @@ function initProducts() {
     });
   });
   
-  // 保持当前选定语言一致
   updateProductsLanguage(currentLang);
 }
 
@@ -1308,7 +1300,6 @@ document.addEventListener('DOMContentLoaded', function() {
   initSmoothScroll();
   initModalEvents();
   optimizeImages();
-  // 执行一次初始化语言
   switchLanguage('zh');
 });
 </script>
