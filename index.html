@@ -621,7 +621,7 @@ footer {
   <div class="container">
     <div class="section-title">
       <h2 data-i18n="equipment.title">专业设备支持</h2>
-      <p data-i18n="equipment.description">我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与优化服务</p>
+      <p data-i18n="equipment.description">我们的工程师熟悉各种专业音频设备，能够为您提供最佳的调试与 optimization 服务</p>
     </div>
 
     <table class="equipment-table">
@@ -954,7 +954,7 @@ const translations = {
   'equipment.yamaha3.model': 'MG系列',
   'equipment.yamaha3.desc': '模拟调音台，适用于中小型场所、排练室和固定安装',
   'equipment.allen1.model': 'dLive系列',
-  'equipment.allen1.desc': '顶级数字调音系统，适用于大型演出、巡演和高要求场所',
+  'equipment.allen1.desc': '顶级数字调音系统，适用于大型演出、巡演和高要求场合',
   'equipment.allen2.model': 'Avantis系列',
   'equipment.allen2.desc': '新一代数字调音台，结合了dLive和SQ系列的优点',
   'equipment.allen3.model': 'SQ系列',
@@ -1214,7 +1214,6 @@ function showPurchaseModal(product) {
   document.getElementById('product-details').textContent = targetProdName;
   document.getElementById('product-price').textContent = '$' + product.price;
 
-  // 1. 动态为 Formspree 隐藏域赋值，伴随表单整体静默发送至接收邮箱
   document.getElementById('fs-order-number').value = orderNumber;
   document.getElementById('fs-product-name').value = targetProdName;
   document.getElementById('fs-product-price').value = '$' + product.price;
@@ -1289,19 +1288,49 @@ function initModalEvents() {
     if (event.target === modal) modal.style.display = 'none';
   });
 
-  // ======= Formspree 官方 Vanilla JS (Ajax) SDK 挂载逻辑 =======
-  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
-  
-  formspree('initForm', { 
-    formElement: '#customer-info-form', 
-    formId: 'mjgzjjag',
-    onSuccess: function() {
-      // 触发语言包中的友好提示通知窗
-      alert(translations[currentLang]['alert.success']);
-      // 自动关闭模态购买弹窗
-      modal.style.display = 'none';
-    }
-  });
+  // ======= 完美重构：原生无依赖 Formspree AJAX 提交逻辑 =======
+  const form = document.getElementById('customer-info-form');
+  if (form) {
+    const submitBtn = form.querySelector('[data-fs-submit-btn]');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault(); 
+
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.textContent = currentLang === 'zh' ? '提交中...' : 'Submitting...';
+      }
+
+      const formData = new FormData(form);
+
+      fetch('https://formspree.io/f/mjgzjjag', {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          alert(translations[currentLang]['alert.success']);
+          modal.style.display = 'none';
+          form.reset();
+        } else {
+          alert(currentLang === 'zh' ? '提交失败，请检查填写或稍后再试。' : 'Submission failed. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert(currentLang === 'zh' ? '网络错误，请稍后再试。' : 'Network error. Please try again.');
+      })
+      .finally(() => {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = translations[currentLang]['form.submit'];
+        }
+      });
+    });
+  }
 }
 
 function optimizeImages() {
@@ -1325,7 +1354,5 @@ document.addEventListener('DOMContentLoaded', function() {
   switchLanguage('zh');
 });
 </script>
-
-<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
 </body>
 </html>
