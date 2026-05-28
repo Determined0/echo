@@ -657,7 +657,7 @@ footer {
       </tr>
       <tr>
         <td data-i18n="equipment.allen4.model">QU系列</td>
-        <td data-i18n="equipment.allen4.desc">紧凑型数字调音台，适用于中小型场地和固定安装</td>
+        <td data-i18n="equipment.allen4.desc">紧凑型数字调音台，适用于中小型场地 and 固定安装</td>
       </tr>
       <tr>
         <td data-i18n="equipment.allen5.model">ZED系列</td>
@@ -790,7 +790,6 @@ footer {
         <input type="text" id="customer-name" required>
       </div>
       
-      <!-- 优化：补充非常核心的联系电话字段 -->
       <div class="form-group">
         <label for="customer-phone" data-i18n="form.phone">联系电话</label>
         <input type="tel" id="customer-phone" required>
@@ -817,6 +816,7 @@ footer {
 </div>
 
 <script>
+// 🚀 已成功将星空顶吸音板注入产品数据库，并锁定 star ceiling.jpg 图片
 const products = [
   {
     id: 1,
@@ -871,6 +871,15 @@ const products = [
     descriptionEn: "Includes 4 HD cameras, 4-channel recorder (NVR/DVR), 2TB HDD, standard cabling & installation, mobile app setup, Sydney metro on-site, 36-month warranty",
     price: 2699,
     image: "https://images.unsplash.com/photo-1557324232-b8917d3c3dcb?auto=format&fit=crop&w=1200&q=80"
+  },
+  {
+    id: 7,
+    name: "Acoustic Star Ceiling Panels 星空顶声学吸音板",
+    nameEn: "Acoustic Star Ceiling Panels",
+    description: "光纤“星空”炫彩与高密度聚酯纤维吸音结合，模块化级联，打造奢华家庭影院。标准白光闪烁/可选RGB无线遥控。",
+    descriptionEn: "Combines fibre optic 'star sky' shimmering lighting with premium acoustic polyester sound absorption. Perfect for home theatres and media rooms. From $329/panel.",
+    price: 329,
+    image: "star ceiling.jpg"
   }
 ];
 
@@ -1220,6 +1229,7 @@ function initProducts() {
     productCard.className = 'product-card';
 
     // 修复：确保渲染出来的组件具有正确的初始文本，并在后续能被正常捕获
+    // QA建议：在本地或生产服务器中，请确保 'star ceiling.jpg' 文件已保存在网站的根目录下
     productCard.innerHTML = `
       <div class="product-img" style="background-image: url('${product.image}');"></div>
       <div class="product-content">
