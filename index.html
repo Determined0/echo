@@ -784,30 +784,31 @@ footer {
       <p><span data-i18n="modal.payNote">付款时请备注订单号:</span> <strong id="payid-order-number">EC-123456</strong></p>
     </div>
 
-    <form id="customer-info-form">
+    <!-- 已为你绑定专属 Formspree 端点，并支持图片附件上传 -->
+    <form id="customer-info-form" action="https://formspree.io/f/mjgzjjag" method="POST" enctype="multipart/form-data">
       <div class="form-group">
         <label for="customer-name" data-i18n="form.name">姓名</label>
-        <input type="text" id="customer-name" required>
+        <input type="text" id="customer-name" name="Customer_Name" required>
       </div>
       
       <div class="form-group">
         <label for="customer-phone" data-i18n="form.phone">联系电话</label>
-        <input type="tel" id="customer-phone" required>
+        <input type="tel" id="customer-phone" name="Customer_Phone" required>
       </div>
 
       <div class="form-group">
         <label for="customer-email" data-i18n="form.email">邮箱</label>
-        <input type="email" id="customer-email" required>
+        <input type="email" id="customer-email" name="Customer_Email" required>
       </div>
 
       <div class="form-group">
         <label for="customer-address" data-i18n="form.address">送货地址</label>
-        <textarea id="customer-address" rows="3" required></textarea>
+        <textarea id="customer-address" name="Shipping_Address" rows="3" required></textarea>
       </div>
 
       <div class="form-group">
         <label for="payment-proof" data-i18n="form.proof">付款截图 (可选)</label>
-        <input type="file" id="payment-proof" accept="image/*">
+        <input type="file" id="payment-proof" name="Payment_Proof_Attachment" accept="image/*">
       </div>
 
       <button type="submit" class="btn" data-i18n="form.submit">确认订单</button>
@@ -1275,10 +1276,52 @@ function initModalEvents() {
     if (event.target === modal) modal.style.display = 'none';
   });
 
+  // ======= 核心：接管表单提交并AJAX发送到Formspree =======
   document.getElementById('customer-info-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert(translations[currentLang]['alert.success']);
-    modal.style.display = 'none';
+    e.preventDefault(); // 阻止默认的表单跳转刷新页面
+
+    const form = this;
+    const formData = new FormData(form);
+
+    // 自动追加自动生成的订单基础数据给邮件内容
+    if (window.currentOrder) {
+      const prodName = (currentLang === 'zh') ? window.currentOrder.product.name : window.currentOrder.product.nameEn;
+      formData.append('System_Generated_Order_Number', window.currentOrder.orderNumber);
+      formData.append('Ordered_Product_Name', prodName);
+      formData.append('Product_Price', '$' + window.currentOrder.product.price);
+    }
+
+    // 禁用提交按钮防止重复点击
+    const submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) submitBtn.disabled = true;
+
+    // AJAX 异步发送给 Formspree
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    }).then(response => {
+      if (submitBtn) submitBtn.disabled = false;
+      if (response.ok) {
+        // 成功提示并关闭弹窗
+        alert(translations[currentLang]['alert.success']);
+        form.reset();
+        modal.style.display = 'none';
+      } else {
+        response.json().then(data => {
+          if (Object.hasOwn(data, 'errors')) {
+            alert(data["errors"].map(error => error["message"]).join(", "));
+          } else {
+            alert("Oops! There was a problem submitting your order. Please try again.");
+          }
+        })
+      }
+    }).catch(error => {
+      if (submitBtn) submitBtn.disabled = false;
+      alert("Oops! Network error. There was a problem submitting your order.");
+    });
   });
 }
 
